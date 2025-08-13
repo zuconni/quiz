@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conteúdo Especial: A Verdade Sobre a Saúde Bucal Canina</title>
+    
+    <!-- Google Fonts (Apenas Lora) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+
+    <!-- CSS Final Unificado e Otimizado -->
+    <style>
+        /* ========================================================================
+           1. Design Tokens (Variáveis Globais)
+           ======================================================================== */
+        :root {
+          /* Tipografia */
+          --font-heading: 'Lora', serif;
+          --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+          /* Escala de Fonte Fluida */
+          --fs-h1: clamp(1.75rem, 5vw, 2.5rem);
+          --fs-h2: clamp(1.375rem, 3.2vw, 1.75rem);
+          --fs-h3: clamp(1.125rem, 2.8vw, 1.375rem);
+          --fs-body: clamp(1rem, 2.4vw, 1.125rem);
+          --fs-sm: clamp(0.875rem, 2vw, 0.95rem);
+
+          /* Altura de Linha */
+          --lh-tight: 1.2;
+          --lh-body: 1.7;
+
+          /* Cores */
+          --color-bg:      #F8F7F4;
+          --color-text:    #1a202c;
+          --color-link:    #005A9C;
+          --color-primary: #2563EB;
+          --color-text-secondary: #4B5563;
+          --color-border:  #E5E7EB;
+          --color-muted:   #F9FAFB;
+          --color-success: #166534;
+          --color-danger: #991B1B;
+          --color-warning-text: #854d0e;
+          --color-warning-bg: #fefce8;
+          --color-warning-border: #fde68a;
+
+          /* Espaçamento (Escala 8pt) */
+          --space-1: 4px;  --space-2: 8px;
+          --space-3: 12px; --space-4: 16px;
+          --space-5: 24px; --space-6: 32px;
+          --space-7: 48px; --space-8: 64px;
+
+          /* Outros Tokens */
+          --radius: 12px;
+          --shadow: 0 4px 16px rgba(0,0,0,.07);
+          --container-width: 768px;
+          --bp-md: 768px;
+        }
+
+        /* ========================================================================
+           2. Reset e Estilos de Base
+           ======================================================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+          font-family: var(--font-body); font-size: var(--fs-body);
+          line-height: var(--lh-body); color: var(--color-text);
+          background: var(--color-bg); -webkit-font-smoothing: antialiased;
+        }
+        .container {
+          max-width: var(--container-width); margin-left: auto; margin-right: auto;
+          padding-left: var(--space-5); padding-right: var(--space-5);
+        }
+        h1, h2, h3 {
+          font-family: var(--font-heading); line-height: var(--lh-tight);
+          font-weight: 700; margin-bottom: var(--space-5);
+        }
+        h1 { font-size: var(--fs-h1); }
+        h2 { font-size: var(--fs-h2); margin-top: var(--space-8); border-bottom: 1px solid var(--color-border); padding-bottom: var(--space-3); }
+        h3 { font-size: var(--fs-h3); margin-top: var(--space-6); font-weight: 700; }
+        p { margin-bottom: var(--space-5); }
+        p:last-child, ul:last-child, ol:last-child { margin-bottom: 0; }
+        section { margin-bottom: var(--space-8); }
+        a { color: var(--color-link); text-decoration: none; font-weight: 600; }
+        a:not(.button):hover { text-decoration: underline; }
+        img { max-width: 100%; display: block; border-radius: var(--radius); }
+        ul, ol { padding-left: var(--space-5); }
+        li { margin-bottom: var(--space-3); }
+        blockquote {
+            border-left: 3px solid var(--color-danger); padding-left: var(--space-5);
+            margin-left: var(--space-2); font-style: italic; color: var(--color-text-secondary);
+        }
+
+        /* ========================================================================
+           3. Componentes e Utilitários
+           ======================================================================== */
+        .button {
+          display: inline-flex; align-items: center; justify-content: center;
+          padding: var(--space-3) var(--space-5); border-radius: var(--radius);
+          background: var(--color-primary); color: #fff; border: 1px solid var(--color-primary);
+          box-shadow: var(--shadow); font-weight: 600; text-decoration: none;
+          cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .button:hover { transform: translateY(-2px); text-decoration: none; }
+        .button.button--secondary { background: var(--color-text); border-color: var(--color-text); }
+        .card {
+          border: 1px solid var(--color-border); border-radius: var(--radius);
+          background: #fff; box-shadow: var(--shadow); padding: var(--space-6);
+        }
+        .alert {
+          border-radius: var(--radius); padding: var(--space-4);
+          background: var(--color-muted); border: 1px solid var(--color-border);
+        }
+        .alert.alert--warning {
+            background-color: var(--color-warning-bg); border-color: var(--color-warning-border);
+            color: var(--color-warning-text);
+        }
+        .alert.alert--warning strong { color: var(--color-warning-text); }
+        .badge {
+          display: inline-block; font-size: var(--fs-sm); font-weight: 600;
+          padding: var(--space-1) var(--space-3); border-radius: 99px;
+          background-color: color-mix(in oklab, var(--color-link) 15%, transparent);
+          color: var(--color-link); margin-bottom: var(--space-4);
+        }
+        .grid { display: grid; gap: var(--space-5); }
+        @media (min-width: var(--bp-md)) {
+          .grid--cols-3 { grid-template-columns: repeat(3, 1fr); }
+          .grid--cols-2 { grid-template-columns: repeat(2, 1fr); }
+        }
+        .text-center { text-align: center; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .italic { font-style: italic; }
+        .text-secondary { color: var(--color-text-secondary); }
+
+        /* ========================================================================
+           4. Estilos Específicos da Página
+           ======================================================================== */
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 4px;
+            background-color: var(--color-primary);
+            width: 0%; z-index: 100; transition: width 0.1s linear;
+        }
+        #top-bar {
+            position: sticky; top: 0; z-index: 50;
+            background: color-mix(in oklab, var(--color-bg) 85%, transparent);
+            backdrop-filter: blur(8px); border-bottom: 1px solid var(--color-border);
+        }
+        #top-bar .container {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 4rem;
+        }
+        #top-bar .meta-info { display: none; }
+        @media (min-width: 768px) {
+            #top-bar .meta-info { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); }
+        }
+        #top-bar .share-icons { display: flex; align-items: center; gap: var(--space-4); }
+        #top-bar .share-icons a { color: var(--color-text-secondary); }
+        #top-bar .share-icons a:hover { color: var(--color-text); text-decoration: none; }
+        #top-bar .share-icons svg { width: 20px; height: 20px; }
+        
+        #sec-hero .subheadline { font-size: var(--fs-h3); line-height: 1.4; color: var(--color-text-secondary); }
+        #sec-hero .byline {
+            display: flex; align-items: center; gap: var(--space-3);
+            font-size: var(--fs-sm); color: var(--color-text-secondary);
+            margin-top: var(--space-5);
+        }
+        #sec-hero .byline img { width: 40px; height: 40px; border-radius: 50%; }
+        #sec-hero .byline .author-name { color: var(--color-text); }
+        #sec-hero img { margin-top: var(--space-6); }
+        
+        #mini-toc-container { background-color: var(--color-muted); }
+        #mini-toc-container h3 { margin-top: 0; }
+        #mini-toc-container ul { list-style: none; padding-left: 0; }
+        
+        .checklist { list-style: none; padding: 0; }
+        .checklist li {
+            background-color: var(--color-muted); padding: var(--space-4);
+            border-radius: var(--radius); display: flex;
+            align-items: flex-start; gap: var(--space-3);
+        }
+        .checklist li::before {
+            content: '☐'; font-size: 1.5em; line-height: 1;
+            color: var(--color-text-secondary);
+        }
+        
+        .tooltip {
+            position: relative; display: inline-block; cursor: help;
+            border-bottom: 1px dotted var(--color-link);
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden; width: 220px; background-color: var(--color-text);
+            color: #fff; text-align: center; border-radius: var(--radius);
+            padding: var(--space-2); position: absolute; z-index: 1;
+            bottom: 125%; left: 50%; margin-left: -110px;
+            opacity: 0; transition: opacity 0.3s;
+            font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 400;
+        }
+        .tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
+        
+        .mobile-cta { display: none; }
+        @media (max-width: 767px) {
+            .mobile-cta {
+                display: block; position: sticky; bottom: 0;
+                padding: var(--space-4);
+                background: linear-gradient(to top, var(--color-bg) 70%, transparent);
+                border-top: 1px solid var(--color-border);
+            }
+            .mobile-cta .button { width: 100%; padding-block: var(--space-4); }
+        }
+        
+        .icon {
+            width: 48px; height: 48px; margin-inline: auto;
+            margin-bottom: var(--space-4);
+        }
+        .icon--danger { color: var(--color-danger); }
+        .icon--link { color: var(--color-link); }
+        .icon--warning { color: var(--color-warning-text); }
+
+        .card-title {
+            margin:0; font-family: var(--font-body); font-weight: 700;
+        }
+        .card-text {
+            font-size: var(--fs-sm); color: var(--color-text-secondary);
+            margin-top: var(--space-2);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+
+    <header id="top-bar">
+        <div class="container">
+            <div class="font-bold">Conteúdo Especial</div>
+            <div class="meta-info text-secondary">
+                <span id="reading-time"></span>
+                <span>•</span>
+                <span>Última atualização: 13 de Agosto, 2025</span>
+            </div>
+            <div class="share-icons">
+                <a href="#"><svg fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                <a href="#"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <article id="article-content">
+
+            <section id="sec-hero">
+                <span class="badge">SAÚDE CANINA</span>
+                <h1>87% dos Cães Brasileiros Estão Morrendo 5 Anos Mais Cedo Por Causa de Uma Toxina Que Começa Na Boca</h1>
+                <p class="subheadline">Veterinário de SP expõe a verdade sobre o "Biofilme Tóxico" que a indústria pet de R$2 bilhões esconde (e o teste de 10 segundos que detecta o risco)</p>
+                <div class="byline">
+                    <img src="https://placehold.co/100x100/EFEFEF/333333?text=Dr" alt="Avatar do autor">
+                    <div>Por <span class="font-bold author-name">Equipe de Saúde Pet</span><br>Publicado em 10 de Agosto, 2024</div>
+                </div>
+                <img src="https://placehold.co/1200x800/E0E7FF/333333?text=Veterinário+com+cão" alt="Retrato editorial de um veterinário examinando um cão com luz natural suave.">
+            </section>
+
+            <section id="mini-toc-container" class="card" style="display:none;">
+                <h3>Nesta página:</h3>
+                <ul id="mini-toc"></ul>
+            </section>
+
+            <section id="sec-opening">
+                <p style="font-size: var(--fs-h2); line-height: var(--lh-tight);">Quando foi a última vez que você cheirou o hálito do seu cão de propósito?</p>
+                <p>Se você evita as "lambidas" por causa do cheiro...<br>Se precisa virar o rosto quando ele se aproxima...<br>Ou se nem percebe mais porque já se acostumou...</p>
+                <p class="font-bold">Preciso te alertar sobre algo urgente.</p>
+                <p>Aquele "bafinho" que você acha normal?<br>É o cheiro de toxinas bacterianas entrando no sangue dele.</p>
+            </section>
+
+            <section id="sec-teste">
+                <h2>Faça Este Teste de 10 Segundos Agora:</h2>
+                <div class="card">
+                    <img src="https://placehold.co/800x400/F0F0F0/555555?text=Mão+examinando+dentes+de+cão" alt="Close-up educativo da mão de uma pessoa levantando o lábio de um cão para inspecionar os dentes." style="margin-bottom: var(--space-5);">
+                    <p class="font-semibold">Passo 1: Levante o lábio superior do seu cão</p>
+                    <p class="font-semibold">Passo 2: Observe os dentes de trás</p>
+                    <p class="font-semibold">Passo 3: Responda:</p>
+                    <ul class="checklist">
+                        <li>Vê uma camada amarela/marrom nos dentes?</li>
+                        <li>A gengiva está vermelha ou roxa?</li>
+                        <li>Tem mau hálito mesmo após comer?</li>
+                        <li>Seu cão tem mais de 3 anos?</li>
+                        <li>Ele anda mais quieto?</li>
+                    </ul>
+                    <p class="alert alert--warning text-center" style="margin-top: var(--space-6);">Se você marcou 2 ou mais: <strong>Seu cão faz parte dos 87% em risco.</strong></p>
+                </div>
+            </section>
+
+            <section id="sec-problema">
+                <h2>A Verdade Que Seu Veterinário Esconde</h2>
+                <p class="font-semibold">Sabe por que a consulta de rotina falha?</p>
+                <p>Porque veterinários só agem quando já é tarde: dentes amarelos, gengiva sangrando, bafo insuportável.</p>
+                <p>Então indicam uma cirurgia de R$1.500 a R$2.500.</p>
+                <blockquote>Mas aqui está o que eles escondem:<br>42% dos cães acima de 8 anos morrem na anestesia.<br>E mesmo os que sobrevivem... O problema volta em 6 meses.</blockquote>
+            </section>
+
+            <section id="sec-inimigo">
+                <h2>Porque Eles Só Tratam o Sintoma</h2>
+                <p>O que realmente acontece na boca do seu cão:</p>
+                <div class="card" style="background-color: var(--color-muted);">
+                    <img src="https://placehold.co/800x300/E0E7FF/1E40AF?text=Ilustração+Científica+de+Biofilme" alt="Ilustração abstrata de um padrão micrográfico representando o biofilme bacteriano.">
+                    <p style="margin-top: var(--space-5);">Pesquisadores do Instituto Veterinário Nórdico descobriram em 2019 uma colônia de bactérias anaeróbicas que forma o "<span class="tooltip">Biofilme Tóxico Canino<span class="tooltiptext">Uma camada pegajosa de microrganismos que adere aos dentes, resistente à remoção.</span></span>".</p>
+                    <p>É um "mofo invisível" que se instala entre dentes e gengiva, produz toxinas (<span class="tooltip">sulfeto de hidrogênio<span class="tooltiptext">Gás tóxico com cheiro de ovo podre, que causa inflamação.</span></span>) e despeja tudo na corrente sanguínea.</p>
+                </div>
+            </section>
+
+            <section id="sec-consequencias">
+                <h2>Essas Toxinas Atacam 3 Órgãos Vitais:</h2>
+                <div class="grid grid--cols-3">
+                    <div class="card text-center">
+                        <svg class="icon icon--danger" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <h3 class="card-title">1. CORAÇÃO</h3>
+                        <p class="card-text">As bactérias se alojam nas válvulas cardíacas. (75% dos cães com doença bucal têm problemas cardíacos)</p>
+                    </div>
+                    <div class="card text-center">
+                         <svg class="icon icon--link" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75H8.25a.75.75 0 0 1-.75-.75V4.5a.75.75 0 0 1 .75-.75Z M10.5 6.75a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.75 5.25v13.5a.75.75 0 0 0 .75.75h10.5a.75.75 0 0 0 .75-.75V18a.75.75 0 0 0-.75-.75H5.25a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 0-.75-.75H3.75Z"></path></svg>
+                        <h3 class="card-title">2. RINS</h3>
+                        <p class="card-text">As toxinas sobrecarregam o sistema de filtragem. (1 em cada 3 cães idosos morre de problema renal que começou na boca)</p>
+                    </div>
+                    <div class="card text-center">
+                        <svg class="icon icon--warning" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c1.355 0 2.707-.158 4.008-.462M3.284 14.253a9.004 9.004 0 0 1 0-4.505M20.716 14.253a9.004 9.004 0 0 0 0-4.505M12 3c-1.355 0-2.707.158-4.008.462m8.016 0a9.004 9.004 0 0 1-8.016 0M12 3a9.004 9.004 0 0 0-4.008 1.18M12 3c1.39 0 2.76.19 4.08.562m-8.16 0A9.004 9.004 0 0 1 12 3Z"></path></svg>
+                        <h3 class="card-title">3. FÍGADO</h3>
+                        <p class="card-text">O fígado filtra as toxinas sem parar, até entrar em falência. (Reduz a vida em 3-5 anos)</p>
+                    </div>
+                </div>
+                <p class="text-center italic" style="margin-top: var(--space-7);">"Mas eu escovo os dentes dele!"</p>
+            </section>
+
+            <section id="sec-mito">
+                <h2>A Escovação é Uma Mentira de R$2 Bilhões</h2>
+                <p>A indústria pet fatura R$2 bilhões fazendo você acreditar que:</p>
+                <div class="grid grid--cols-2">
+                    <div class="alert" style="border-left: 3px solid var(--color-danger);">
+                        <h3 class="card-title" style="color: var(--color-danger);">O MITO</h3>
+                        <ul style="list-style: disc; color: var(--color-danger); margin-top: var(--space-3);">
+                            <li>Escovação funciona</li>
+                            <li>Petiscos dentários limpam</li>
+                            <li>Brinquedos ajudam</li>
+                        </ul>
+                    </div>
+                    <div class="alert" style="border-left: 3px solid var(--color-success);">
+                        <h3 class="card-title" style="color: var(--color-success);">A VERDADE</h3>
+                         <ul style="list-style: disc; color: var(--color-success); margin-top: var(--space-3);">
+                            <li>Funciona em 5% dos casos</li>
+                            <li>Apenas perfumam o hálito</li>
+                            <li>Zero evidência científica</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="font-semibold" style="margin-top: var(--space-6);">Quer a prova?</p>
+                <p>Pergunte ao seu veterinário: "Se escovação funcionasse, por que 87% dos cães têm doença periodontal?"</p>
+                <p class="alert alert--warning font-bold">A verdade: o Biofilme Tóxico se forma EMBAIXO da gengiva. Onde a escova JAMAIS alcança.</p>
+                <p class="text-center italic" style="margin-top: var(--space-7);">"Então a única solução é a cirurgia cara?"</p>
+            </section>
+
+            <section id="sec-descoberta">
+                <h2>A Descoberta Que Mudou Tudo</h2>
+                <p>Em 2019, numa vila de pescadores na Noruega, o veterinário Dr. Erik Andersen notou algo curioso:</p>
+                <p class="font-semibold">Os cães dos pescadores tinham dentes brancos. Sem tártaro. Sem mau hálito. E NUNCA escovavam.</p>
+                <div class="grid grid--cols-3" style="margin-block: var(--space-7);">
+                    <img src="https://placehold.co/400x400/D1E5F0/333333?text=Vila+Norueguesa" alt="Vila costeira da Noruega com casas coloridas." style="aspect-ratio: 1/1; object-fit: cover;">
+                    <img src="https://placehold.co/400x400/A3C4D9/333333?text=Pescadores" alt="Pescadores noruegueses em um barco." style="aspect-ratio: 1/1; object-fit: cover;">
+                    <img src="https://placehold.co/400x400/77A6B6/333333?text=Cães+felizes" alt="Cães saudáveis brincando ao ar livre perto do mar." style="aspect-ratio: 1/1; object-fit: cover;">
+                </div>
+                <p>Enquanto na cidade vizinha, cães de apartamento - mesmo com escovação diária - tinham problemas bucais graves.</p>
+                <p class="font-semibold" style="font-size: var(--fs-h3);">O que os cães dos pescadores tinham de diferente?</p>
+                <p>A resposta estava nos restos de peixe com algas que comiam. Exatamente uma alga chamada <strong style="color: var(--color-text);">Ascophyllum nodosum</strong>.</p>
+            </section>
+
+            <section id="sec-mecanismo">
+                <h2>Como Uma Alga do Atlântico Norte Dissolve o "Mofo Bucal"</h2>
+                <p>Quando o cão ingere esta alga, ela é absorvida e liberada pela saliva por 24 horas.</p>
+                <p>A alga transforma a saliva em:</p>
+                <div style="display: flex; flex-direction: column; gap: var(--space-4); margin-block: var(--space-6);">
+                    <div class="card" style="display: flex; align-items: center; gap: var(--space-4);"><span style="font-size: 1.5rem; font-weight: 700; color: var(--color-link);">1</span> <div><strong class="font-bold">Alterador de pH</strong> - Mata bactérias nocivas</div></div>
+                    <div class="card" style="display: flex; align-items: center; gap: var(--space-4);"><span style="font-size: 1.5rem; font-weight: 700; color: var(--color-link);">2</span> <div><strong class="font-bold">Quebrador de biofilme</strong> - Dissolve como detergente</div></div>
+                    <div class="card" style="display: flex; align-items: center; gap: var(--space-4);"><span style="font-size: 1.5rem; font-weight: 700; color: var(--color-link);">3</span> <div><strong class="font-bold">Película protetora</strong> - Impede nova formação</div></div>
+                </div>
+                <p class="font-semibold text-center" style="font-size: var(--fs-h3);">Os pesquisadores chamaram de "Efeito Saliva Detergente".</p>
+                <p class="text-center">Em português claro: A saliva do seu cão vira um "sabão natural" 24h por dia.</p>
+            </section>
+
+            <section id="sec-prova">
+                <h2>Os Números Que Comprovam:</h2>
+                <div style="display: flex; flex-direction: column; gap: var(--space-5);">
+                    <div class="card" style="background-color: var(--color-muted);">
+                        <h3 class="card-title">Universidade de Oslo (2019)</h3>
+                        <p class="text-secondary" style="font-size: var(--fs-sm); margin-bottom: var(--space-3);">456 cães testados</p>
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-2);">
+                            <li style="display: flex; align-items: center; gap: var(--space-3); color: var(--color-success);"><span style="width: 12px; height: 12px; background-color: currentcolor; border-radius: 50%;"></span>83% de redução no tártaro em 30 dias</li>
+                            <li style="display: flex; align-items: center; gap: var(--space-3); color: var(--color-success);"><span style="width: 12px; height: 12px; background-color: currentcolor; border-radius: 50%;"></span>91% de melhora no hálito em 14 dias</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="background-color: var(--color-muted);">
+                        <h3 class="card-title">Instituto Veterinário de São Paulo (2021)</h3>
+                        <p class="text-secondary" style="font-size: var(--fs-sm); margin-bottom: var(--space-3);">1.847 cães brasileiros</p>
+                        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-2);">
+                            <li style="display: flex; align-items: center; gap: var(--space-3); color: var(--color-success);"><span style="width: 12px; height: 12px; background-color: currentcolor; border-radius: 50%;"></span>76% evitaram cirurgia</li>
+                            <li style="display: flex; align-items: center; gap: var(--space-3); color: var(--color-success);"><span style="width: 12px; height: 12px; background-color: currentcolor; border-radius: 50%;"></span>94% relataram "melhora grande"</li>
+                        </ul>
+                    </div>
+                     <div class="card" style="background-color: var(--color-muted);">
+                        <h3 class="card-title">Journal of Veterinary Dentistry (2022)</h3>
+                        <ul style="list-style: none; padding: 0; margin-top: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2);">
+                            <li style="display: flex; align-items: center; gap: var(--space-3); color: var(--color-success);"><span style="width: 12px; height: 12px; background-color: currentcolor; border-radius: 50%;"></span>68% menos bactérias patogênicas</li>
+                            <li style="display: flex; align-items: center; gap: var(--space-3); color: var(--color-success);"><span style="width: 12px; height: 12px; background-color: currentcolor; border-radius: 50%;"></span>Zero efeitos colaterais em 24 meses</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card text-center" style="background-color: var(--color-muted);">
+                <h2>O que fazer a seguir?</h2>
+                <p class="text-secondary">Agora que você entende a causa raiz, o próximo passo é agir.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-top: var(--space-6);">
+                    <a href="#" class="button button--secondary">Continue lendo</a>
+                    <a href="#sec-teste" class="button">Fazer o Teste de 10s</a>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <div class="mobile-cta">
+        <a href="#sec-teste" class="button">Fazer o Teste de 10s</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const articleContent = document.getElementById('article-content');
+            const progressBar = document.getElementById('progress-bar');
+            const readingTimeEl = document.getElementById('reading-time');
+            const miniToc = document.getElementById('mini-toc');
+            const tocContainer = document.getElementById('mini-toc-container');
+
+            function updateProgressBar() {
+                const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = window.scrollY;
+                const progress = (scrolled / scrollTotal) * 100;
+                progressBar.style.width = progress + '%';
+            }
+            window.addEventListener('scroll', updateProgressBar);
+
+            function calculateReadingTime() {
+                if (!articleContent) return;
+                const text = articleContent.innerText || articleContent.textContent;
+                const wordCount = text.split(/\s+/).length;
+                const wordsPerMinute = 200;
+                const time = Math.ceil(wordCount / wordsPerMinute);
+                if (readingTimeEl) {
+                    readingTimeEl.innerText = `Leitura de ${time} min`;
+                }
+            }
+
+            function buildToc() {
+                if (!miniToc || !tocContainer) return;
+                const headings = articleContent.querySelectorAll('h2[id]');
+                if (headings.length > 0 && window.innerWidth >= 768) {
+                    tocContainer.style.display = 'block';
+                    headings.forEach(h => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = `#${h.id}`;
+                        a.textContent = h.textContent;
+                        li.appendChild(a);
+                        miniToc.appendChild(li);
+                    });
+                }
+            }
+            
+            calculateReadingTime();
+            buildToc();
+            updateProgressBar();
+        });
+    </script>
+
+</body>
+</html>
