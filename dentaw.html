@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível 3: Seu Cão Precisa de Ajuda HOJE | Dentaw</title>
+    <meta name="description" content="Seu cão está no Estágio Avançado do Mofo Bucal. Veja o protocolo de emergência do Dr. Camilo Andrade para reverter o quadro e evitar a cirurgia.">
+
+    <meta property="og:title" content="Nível 3: Seu Cão Precisa de Ajuda HOJE | Dentaw">
+    <meta property="og:description" content="Estágio Avançado do Mofo Bucal – Mas Ainda Reversível. Veja o protocolo de emergência para salvar seu cão.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Alerta+Saúde+Bucal+Canina">
+    <meta property="og:url" content="#"> <meta property="og:type" content="website">
+
+    <style>
+        /* TOKENS ANIMAW */
+        :root {
+            --neutral-0: #FFFFFF; --neutral-50: #FAF7F2; --neutral-100: #F6F1EB;
+            --neutral-200: #EFE7DC; --neutral-300: #E4D9C8; --neutral-400: #CFC1A7;
+            --neutral-500: #B7A985; --neutral-600: #8A7F62; --neutral-700: #5F5745;
+            --neutral-800: #3D372B; --neutral-900: #242016; --neutral-950: #15130D;
+
+            --brand-700: #0E3D39; --brand-600: #1F4D49; --brand-500: #2F6D65; --brand-100: #E6F0EF;
+            --accent-700: #8D6B23; --accent-600: #B4872F; --accent-500: #CDAA61; --accent-100: #FAF2DE;
+
+            --success-500: #16A34A; --warning-500: #D97706; --danger-500: #DC2626;
+
+            --text: #121A19; --text-muted: #4E5B59;
+            --surface: #FFFFFF; --elevated: #FFFFFF; --border: rgba(18, 26, 25, .12); --overlay: rgba(0, 0, 0, .5);
+
+            --font-heading: "Lora", Georgia, serif;
+            --font-ui: system-ui, -apple-system, "Inter", "Roboto", Arial, sans-serif;
+
+            --fs-900: clamp(2rem, 4vw + 1rem, 2.75rem);
+            --fs-800: clamp(1.75rem, 2.5vw + .8rem, 2.25rem);
+            --fs-700: 1.5rem; --fs-600: 1.125rem; --fs-500: 1rem; --fs-400: .875rem;
+
+            --lh-title: 1.2; --lh-body: 1.55;
+            --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem; --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4rem;
+            --radius-sm: 10px; --radius-md: 14px; --radius-lg: 22px;
+
+            --shadow-1: 0 1px 2px rgba(0, 0, 0, .07), 0 6px 14px rgba(0, 0, 0, .06);
+            --shadow-2: 0 8px 20px rgba(0, 0, 0, .10), 0 3px 8px rgba(0, 0, 0, .08);
+            --shadow-3: 0 14px 32px rgba(0, 0, 0, .16), 0 10px 12px rgba(0, 0, 0, .10);
+
+            --dur-fast: 150ms; --dur-base: 220ms; --easing-out: cubic-bezier(.16, .84, .44, 1);
+        }
+
+        /* RESET & DEFAULTS */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 100%; }
+        body {
+            font-family: var(--font-ui); color: var(--text); background-color: var(--neutral-50);
+            line-height: var(--lh-body); -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading); line-height: var(--lh-title); font-weight: 700; color: var(--brand-700);
+            margin-bottom: var(--space-4);
+        }
+        h1 { font-size: var(--fs-900); }
+        h2 { font-size: var(--fs-800); }
+        h3 { font-size: var(--fs-700); }
+        p { margin-bottom: var(--space-4); max-width: 65ch; }
+        a { color: var(--brand-500); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        img, video, svg { max-width: 100%; height: auto; display: block; }
+        ul { list-style-position: inside; }
+
+        /* LAYOUT & UTILITIES */
+        .container {
+            width: 100%; max-width: 1100px; margin-inline: auto;
+            padding-inline: var(--space-5);
+        }
+        .section { padding-block: clamp(var(--space-7), 10vh, var(--space-8)); }
+        .section-title { text-align: center; max-width: 30ch; margin-inline: auto; margin-bottom: var(--space-6); }
+        .stack > * + * { margin-top: var(--space-4); }
+        .text-center { text-align: center; }
+        .text-muted { color: var(--text-muted); }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+        /* COMPONENTS */
+        .btn {
+            display: inline-block; padding: var(--space-4) var(--space-6);
+            font-family: var(--font-ui); font-weight: 700; font-size: var(--fs-500);
+            border: 2px solid transparent; border-radius: var(--radius-md);
+            text-align: center; text-decoration: none; cursor: pointer;
+            transition: all var(--dur-base) var(--easing-out);
+        }
+        .btn-primary {
+            background-color: var(--accent-600); color: var(--neutral-950);
+            box-shadow: var(--shadow-1);
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-500); transform: translateY(-2px);
+            box-shadow: var(--shadow-2);
+        }
+        .btn-primary:focus-visible {
+            outline: 3px solid var(--accent-600); outline-offset: 3px;
+        }
+        .btn-lg { font-size: var(--fs-600); padding: var(--space-5) var(--space-7); }
+
+        .icon-check {
+            display: inline-block; width: 1.2em; height: 1.2em;
+            margin-right: var(--space-2); vertical-align: middle;
+            background: var(--success-500); color: white;
+            border-radius: 50%; text-align: center; line-height: 1.2em; font-weight: bold;
+        }
+        
+        /* HEADER DE URGÊNCIA */
+        .urgency-header {
+            background-color: var(--warning-500); color: var(--neutral-950);
+            padding: var(--space-2) var(--space-4); text-align: center;
+            font-weight: 700; font-size: var(--fs-400);
+        }
+
+        /* HERO SECTION */
+        .hero { text-align: center; }
+        .hero img {
+            border-radius: var(--radius-lg); margin-inline: auto;
+            margin-bottom: var(--space-6); box-shadow: var(--shadow-2);
+        }
+        .hero h1 { color: var(--danger-500); }
+        .hero h2 { color: var(--text); font-size: var(--fs-700); margin-bottom: var(--space-2); }
+        .hero .doctor-mention { font-weight: 600; color: var(--brand-700); }
+        
+        /* SITUATION BLOCK */
+        .situation-block {
+            background: var(--accent-100); padding: var(--space-6);
+            border-left: 5px solid var(--warning-500); border-radius: var(--radius-md);
+            box-shadow: var(--shadow-1);
+        }
+        .situation-block h3 { color: var(--accent-700); }
+        .situation-block ul { list-style: none; padding-left: 0; }
+        .situation-block li { margin-bottom: var(--space-3); display: flex; align-items: flex-start; }
+        .situation-block li::before {
+            content: '✓'; color: var(--accent-700); font-weight: bold;
+            margin-right: var(--space-3); font-size: 1.2em;
+        }
+        .situation-block .timeline {
+            margin-top: var(--space-5); font-weight: 700;
+            color: var(--danger-500); text-align: center;
+        }
+
+        /* BLOCKQUOTE / TESTIMONIAL */
+        blockquote {
+            background: var(--neutral-0); padding: var(--space-6);
+            border-left: 5px solid var(--brand-500); border-radius: var(--radius-md);
+            box-shadow: var(--shadow-1); font-style: italic;
+        }
+        blockquote footer {
+            margin-top: var(--space-4); font-style: normal;
+            font-weight: 700; color: var(--brand-700);
+        }
+
+        /* CASE STUDIES */
+        .case-studies {
+            display: grid; gap: var(--space-6);
+        }
+        .case-card {
+            background: var(--surface); padding: var(--space-6);
+            border-radius: var(--radius-lg); box-shadow: var(--shadow-2);
+            border: 1px solid var(--border);
+        }
+        .case-card h3 { color: var(--brand-600); }
+        .case-card p { font-size: var(--fs-400); }
+        .case-card blockquote {
+            background: transparent; padding: 0; border: none; box-shadow: none;
+            border-top: 1px solid var(--border); margin-top: var(--space-4);
+            padding-top: var(--space-4); font-size: var(--fs-500);
+        }
+        .case-card blockquote footer { font-size: var(--fs-400); }
+        
+        @media(min-width: 768px) {
+            .case-studies { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* PROTOCOL SECTION */
+        .protocol-steps { display: grid; gap: var(--space-5); }
+        .protocol-step {
+            background: var(--neutral-100); padding: var(--space-5);
+            border-radius: var(--radius-md); border: 1px solid var(--border);
+        }
+        .protocol-step h3 { color: var(--brand-700); }
+        .protocol-step h3 span {
+            display: block; font-size: var(--fs-400); color: var(--text-muted);
+            font-family: var(--font-ui); font-weight: 400;
+        }
+        .protocol-step .goal { font-weight: 700; color: var(--brand-500); }
+        .protocol-step ul { list-style: none; padding: 0; margin-top: var(--space-4); }
+        .protocol-step li { position: relative; padding-left: var(--space-5); margin-bottom: var(--space-2); }
+        .protocol-step li::before {
+            content: '•'; position: absolute; left: 0; color: var(--brand-500);
+            font-size: 1.5em; line-height: 1;
+        }
+        @media(min-width: 768px) {
+            .protocol-steps { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        /* OFFER BOX */
+        .offer-box {
+            border: 4px solid var(--danger-500); padding: clamp(var(--space-5), 5vw, var(--space-7));
+            background: var(--surface); border-radius: var(--radius-lg);
+            text-align: center; box-shadow: var(--shadow-3);
+        }
+        .offer-box .tagline {
+            display: inline-block; background-color: var(--danger-500); color: var(--neutral-0);
+            padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm);
+            font-weight: 700; margin-bottom: var(--space-4);
+        }
+        .offer-box .price { margin-block: var(--space-5); }
+        .offer-box .price-old {
+            text-decoration: line-through; color: var(--text-muted);
+            font-size: var(--fs-600);
+        }
+        .offer-box .price-new {
+            font-size: var(--fs-900); font-weight: 700;
+            color: var(--brand-700); display: block;
+        }
+        .offer-box .price-info { color: var(--success-500); font-weight: 700; }
+        .offer-box .installments { font-weight: 700; font-size: var(--fs-600); }
+
+        .offer-box .features {
+            list-style: none; padding: 0; margin-block: var(--space-6);
+            text-align: left; max-width: 40ch; margin-inline: auto;
+        }
+        .offer-box .features li {
+            margin-bottom: var(--space-3); display: flex; align-items: flex-start;
+        }
+        .offer-box .features li::before {
+            content: '✅'; margin-right: var(--space-3);
+        }
+        
+        .offer-box .countdown {
+            background-color: var(--accent-100); padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-md); margin-bottom: var(--space-5);
+            font-size: var(--fs-600); font-weight: 700; color: var(--accent-700);
+        }
+        .offer-box .shipping-info {
+            display: block; margin-top: var(--space-3); font-size: var(--fs-400);
+            font-weight: 600;
+        }
+        
+        /* COMPARISON TABLE */
+        .comparison-grid {
+            display: grid; gap: var(--space-6);
+        }
+        .comparison-card {
+            padding: var(--space-6); border-radius: var(--radius-md);
+            box-shadow: var(--shadow-1);
+        }
+        .comparison-card--bad { background-color: #ffebee; border: 2px solid #e57373; }
+        .comparison-card--good { background-color: #e8f5e9; border: 2px solid #81c784; }
+        .comparison-card h3 { font-size: var(--fs-600); }
+        .comparison-card ul { list-style: none; padding: 0; }
+        .comparison-card li { display: flex; align-items: flex-start; margin-bottom: var(--space-3); }
+        .comparison-card li::before { margin-right: var(--space-3); font-size: 1.5em; }
+        .comparison-card--bad li::before { content: '❌'; }
+        .comparison-card--good li::before { content: '✅'; }
+        .comparison-card .economy {
+            margin-top: var(--space-5); padding-top: var(--space-5);
+            border-top: 1px solid var(--border); font-weight: 700;
+            font-size: var(--fs-600); text-align: center; color: var(--success-500);
+        }
+        @media(min-width: 768px) {
+            .comparison-grid { grid-template-columns: 1fr 1fr; }
+        }
+        
+        /* URGENCY TIMELINE */
+        .timeline-box { background: #f8d7da; padding: var(--space-6); border-radius: var(--radius-md); }
+        .timeline-box h3 { color: #721c24; }
+        .timeline-box ul { list-style: none; padding-left: var(--space-4); }
+        .timeline-box b { display: block; margin-top: var(--space-4); }
+        .timeline-box .positive-outcome {
+            margin-top: var(--space-6); padding-top: var(--space-5);
+            border-top: 2px solid #f5c6cb;
+        }
+        
+        /* GUARANTEE SEAL */
+        .guarantee-box {
+            background-image: radial-gradient(circle, var(--brand-100) 0%, var(--neutral-50) 100%);
+            border: 2px solid var(--brand-500);
+            border-radius: var(--radius-lg); text-align: center;
+            padding: var(--space-7) var(--space-5);
+        }
+        .guarantee-box .days {
+            font-size: clamp(3rem, 10vw, 5rem); font-weight: 900;
+            color: var(--brand-700); line-height: 1;
+        }
+        .guarantee-box .title {
+            font-size: var(--fs-700); font-weight: 700;
+            color: var(--brand-600); margin-bottom: var(--space-4);
+        }
+        .guarantee-box .subtitle {
+            font-size: var(--fs-400); color: var(--text-muted);
+            margin-bottom: var(--space-5); font-weight: 600;
+        }
+        
+        /* FAQ ACCORDION */
+        .faq details {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius-md); margin-bottom: var(--space-3);
+        }
+        .faq details[open] { box-shadow: var(--shadow-1); }
+        .faq summary {
+            padding: var(--space-4) var(--space-5); font-weight: 600;
+            cursor: pointer; list-style: none;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::after {
+            content: '+'; font-size: 1.5em; transition: transform var(--dur-base);
+        }
+        .faq details[open] summary::after { transform: rotate(45deg); }
+        .faq .answer {
+            padding: 0 var(--space-5) var(--space-5);
+            color: var(--text-muted);
+        }
+
+        /* FINAL CHOICE SECTION */
+        .final-choice-grid { display: grid; gap: var(--space-6); }
+        .choice-card { padding: var(--space-5); border-radius: var(--radius-md); }
+        .choice-card--bad { background: #ffebee; border: 1px solid #e57373; }
+        .choice-card--good { background: var(--brand-100); border: 1px solid var(--brand-500); }
+        .choice-card h3 { margin-bottom: var(--space-3); }
+        .choice-card ul { list-style: none; padding: 0; }
+        .choice-card li { margin-bottom: var(--space-2); }
+        @media(min-width: 768px) {
+            .final-choice-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* FINAL ALERT */
+        .final-alert {
+            background: #ffebee; padding: var(--space-6);
+            text-align: center; border-radius: var(--radius-md);
+        }
+        .final-alert h3 { color: #b71c1c; }
+        .final-alert p { max-width: 50ch; margin-inline: auto; }
+
+        /* FOOTER */
+        .site-footer {
+            background-color: var(--neutral-100);
+            padding-block: var(--space-6); text-align: center;
+            font-size: var(--fs-400); color: var(--text-muted);
+        }
+        .site-footer p { margin: 0; }
+        .site-footer a { color: var(--text-muted); }
+        
+        /* STICKY CTA */
+        .sticky-cta {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: var(--surface); padding: var(--space-4);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            transform: translateY(100%);
+            transition: transform var(--dur-base) var(--easing-out);
+            z-index: 1000;
+            display: none; /* JS will manage display */
+        }
+        .sticky-cta.visible { transform: translateY(0); }
+        .sticky-cta .btn { width: 100%; }
+        @media (prefers-reduced-motion: reduce) {
+            .sticky-cta { transition: none; }
+            .btn:hover { transform: none; }
+        }
+        @media(min-width: 768px) {
+            .sticky-cta {
+                display: none !important; /* Hide on larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="urgency-header" role="banner">
+        <div class="container">
+            <p>⚠️ <strong>ATENÇÃO:</strong> Resultado do Teste de Mofo Bucal - Ação Necessária</p>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero section">
+            <div class="container">
+                <img src="https://via.placeholder.com/800x600?text=Dentes+do+Cão+em+Estágio+3" alt="Close-up dos dentes de um cachorro com sinais de tártaro avançado." width="800" height="600" loading="eager">
+                <h1>Nível 3: Seu Cão Precisa de Ajuda HOJE</h1>
+                <h2>Estágio Avançado - Mas Ainda Reversível</h2>
+                <p class="doctor-mention"><strong>Dr. Camilo Andrade</strong> analisou suas respostas pessoalmente.</p>
+                <p>Seu cão está no <strong>Estágio Avançado do Mofo Bucal</strong> – como 26% dos 1.847 casos que tratamos com sucesso.</p>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--neutral-100);">
+            <div class="container">
+                <h2 class="section-title">O Que Está Acontecendo Agora na Boca do Seu Cão:</h2>
+                <div style="max-width: 800px; margin-inline: auto;">
+                    <img src="https://via.placeholder.com/800x600?text=Animação+de+Bactérias" alt="Animação ilustrativa de bactérias se proliferando." width="800" height="600" loading="lazy">
+                    <div class="situation-block stack" style="margin-top: var(--space-6);">
+                        <h3>⚠️ Estágio 3 - Infecção Sistêmica Ativa</h3>
+                        <ul>
+                            <li><strong>Biofilme tóxico estabelecido</strong> (3-5mm de espessura)</li>
+                            <li><strong>Toxinas entrando no sangue</strong> a cada batimento cardíaco</li>
+                            <li><strong>Gengiva inflamada</strong> permitindo passagem bacteriana</li>
+                            <li><strong>Órgãos sob ataque</strong> (principalmente coração e rins)</li>
+                            <li><strong>Sistema imune sobrecarregado</strong> (por isso a apatia)</li>
+                        </ul>
+                        <p class="timeline">Tempo médio para Estágio 4: 45-60 dias</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container" style="max-width: 800px; margin-inline: auto;">
+                <h2 class="section-title">💪 A Boa Notícia: Pegamos a Tempo</h2>
+                <blockquote>
+                    <p>"Nível 3 é o que eu chamo de 'momento decisivo'. Ainda dá para reverter completamente, mas cada dia faz diferença. Dos meus pacientes em Estágio 3, <strong>87% voltaram ao Nível 1</strong> em 90 dias com o protocolo correto."</p>
+                    <footer>— Dr. Camilo Andrade, CRMV-SP 18.462</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--neutral-100);">
+            <div class="container">
+                <h2 class="section-title">Cães que Estavam Exatamente Como o Seu:</h2>
+                <div class="case-studies">
+                    <div class="case-card">
+                        <h3>Caso #147: Nina, Poodle, 9 anos</h3>
+                        <p><strong>Diagnóstico:</strong> Nível 3 - Tártaro severo, gengiva sangrando, recusava comida</p>
+                        <p><strong>45 dias depois:</strong> Voltou a comer normal, tártaro 70% reduzido</p>
+                        <p><strong>90 dias depois:</strong> Veterinária cancelou cirurgia programada</p>
+                        <blockquote>
+                            <p>"Achei que ia perder ela. O Dentaw literalmente salvou a Nina."</p>
+                            <footer>— Márcia Santos, RJ</footer>
+                        </blockquote>
+                    </div>
+                    <div class="case-card">
+                        <h3>Caso #892: Thor, SRD, 7 anos</h3>
+                        <p><strong>Diagnóstico:</strong> Nível 3 - Bafo insuportável, dentes escuros, letargia</p>
+                        <p><strong>30 dias depois:</strong> Energia voltou, família notou diferença no hálito</p>
+                        <p><strong>75 dias depois:</strong> Exame mostrou função renal normalizada</p>
+                        <blockquote>
+                            <p>"O Thor é outro cachorro. Parece 5 anos mais novo."</p>
+                            <footer>— Pedro Lima, SP</footer>
+                        </blockquote>
+                    </div>
+                    <div class="case-card">
+                        <h3>Caso #1.256: Mel, Yorkshire, 11 anos</h3>
+                        <p><strong>Diagnóstico:</strong> Nível 3 - Quase Nível 4, vet recomendou cirurgia urgente</p>
+                        <p><strong>60 dias depois:</strong> Evitou cirurgia de R$ 2.200</p>
+                        <p><strong>Hoje:</strong> Mantém com dose preventiva há 8 meses</p>
+                        <blockquote>
+                            <p>"Economizei a cirurgia e salvei minha bebê do risco da anestesia."</p>
+                            <footer>— Ana Costa, MG</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Seu Protocolo de Recuperação Intensiva:</h2>
+                <div class="protocol-steps">
+                    <div class="protocol-step">
+                        <h3><span>Fase 1:</span> ATAQUE (Dias 1-30)</h3>
+                        <p class="goal">🎯 Objetivo: Parar progressão imediata</p>
+                        <ul>
+                            <li>Dose inicial de <strong>1,5 medida</strong> para peso até 10kg</li>
+                            <li>Aplicar de manhã com primeira refeição</li>
+                            <li>Toxinas param de aumentar em 72h</li>
+                        </ul>
+                    </div>
+                    <div class="protocol-step">
+                        <h3><span>Fase 2:</span> DISSOLUÇÃO (Dias 31-60)</h3>
+                        <p class="goal">🎯 Objetivo: Dissolver biofilme estabelecido</p>
+                        <ul>
+                            <li>Manter dose de 1,5 medida</li>
+                            <li>Primeiras placas começam a soltar</li>
+                            <li>Hálito melhora 80%</li>
+                        </ul>
+                    </div>
+                    <div class="protocol-step">
+                        <h3><span>Fase 3:</span> RESTAURAÇÃO (Dias 61-90)</h3>
+                        <p class="goal">🎯 Objetivo: Recuperar saúde completa</p>
+                        <ul>
+                            <li>Ajustar para 1 medida (manutenção)</li>
+                            <li>Gengiva volta ao rosa saudável</li>
+                            <li>Exames mostram melhora sistêmica</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="oferta" class="section">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">⚠️ Protocolo de Emergência para Estágio Avançado:</h2>
+                <div class="offer-box">
+                    <span class="tagline">🚨 KIT RECUPERAÇÃO NÍVEL 3</span>
+                    <h3>3 Meses de Tratamento Intensivo</h3>
+                    <div class="price">
+                        <span class="price-old">R$ 441</span>
+                        <span class="price-new">R$ 267</span>
+                        <span class="price-info">(Desconto emergencial de 39%)</span>
+                    </div>
+                    <ul class="features">
+                        <li><strong>3 Potes de Dentaw</strong> (90g cada - 3 meses)</li>
+                        <li><strong>Protocolo personalizado</strong> para Nível 3</li>
+                        <li><strong>Suporte prioritário</strong> WhatsApp com veterinário</li>
+                        <li><strong>Medidor de precisão</strong> para dose correta</li>
+                        <li><strong>Check-up virtual</strong> em 30 dias</li>
+                        <li><strong>Garantia estendida</strong> de 90 dias (só Nível 3)</li>
+                    </ul>
+                    <div class="countdown" aria-live="polite">
+                        <span aria-hidden="true">⏰</span> Oferta válida por: <span id="countdown-timer">11:47:23</span>
+                    </div>
+                    <p class="installments">12x de R$ 26,67 no cartão</p>
+                    <a href="#comprar" class="btn btn-primary btn-lg" style="margin-top: var(--space-5);">
+                        COMEÇAR PROTOCOLO DE EMERGÊNCIA AGORA
+                    </a>
+                    <small class="shipping-info">Frete grátis em 24h para casos Nível 3</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--neutral-100);">
+            <div class="container">
+                <h2 class="section-title">Suas Opções Reais Agora:</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-card comparison-card--bad">
+                        <h3>Cirurgia de Emergência</h3>
+                        <ul>
+                            <li>Custo: R$ 2.200 - R$ 3.500</li>
+                            <li>Risco anestésico: 15% em cães 7+ anos</li>
+                            <li>Recuperação: 7-10 dias de sofrimento</li>
+                            <li>Problema volta: 6-12 meses</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card comparison-card--good">
+                        <h3>Protocolo Dentaw Nível 3</h3>
+                        <ul>
+                            <li>Investimento: R$ 267 (total 3 meses)</li>
+                            <li>Risco: ZERO (100% natural)</li>
+                            <li>Aplicação: 10 segundos/dia</li>
+                            <li>Solução: Definitiva com manutenção</li>
+                        </ul>
+                        <p class="economy">Economia: R$ 1.933 + zero risco</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Por Que Cada Hora Importa no Nível 3:</h2>
+                <div class="timeline-box">
+                    <h3>O Que Acontece SE Você Esperar:</h3>
+                    <ul>
+                        <li><b>Próximos 7 dias:</b>
+                            <p>700 milhões de novas bactérias, inflamação aumenta 20%, dor começa a afetar apetite.</p>
+                        </li>
+                        <li><b>Próximos 30 dias:</b>
+                            <p>Risco cardíaco aumenta 40%, possível perda de dentes, progressão para Nível 4.</p>
+                        </li>
+                        <li><b>Próximos 60 dias:</b>
+                            <p>Dano renal pode ser irreversível, cirurgia se torna única opção, custo triplica.</p>
+                        </li>
+                    </ul>
+                    <div class="positive-outcome">
+                        <p><strong>Mas se começar HOJE:</strong></p>
+                        <ul>
+                           <li>Em 72h as toxinas param de aumentar</li>
+                           <li>Em 7 dias o hálito melhora</li>
+                           <li>Em 30 dias você vê o tártaro soltando</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--neutral-100);">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Garantia Estendida de 90 Dias para Casos Avançados</h2>
+                <div class="guarantee-box">
+                    <div class="days">90</div>
+                    <div class="title">DIAS DE GARANTIA TOTAL</div>
+                    <div class="subtitle">(30 dias a mais que o normal)</div>
+                    <p>"Se em 90 dias o Dentaw não melhorar drasticamente a condição do seu cão, devolvemos 100% do valor. Você pode ficar com o produto. É meu compromisso pessoal com casos urgentes."</p>
+                    <footer><strong>— Dr. Camilo Andrade</strong></footer>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Dúvidas Comuns de Donos em Estágio Avançado:</h2>
+                <div class="faq">
+                    <details>
+                        <summary>É tarde demais para o meu cão?</summary>
+                        <div class="answer"><p>Não. Tratamos com sucesso cães em Nível 3 de até 14 anos. Enquanto não é Nível 4, há esperança.</p></div>
+                    </details>
+                    <details>
+                        <summary>Quanto tempo para ver resultados?</summary>
+                        <div class="answer"><p>Nível 3 responde rápido: 7-10 dias para primeiras melhoras, 30 dias para mudanças visíveis.</p></div>
+                    </details>
+                    <details>
+                        <summary>Preciso fazer a cirurgia também?</summary>
+                        <div class="answer"><p>87% dos nossos casos Nível 3 evitaram cirurgia completamente. Os 13% eram casos com complicações extras.</p></div>
+                    </details>
+                    <details>
+                        <summary>E se piorar durante o tratamento?</summary>
+                        <div class="answer"><p>Nunca aconteceu em 1.847 casos. Mas temos veterinário de plantão 24/7 no WhatsApp para suporte prioritário.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--brand-100);">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title">Palavra do Dr. Camilo sobre Nível 3:</h2>
+                 <blockquote>
+                    <p>"Quando criei o Dentaw, foi pensando exatamente em casos como o seu. Cães em Nível 3 que os donos amam demais para arriscar uma anestesia, mas que precisam de ajuda urgente. Eu sei o medo que você está sentindo. Vi isso em centenas de donos. Mas também vi a alegria quando, 30 dias depois, eles voltam com o exame mostrando melhora. Nível 3 é sério, mas é 100% reversível com o protocolo certo. E você chegou aqui a tempo."</p>
+                    <footer>— Dr. Camilo Andrade<br><small>Mestrado em Nutrição Animal - University of London<br>CRMV-SP 18.462</small></footer>
+                </blockquote>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                 <h2 class="section-title">Você Tem Duas Escolhas Agora:</h2>
+                 <div class="final-choice-grid">
+                     <div class="choice-card choice-card--bad">
+                         <h3>Escolha 1: Esperar</h3>
+                         <ul>
+                             <li>Progressão garantida para Nível 4</li>
+                             <li>Cirurgia inevitável (R$ 2.200+)</li>
+                             <li>Risco real de perda</li>
+                         </ul>
+                     </div>
+                     <div class="choice-card choice-card--good">
+                         <h3>Escolha 2: Agir</h3>
+                         <ul>
+                            <li>Começar reversão hoje</li>
+                            <li>Investimento de R$ 267</li>
+                            <li>Garantia de 90 dias</li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="text-center" style="margin-top: var(--space-6);">
+                     <p><strong>Seu cão depende 100% da sua decisão. Nível 3 não espera.</strong></p>
+                     <a href="#oferta" class="btn btn-primary btn-lg">SALVAR MEU CÃO AGORA - PROTOCOLO NÍVEL 3</a>
+                     <small class="shipping-info">Garantia de 90 dias | Entrega prioritária 24h</small>
+                 </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--neutral-100);">
+             <div class="container" style="max-width: 800px;">
+                 <div class="final-alert">
+                     <h3>⏰ Lembre-se:</h3>
+                     <p>Você tem <strong>45-60 dias antes do Nível 4.</strong> Cada dia sem tratamento = 100 milhões de bactérias a mais.</p>
+                     <p>O desconto de 39% é apenas para casos urgentes diagnosticados hoje. <strong>Amanhã volta ao preço normal de R$ 441.</strong></p>
+                     <a href="#oferta" class="btn btn-primary" style="margin-top: var(--space-5);">APROVEITAR DESCONTO EMERGENCIAL</a>
+                 </div>
+             </div>
+        </section>
+
+    </main>
+    
+    <div class="sticky-cta" id="sticky-cta">
+        <a href="#oferta" class="btn btn-primary">COMEÇAR PROTOCOLO DE EMERGÊNCIA</a>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container stack">
+            <p><strong>💬 Dúvidas urgentes?</strong><br>
+            WhatsApp Prioritário Nível 3: <strong>(11) 94857-3021</strong><br>
+            <small>Atendimento veterinário em até 10 minutos</small></p>
+            <p>&copy; 2025 Dentaw. Todos os direitos reservados. Este produto não substitui o acompanhamento veterinário regular.</p>
+            <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // --- Sticky CTA ---
+            const stickyCTA = document.getElementById('sticky-cta');
+            const heroSection = document.querySelector('.hero');
+            if (stickyCTA && heroSection) {
+                const showAt = heroSection.offsetHeight;
+                
+                const onScroll = () => {
+                    if (window.scrollY > showAt) {
+                        stickyCTA.style.display = 'block';
+                        setTimeout(() => stickyCTA.classList.add('visible'), 10);
+                    } else {
+                        stickyCTA.classList.remove('visible');
+                    }
+                };
+                
+                window.addEventListener('scroll', onScroll, { passive: true });
+            }
+
+            // --- Countdown Timer ---
+            const countdownEl = document.getElementById('countdown-timer');
+            if (countdownEl) {
+                let timeInSeconds = 11 * 3600 + 47 * 60 + 23;
+                
+                const updateTimer = () => {
+                    if (timeInSeconds <= 0) {
+                        countdownEl.textContent = 'Oferta Expirada';
+                        clearInterval(timerInterval);
+                        return;
+                    }
+                    
+                    const hours = Math.floor(timeInSeconds / 3600);
+                    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+                    const seconds = timeInSeconds % 60;
+                    
+                    countdownEl.textContent = 
+                        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    
+                    timeInSeconds--;
+                };
+                
+                const timerInterval = setInterval(updateTimer, 1000);
+                updateTimer(); // initial call
+            }
+            
+            // --- Smooth Scroll for CTA buttons ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    const targetEl = document.querySelector(href);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({
+                            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
