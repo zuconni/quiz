@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta Veterinário - Salve a Vida do Seu Cão</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <style>
+        :root {
+            --background: #FFF8F0;
+            --foreground: #2C1810;
+            --card: #FFFFFF;
+            --card-foreground: #2C1810;
+            --primary: #D4A574;
+            --primary-foreground: #FFFFFF;
+            --secondary: #8B6B47;
+            --secondary-foreground: #FFFFFF;
+            --muted: #F5E6D3;
+            --muted-foreground: #6B5D54;
+            --accent: #C19A6B;
+            --accent-foreground: #FFFFFF;
+            --border: #E5D4C1;
+            --ring: #D4A574;
+            --danger: #DC2626;
+            --danger-light: #FEE2E2;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            background-color: #FFF8F0 !important;
+            color: #2C1810 !important;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif !important;
+        }
+        
+        /* Animações */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Botão CTA */
+        .cta-button {
+            background: linear-gradient(135deg, #D4A574, #C19A6B);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px -5px rgba(212, 165, 116, 0.4);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #C19A6B, #D4A574);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 9999px;
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Cards */
+        .test-card {
+            transition: all 0.3s ease;
+        }
+        
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(44, 24, 16, 0.1);
+        }
+        
+        /* Alert Badge */
+        .alert-badge {
+            background: linear-gradient(135deg, #DC2626, #EF4444);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Number Badge */
+        .number-badge {
+            background: #D4A574;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        /* Highlight */
+        .highlight-text {
+            background: linear-gradient(180deg, transparent 60%, rgba(212, 165, 116, 0.3) 60%);
+            padding: 0 0.25rem;
+        }
+        
+        /* Divider */
+        .divider-line {
+            background: linear-gradient(90deg, transparent, #E5D4C1, transparent);
+            height: 1px;
+            margin: 3rem auto;
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-b from-white to-[#FFF8F0] pb-12">
+            <!-- Background Image -->
+            <div class="absolute inset-0 opacity-10 z-0">
+                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1920&h=1080&fit=crop&q=80" 
+                     alt="Background" 
+                     class="w-full h-full object-cover">
+            </div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto px-6 md:px-8 pt-8 md:pt-12">
+                <!-- Alert -->
+                <div class="text-center mb-6">
+                    <div class="alert-badge mx-auto">
+                        <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                        <span>Alerta Veterinário para Donos de Cães com Mais de 3 Anos</span>
+                    </div>
+                </div>
+                
+                <!-- Headline -->
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 fade-in-up" style="color: #2C1810; line-height: 1.2;">
+                    "87% dos Cães Brasileiros Estão <span class="highlight-text">Morrendo 5 Anos Mais Cedo</span> Por Causa de Uma Toxina Que Começa Na Boca"
+                </h1>
+                
+                <!-- Subheadline -->
+                <p class="text-base sm:text-lg md:text-xl text-center mb-10" style="color: #6B5D54;">
+                    Veterinário de SP expõe a verdade sobre o "Biofilme Tóxico" que a indústria pet de R$2 bilhões não quer que você saiba <strong>(e o teste de 10 segundos que detecta o risco)</strong>
+                </p>
+                
+                <!-- Dog Image -->
+                <div class="max-w-2xl mx-auto mb-8">
+                    <img src="https://images.unsplash.com/photo-1587559070757-f72a388edbba?w=800&h=400&fit=crop&q=80" 
+                         alt="Cão com problemas dentários" 
+                         class="w-full rounded-2xl shadow-2xl">
+                </div>
+                
+                <!-- Opening Box -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 mb-8 shadow-lg">
+                    <p class="text-lg font-semibold mb-4" style="color: #2C1810;">
+                        Deixe-me fazer uma pergunta que pode salvar a vida do seu cão:
+                    </p>
+                    
+                    <p class="text-base md:text-lg mb-3" style="color: #2C1810;">
+                        <strong>Quando foi a última vez que você cheirou o hálito dele de propósito?</strong>
+                    </p>
+                    
+                    <div class="space-y-2 mb-6" style="color: #6B5D54;">
+                        <p>Se você evita as "lambidas" por causa do cheiro...</p>
+                        <p>Se precisa virar o rosto quando ele se aproxima...</p>
+                        <p>Ou pior: se nem percebe mais porque já se acostumou...</p>
+                    </div>
+                    
+                    <div class="bg-[#FEE2E2] border-l-4 border-[#DC2626] p-4 rounded-lg">
+                        <p class="font-semibold mb-2" style="color: #DC2626;">
+                            Então preciso te alertar sobre algo urgente.
+                        </p>
+                        <p style="color: #2C1810;">
+                            Aquele "bafinho" que você acha normal?<br/>
+                            <strong>É o cheiro de toxinas bacterianas entrando no sangue dele.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Teste Section -->
+        <section class="py-12 md:py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-6 md:px-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-10" style="color: #2C1810;">
+                    Faça Este Teste de 10 Segundos Agora:
+                </h2>
+                
+                <!-- Steps -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-10">
+                    <div class="test-card bg-[#F5E6D3] rounded-xl p-4 md:p-6 text-center">
+                        <span class="number-badge block mx-auto mb-3">1</span>
+                        <p class="text-sm md:text-base font-medium">Levante o lábio superior do seu cão gentilmente</p>
+                    </div>
+                    <div class="test-card bg-[#F5E6D3] rounded-xl p-4 md:p-6 text-center">
+                        <span class="number-badge block mx-auto mb-3">2</span>
+                        <p class="text-sm md:text-base font-medium">Observe os dentes de trás (molares)</p>
+                    </div>
+                    <div class="test-card bg-[#F5E6D3] rounded-xl p-4 md:p-6 text-center">
+                        <span class="number-badge block mx-auto mb-3">3</span>
+                        <p class="text-sm md:text-base font-medium">Responda às perguntas abaixo</p>
+                    </div>
+                </div>
+                
+                <!-- Checklist -->
+                <div class="bg-[#FFF8F0] rounded-2xl p-6 md:p-8 mb-8">
+                    <div class="space-y-4 mb-6">
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="mt-1 w-5 h-5 flex-shrink-0" style="accent-color: #D4A574;">
+                            <span class="text-base md:text-lg">Vê uma camada amarela/marrom nos dentes?</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="mt-1 w-5 h-5 flex-shrink-0" style="accent-color: #D4A574;">
+                            <span class="text-base md:text-lg">A gengiva está vermelha ou roxa (não rosa)?</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="mt-1 w-5 h-5 flex-shrink-0" style="accent-color: #D4A574;">
+                            <span class="text-base md:text-lg">Tem mau hálito mesmo após comer?</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="mt-1 w-5 h-5 flex-shrink-0" style="accent-color: #D4A574;">
+                            <span class="text-base md:text-lg">Seu cão tem mais de 3 anos?</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" class="mt-1 w-5 h-5 flex-shrink-0" style="accent-color: #D4A574;">
+                            <span class="text-base md:text-lg">Ele anda mais quieto ou menos brincalhão?</span>
+                        </label>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center" id="result-card">
+                        <p class="text-lg font-semibold mb-2" style="color: #DC2626;">
+                            Se você marcou 2 ou mais:
+                        </p>
+                        <p class="text-xl font-bold mb-3" style="color: #2C1810;">
+                            Seu cão faz parte dos 87% em risco.
+                        </p>
+                        <p class="text-base" style="color: #6B5D54;">
+                            E o que vou revelar nos próximos 3 minutos pode adicionar 5 anos à vida dele.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="cta-button pulse-animation px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold text-base sm:text-lg shadow-lg">
+                        <span>Descobrir Como Salvar Meu Cão</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Veterinarian Image -->
+        <section class="py-8 bg-gradient-to-b from-white to-[#FFF8F0]">
+            <div class="max-w-3xl mx-auto px-6">
+                <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=800&h=400&fit=crop&q=80" 
+                     alt="Veterinário examinando dentes de cão" 
+                     class="w-full rounded-2xl shadow-xl">
+            </div>
+        </section>
+        
+        <!-- Truth Section -->
+        <section class="py-12 md:py-16" style="background-color: #FFF8F0;">
+            <div class="max-w-4xl mx-auto px-6 md:px-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-8" style="color: #2C1810;">
+                    A Verdade Que Seu Veterinário Não Te Conta
+                </h2>
+                
+                <div class="bg-white rounded-2xl p-6 md:p-8 mb-8 shadow-lg">
+                    <p class="text-lg mb-4" style="color: #2C1810;">
+                        <strong>Sabe por que a consulta de rotina não pega isso?</strong>
+                    </p>
+                    
+                    <p class="mb-4" style="color: #6B5D54;">
+                        Porque a maioria dos veterinários só age quando já é tarde demais.
+                    </p>
+                    
+                    <div class="space-y-2 mb-6" style="color: #2C1810;">
+                        <p>❌ Eles esperam você reclamar do bafo...</p>
+                        <p>❌ Esperam os dentes ficarem completamente amarelos...</p>
+                        <p>❌ Esperam a gengiva sangrar...</p>
+                    </div>
+                    
+                    <div class="bg-[#F5E6D3] rounded-xl p-6 mb-6">
+                        <p class="text-lg font-semibold mb-2" style="color: #2C1810;">
+                            E então recomendam uma cirurgia de R$1.500 a R$2.500.
+                        </p>
+                        
+                        <p class="font-bold text-xl mb-2" style="color: #DC2626;">
+                            Mas aqui está o que eles NÃO dizem:
+                        </p>
+                        
+                        <ul class="space-y-2" style="color: #2C1810;">
+                            <li>⚠️ 42% dos cães acima de 8 anos não acordam da anestesia.</li>
+                            <li>⚠️ E mesmo os que sobrevivem à cirurgia...</li>
+                            <li>⚠️ O problema volta em 6 meses.</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="text-xl font-bold text-center" style="color: #2C1810;">
+                        Por quê?
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Enemy Reveal Section -->
+        <section class="py-12 md:py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-6 md:px-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-8" style="color: #2C1810;">
+                    Porque Eles Só Tratam o Sintoma, Não a Causa
+                </h2>
+                
+                <!-- Teeth Image -->
+                <div class="max-w-2xl mx-auto mb-8">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=300&fit=crop&q=80" 
+                         alt="Close-up de dentes de cão" 
+                         class="w-full rounded-xl shadow-lg">
+                </div>
+                
+                <div class="bg-[#FFF8F0] rounded-2xl p-6 md:p-8 mb-8">
+                    <p class="text-lg mb-6" style="color: #2C1810;">
+                        Deixe-me explicar o que realmente está acontecendo na boca do seu cão:
+                    </p>
+                    
+                    <div class="bg-white rounded-xl p-6 mb-6">
+                        <p class="text-xl font-bold mb-4" style="color: #DC2626;">
+                            Não é apenas tártaro. É algo muito pior.
+                        </p>
+                        
+                        <p class="mb-4" style="color: #2C1810;">
+                            Pesquisadores do Instituto Veterinário Nórdico descobriram em 2019 que existe uma colônia de bactérias anaeróbicas que forma o que eles chamaram de <strong>"Biofilme Tóxico Canino"</strong>.
+                        </p>
+                        
+                        <p class="font-semibold mb-4" style="color: #8B6B47;">
+                            Pense nisso como um "mofo invisível" que:
+                        </p>
+                    </div>
+                    
+                    <!-- Phases -->
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                            <span class="bg-[#D4A574] text-white px-3 py-1 rounded-full font-bold whitespace-nowrap">Fase 1</span>
+                            <div>
+                                <p class="font-semibold">Meses 1-6:</p>
+                                <p style="color: #6B5D54;">Se instala silenciosamente entre os dentes e gengiva</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                            <span class="bg-[#C19A6B] text-white px-3 py-1 rounded-full font-bold whitespace-nowrap">Fase 2</span>
+                            <div>
+                                <p class="font-semibold">Meses 6-12:</p>
+                                <p style="color: #6B5D54;">Começa a produzir toxinas (sulfeto de hidrogênio)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+                            <span class="bg-[#DC2626] text-white px-3 py-1 rounded-full font-bold whitespace-nowrap">Fase 3</span>
+                            <div>
+                                <p class="font-semibold">Após 1 ano:</p>
+                                <p style="color: #6B5D54;">As toxinas entram na corrente sanguínea</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg font-bold mt-6 text-center" style="color: #DC2626;">
+                        E aqui está a parte assustadora:
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Organs Section -->
+        <section class="py-12 md:py-16" style="background: linear-gradient(180deg, white 0%, #FFF8F0 100%);">
+            <div class="max-w-4xl mx-auto px-6 md:px-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-10" style="color: #2C1810;">
+                    Essas Toxinas Viajam Direto Para 3 Órgãos Vitais:
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <!-- Heart -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: #FEE2E2;">
+                            <i data-lucide="heart" class="w-8 h-8" style="color: #DC2626;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" style="color: #2C1810;">CORAÇÃO</h3>
+                        <p class="text-sm mb-3" style="color: #6B5D54;">
+                            As bactérias se alojam nas válvulas cardíacas, causando sopro e insuficiência.
+                        </p>
+                        <p class="font-bold text-sm" style="color: #DC2626;">
+                            75% dos cães com doença bucal desenvolvem problemas cardíacos
+                        </p>
+                    </div>
+                    
+                    <!-- Kidneys -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: #FEE2E2;">
+                            <i data-lucide="droplets" class="w-8 h-8" style="color: #DC2626;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" style="color: #2C1810;">RINS</h3>
+                        <p class="text-sm mb-3" style="color: #6B5D54;">
+                            As toxinas sobrecarregam o sistema de filtragem, levando à insuficiência renal.
+                        </p>
+                        <p class="font-bold text-sm" style="color: #DC2626;">
+                            1 em cada 3 cães idosos morre de problema renal que começou na boca
+                        </p>
+                    </div>
+                    
+                    <!-- Liver -->
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: #FEE2E2;">
+                            <i data-lucide="shield-x" class="w-8 h-8" style="color: #DC2626;"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" style="color: #2C1810;">FÍGADO</h3>
+                        <p class="text-sm mb-3" style="color: #6B5D54;">
+                            O fígado tenta filtrar as toxinas constantemente, até entrar em falência.
+                        </p>
+                        <p class="font-bold text-sm" style="color: #DC2626;">
+                            Reduz a expectativa de vida em 3-5 anos
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-xl font-semibold mb-2" style="color: #2C1810;">
+                        "Mas eu escovo os dentes dele!"
+                    </p>
+                    <p class="text-lg" style="color: #6B5D54;">
+                        Sinto muito, mas...
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Discovery Section -->
+        <section class="py-12 md:py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-6 md:px-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-8" style="color: #2C1810;">
+                    A Descoberta Que Mudou Tudo
+                </h2>
+                
+                <!-- Norway Image -->
+                <div class="max-w-3xl mx-auto mb-8">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop&q=80" 
+                         alt="Vila de pescadores na Noruega" 
+                         class="w-full rounded-2xl shadow-xl">
+                </div>
+                
+                <div class="bg-[#FFF8F0] rounded-2xl p-6 md:p-8">
+                    <p class="text-lg mb-4" style="color: #2C1810;">
+                        Em 2019, algo curioso aconteceu numa vila de pescadores na Noruega.
+                    </p>
+                    
+                    <p class="mb-4" style="color: #6B5D54;">
+                        Um veterinário local, Dr. Erik Andersen, notou que os cães dos pescadores tinham algo diferente:
+                    </p>
+                    
+                    <div class="bg-white rounded-xl p-6 mb-6">
+                        <ul class="space-y-2" style="color: #2C1810;">
+                            <li>✓ Dentes brancos</li>
+                            <li>✓ Sem tártaro</li>
+                            <li>✓ Sem mau hálito</li>
+                            <li class="font-bold" style="color: #D4A574;">✓ E eles NUNCA escovavam</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="mb-6" style="color: #2C1810;">
+                        Enquanto isso, na cidade vizinha, cães de apartamento - mesmo com escovação diária - tinham problemas bucais graves.
+                    </p>
+                    
+                    <div class="bg-[#F5E6D3] rounded-xl p-6 text-center">
+                        <p class="text-lg font-semibold mb-2" style="color: #2C1810;">
+                            O que os cães dos pescadores tinham de diferente?
+                        </p>
+                        <p class="mb-2" style="color: #6B5D54;">
+                            A investigação levou 2 anos e a resposta estava...
+                        </p>
+                        <p class="text-xl font-bold" style="color: #D4A574;">
+                            Nos restos de peixe com algas que eles comiam.
+                        </p>
+                        <p class="text-lg mt-2" style="color: #8B6B47;">
+                            Especificamente, uma alga chamada Ascophyllum nodosum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Final CTA -->
+        <section class="py-16 md:py-20" style="background: linear-gradient(180deg, white 0%, #FFF8F0 100%);">
+            <div class="max-w-4xl mx-auto px-6 md:px-8">
+                <!-- Happy Dog Image -->
+                <div class="max-w-2xl mx-auto mb-10">
+                    <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=800&h=400&fit=crop&q=80" 
+                         alt="Cão feliz e saudável" 
+                         class="w-full rounded-2xl shadow-xl">
+                </div>
+                
+                <div class="text-center">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #2C1810;">
+                        Proteja Seu Cão Hoje Mesmo
+                    </h2>
+                    <p class="text-lg mb-8" style="color: #6B5D54;">
+                        Descubra o protocolo completo que já salvou milhares de cães brasileiros
+                    </p>
+                    <button class="cta-button pulse-animation px-8 sm:px-10 py-4 sm:py-5 rounded-full text-white font-semibold text-lg sm:text-xl shadow-xl">
+                        <span>Quero Salvar Meu Cão Agora</span>
+                    </button>
+                    <p class="mt-4 text-sm" style="color: #6B5D54;">
+                        🔒 100% Seguro | Garantia de 30 dias
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // CTA buttons animation
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+        
+        // Checkbox counter
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+                const resultCard = document.getElementById('result-card');
+                
+                if (checkedCount >= 2 && resultCard) {
+                    resultCard.style.transform = 'scale(1.02)';
+                    resultCard.style.transition = 'transform 0.3s ease';
+                    setTimeout(() => {
+                        resultCard.style.transform = '';
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
