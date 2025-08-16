@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentaw - Saúde Bucal para Cães</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: oklch(0.986 0.014 90.93); /* Bege Suave */
+            --foreground: oklch(0.292 0.026 83.44); /* Marrom Escuro Terroso */
+            --primary: oklch(0.686 0.08 86.33); /* Dourado/Bronze Quente */
+            --primary-foreground: oklch(0.986 0.014 90.93); /* Bege Suave para texto em botões */
+            --secondary: oklch(0.94 0.02 90.0); /* Bege Mais Claro */
+            --border: oklch(0.88 0.03 90.0);
+            --radius: 0.75rem;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Lora', serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: var(--background) !important;
+            color: var(--foreground) !important;
+            font-family: var(--font-sans) !important;
+        }
+        h1, h2, h3 {
+            font-family: var(--font-serif) !important;
+            color: var(--foreground) !important;
+        }
+        .btn {
+            background-color: var(--primary) !important;
+            color: var(--primary-foreground) !important;
+            border-radius: var(--radius) !important;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out !important;
+        }
+        .btn:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2) !important;
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .best-seller-card {
+            border: 2px solid var(--primary) !important;
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 oklch(0.686 0.08 86.33 / 0.7); }
+            70% { box-shadow: 0 0 0 10px oklch(0.686 0.08 86.33 / 0); }
+            100% { box-shadow: 0 0 0 0 oklch(0.686 0.08 86.33 / 0); }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1926586658163208');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1926586658163208&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Clarity Code -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "so7suzgiw0");
+    </script>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-3xl mx-auto p-4 sm:p-8">
+
+        <!-- NOVO Bloco Inicial -->
+        <section class="mb-12 section-fade-in">
+            <div class="text-center bg-green-100 border-t-4 border-b-4 border-green-500 py-4 px-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-green-800">NÍVEL 1 - ESTÁGIO INICIAL</h2>
+            </div>
+            <div class="text-center mt-8">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">✅ Boa notícia: Você descobriu o problema na hora certa!</h3>
+                <img src="https://i.imgur.com/C0MKVZh.png" alt="Foto do Dr. Camilo" class="mx-auto rounded-full w-48 h-48 object-cover my-6 border-4" style="border-color: var(--primary);">
+                <p class="text-lg"><strong>Aqui é o Dr. Camilo.</strong> Respire aliviado. 
+                Seu cão está no <strong>Estágio 1 do "Mofo Bucal"</strong>, o estágio inicial.</p>
+            </div>
+            <div class="mt-8 bg-green-100 border-t-4 border-b-4 border-green-500 p-6 rounded-lg">
+  <h4 class="text-2xl md:text-3xl font-bold mb-4 text-center text-green-800">
+    O que isso significa na prática?
+  </h4>
+  <p class="text-lg mb-6">As bactérias tóxicas acabaram de se instalar. Pense num mofo ainda na superfície, mas que já se espalha silenciosamente.</p>
+
+  <h4 class="text-xl font-bold mb-4">A situação atual do seu melhor amigo:</h4>
+  <ul class="space-y-4 text-lg">
+    <li class="grid grid-cols-[auto_1fr] gap-x-3 items-start">
+      <span class="text-green-600 font-bold mt-1">✓</span>
+      <div>O dano ainda é superficial. As toxinas perigosas <strong>ainda não caíram</strong> na corrente sanguínea.</div>
+    </li>
+    <li class="grid grid-cols-[auto_1fr] gap-x-3 items-start">
+      <span class="text-green-600 font-bold mt-1">✓</span>
+      <div>A gengiva está um pouco irritada, mas <strong>ainda é forte</strong> o suficiente para se recuperar 100%.</div>
+    </li>
+    <li class="grid grid-cols-[auto_1fr] gap-x-3 items-start">
+      <span class="text-green-600 font-bold mt-1">✓</span>
+      <div><strong>A MELHOR PARTE:</strong> Nesta fase, o problema é <strong>100% reversível</strong> sem precisar de cirurgias caras e arriscadas.</div>
+    </li>
+  </ul>
+</div>
+            <div class="mt-8 text-center">
+                <p class="text-lg font-semibold">Mas o relógio está correndo. Em 3 a 6 meses, o quadro avança para o Estágio 2, onde o custo e a dificuldade do tratamento <strong>triplicam</strong>.</p>
+                <p class="text-lg mt-4">Agir agora é sua única janela para evitar:</p>
+                <ul class="space-y-2 text-lg inline-block text-left mt-4">
+                    <li>❌ Uma cirurgia de R$ 1.500 ou mais no futuro.</li>
+                    <li>❌ Anos de desconforto e dor silenciosa para ele.</li>
+                    <li>❌ A perda de anos preciosos ao seu lado.</li>
+                </ul>
+                <p class="text-lg mt-6 font-bold">Continue lendo para descobrir o método de 10 segundos que elimina o Mofo Bucal antes que ele avance.</p>
+            </div>
+        </section>
+        
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- O Problema -->
+        <section class="mb-12 section-fade-in">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-6">O "Bafinho" é Só a Ponta do Iceberg</h3>
+            <p class="text-lg mb-6">Aquele cheiro <strong>não é "normal de cachorro".</strong> É o alarme de uma invasão de bactérias que eu chamo de <strong>"Mofo Bucal"</strong>.</p>
+            <img src="https://i.imgur.com/qKM2rDk.gif" alt="GIF do mofo bucal se formando" class="w-full rounded-lg mb-6">
+            <p class="text-lg mb-4">Pense nele como um mofo invisível que:</p>
+            <ul class="list-disc list-inside space-y-3 text-lg bg-[--secondary] p-6 rounded-lg">
+                <li><strong>Gruda nos dentes</strong> e cria uma fortaleza de bactérias.</li>
+                <li><strong>Solta veneno (toxinas)</strong> na boca dele, 24 horas por dia.</li>
+                <li><strong>Abre feridas na gengiva</strong>, criando uma porta de entrada para o corpo.</li>
+            </ul>
+            <p class="text-xl text-center font-semibold mt-6">Mas o perigo real começa agora...</p>
+        </section>
+        
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- O Perigo -->
+        <section class="mb-12 section-fade-in">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-6">É Assim que as Bactérias Desligam o Coração Dele</h3>
+            <p class="text-lg mb-4 text-center bg-yellow-100 p-4 rounded-lg"><strong>Um estudo da Universidade de Purdue confirmou:</strong> Cães com "Mofo Bucal" avançado têm <strong>6x mais chances</strong> de sofrer uma infecção bacteriana direto no coração.</p>
+            <img src="https://i.imgur.com/m22KaMw.gif" alt="GIF das bactérias viajando pela corrente sanguínea" class="w-full rounded-lg my-6">
+            <div class="bg-[--secondary] p-6 rounded-lg">
+                <h4 class="text-2xl font-bold mb-4 text-center">O ataque acontece em 3 passos:</h4>
+                <ol class="list-decimal list-inside space-y-3 text-lg">
+                    <li>As bactérias do "Mofo Bucal" entram no sangue pela gengiva machucada.</li>
+                    <li>Elas pegam carona na corrente sanguínea.</li>
+                    <li>O destino final: coração, rins e fígado, onde elas se alojam e causam inflamação.</li>
+                </ol>
+            </div>
+            <div class="mt-6 p-4 border-l-4 rounded-r-lg" style="border-color: var(--primary); background-color: var(--secondary);">
+                <p class="text-lg italic">"Nós encontramos as MESMAS bactérias da boca nos órgãos que falharam. A conexão é direta e fatal."</p>
+                <p class="text-right font-semibold mt-2">- Dr. Larry Glickman, Epidemiologista Veterinário</p>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Consequências -->
+        <section class="mb-12 section-fade-in text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-6">Resultado: Seu Cão Pode Perder ATÉ 5 Anos de Vitalidade e Alegria</h3>
+            <p class="text-lg mb-6">Isso não acontece de um dia para o outro. É um processo silencioso que rouba o que seu cão tem de mais precioso:</p>
+            <div class="space-y-4 text-left">
+                <p class="text-xl p-4 bg-[--secondary] rounded-lg">💔 A energia para brincar e correr.</p>
+                <p class="text-xl p-4 bg-[--secondary] rounded-lg">💔 O conforto para comer sem dor.</p>
+                <p class="text-xl p-4 bg-[--secondary] rounded-lg">💔 A qualidade de vida que você tanto zela.</p>
+            </div>
+            <p class="text-xl font-semibold mt-6">Muitas vezes, os donos percebem quando a vitalidade dele já está comprometida.</p>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Soluções Falhas -->
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">POR QUE AS SOLUÇÕES COMUNS FALHAM</h2>
+            <div class="space-y-6">
+                <div class="p-4 bg-[--secondary] rounded-lg border-l-4 border-red-500">
+                    <h4 class="text-xl font-bold">❌ ESCOVAÇÃO DIÁRIA</h4>
+                    <p>Pense na placa bacteriana como cimento fresco. A escova tem força zero para tirar. Piora a gengiva inflamada.</p>
+                </div>
+                <div class="p-4 bg-[--secondary] rounded-lg border-l-4 border-red-500">
+                    <h4 class="text-xl font-bold">❌ PETISCOS "DENTAIS"</h4>
+                    <p>É como tentar lavar panela engordurada só com água. A limpeza é rasa. Seu cão mastiga 3 segundos e engole — sem tempo de agir onde importa: sob a linha da gengiva.</p>
+                </div>
+                <div class="p-4 bg-[--secondary] rounded-lg border-l-4 border-red-500">
+                    <h4 class="text-xl font-bold">❌ SPRAYS E ENXAGUANTES</h4>
+                    <p>São perfume para disfarçar infecção. Mascaram o cheiro por minutos. A fábrica de bactérias continua trabalhando a todo vapor lá dentro.</p>
+                </div>
+                <div class="p-4 bg-[--secondary] rounded-lg border-l-4 border-red-500">
+                    <h4 class="text-xl font-bold">❌ CIRURGIA (TARTARECTOMIA)</h4>
+                    <p>Custa entre R$1.500 e R$2.500. Tem risco anestésico em cães velhos. E o pior: remove o tártaro que você vê, mas <strong>volta tudo em menos de um ano.</strong></p>
+                </div>
+            </div>
+            <p class="text-center text-xl font-semibold mt-8 p-4 bg-red-100 text-red-800 rounded-lg">É um ciclo caro e frustrante, que gera bilhões para a indústria pet. E zero resultado duradouro para você.</p>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- A Solução: Dentaw -->
+        <section class="mb-12 section-fade-in">
+            <img src="https://i.imgur.com/wr30sPj.png" alt="Foto do produto Dentaw" class="w-full rounded-lg mb-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Apresentando Dentaw: A Descoberta Norueguesa que Transforma a Saliva do Seu Cão no Inimigo Nº1 do Tártaro</h2>
+            <p class="text-lg text-center mb-8">Nossa fórmula não ataca o problema por fora. Ela transforma o próprio corpo do seu cão em uma máquina de limpeza 24h.</p>
+            <div class="md:flex md:space-x-6 space-y-6 md:space-y-0">
+                <div class="md:w-1/2 text-center bg-[--secondary] p-6 rounded-lg">
+                    <img src="https://i.imgur.com/Ui6OfFg.png" alt="Foto da alga Ascophyllum Nodosum" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
+                    <h4 class="text-xl font-bold">1. Alga <i>Ascophyllum Nodosum</i></h4>
+                    <p>Seu cão come > O corpo absorve > E a saliva dele é enriquecida com as propriedades da alga, que <strong>amolecem a fortaleza de bactérias por dentro.</strong></p>
+                </div>
+                <div class="md:w-1/2 text-center bg-[--secondary] p-6 rounded-lg">
+                    <img src="https://i.imgur.com/la3k2u9.png" alt="Foto do DHA" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
+                    <h4 class="text-xl font-bold">2. DHA (Ômega-3 Marinho)</h4>
+                    <p>Cria um <strong>escudo invisível e ultra-liso</strong> nos dentes. As novas bactérias simplesmente escorregam, não conseguem se fixar para formar mais tártaro.</p>
+                </div>
+            </div>
+            <div class="text-center mt-8 p-6 bg-yellow-100 rounded-lg">
+                <h3 class="text-2xl font-bold">= O EFEITO "SALIVA-SABÃO"</h3>
+                <img src="https://i.imgur.com/aJCjvu9.gif" alt="GIF do efeito Saliva-Sabão" class="w-full rounded-lg my-4">
+                <p class="text-lg"><strong>A própria saliva do seu cão vira um agente de limpeza automático, dissolvendo o problema antigo e blindando contra o futuro.</strong></p>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+        
+        <!-- Resultados do Estudo -->
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Resultados do Nosso Estudo com 1.847 Cães</h2>
+            <p class="text-lg text-center mb-6"><strong>Protocolo:</strong> Uma medida de Dentaw por dia, durante 4-8 semanas.</p>
+            
+            <!-- Carrossel -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <img src="https://i.imgur.com/B9UcHAW.png" alt="Antes e depois do tratamento Dentaw 1" class="w-full rounded-lg object-cover aspect-[4/3]">
+                <img src="https://i.imgur.com/CRKRWBb.png" alt="Antes e depois do tratamento Dentaw 2" class="w-full rounded-lg object-cover aspect-[4/3]">
+                <img src="https://i.imgur.com/EJJ5e11.png" alt="Antes e depois do tratamento Dentaw 3" class="w-full rounded-lg object-cover aspect-[4/3]">
+            </div>
+
+            <h4 class="text-2xl font-bold text-center mb-4">OS RESULTADOS FORAM CLAROS:</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>94%</strong> dos cães tiveram uma redução drástica no mau hálito já na segunda semana.</p>
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>89%</strong> apresentaram diminuição visível das placas de tártaro ao final do teste.</p>
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>91%</strong> mostraram uma melhora notável na saúde da gengiva (menos vermelhidão).</p>
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>100%</strong> dos cães aceitaram o produto misturado na ração, sem nenhuma recusa.</p>
+            </div>
+
+            <div class="mt-8">
+                <h4 class="text-2xl font-bold text-center mb-4">Aprovação de Especialistas:</h4>
+                <ul class="list-disc list-inside space-y-2 text-center text-lg">
+                    <li>Dra. Camila Oliveira, CRMV-SP 25.295</li>
+                    <li>Dr. Marcos Silva, Especialista em Odontologia Veterinária</li>
+                    <li>Fórmula testada e certificada pelo Laboratório Biovet (ISO 9001)</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Como Funciona -->
+        <section class="mb-12 section-fade-in">
+            <img src="https://i.imgur.com/kaMllRX.png" alt="Foto caseira do suplemento na comida" class="w-full rounded-lg mb-6">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-6">Com 1 Medida Por Dia na Ração:</h3>
+            <div class="space-y-4">
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>DISSOLVE</strong> o tártaro existente, que amolece e se solta.</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>ELIMINA</strong> o mau hálito em 7-14 dias.</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>PROTEGE</strong> contra a formação de nova placa.</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>ALIVIA</strong> a inflamação, e a gengiva volta ao tom rosa saudável.</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>ECONOMIZA</strong> ao evitar uma cirurgia de R$ 1.500+.</p>
+            </div>
+            <p class="text-center text-2xl font-semibold mt-6">Sem sabor. Sem cheiro. Sem drama.</p>
+            <p class="text-center text-lg mt-2">Seu cão come normalmente, e você finalmente tem a paz de saber que está resolvendo o problema pela raiz.</p>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Depoimentos -->
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Resultados que você pode ver (e cheirar)</h2>
+            <div class="space-y-8">
+                <!-- Depoimento Mariana -->
+                <div class="bg-[--secondary] p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6">
+                    <img src="https://i.imgur.com/4qLn5IU.png" alt="Foto de Mariana" class="w-24 h-24 rounded-full object-cover flex-shrink-0">
+                    <div class="text-center sm:text-left">
+                        <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                        <p class="text-lg italic my-2">"O 'bafinho' da Luli era constrangedor... Em 15 dias de Dentaw o cheiro forte simplesmente SUMIU. Mágico!"</p>
+                        <p class="font-bold text-center sm:text-right">- Mariana F., Florianópolis/SC</p>
+                    </div>
+                </div>
+                <!-- Depoimento Ricardo -->
+                <div class="bg-[--secondary] p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6">
+                    <img src="https://i.imgur.com/jeZ8Fip.png" alt="Foto de Ricardo" class="w-24 h-24 rounded-full object-cover flex-shrink-0">
+                    <div class="text-center sm:text-left">
+                        <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                        <p class="text-lg italic my-2">"Eu NUNCA consegui escovar os dentes do Zeca. Esse pozinho na comida foi a melhor invenção da vida. Paz!"</p>
+                        <p class="font-bold text-center sm:text-right">- Ricardo P., Campinas/SP</p>
+                    </div>
+                </div>
+                <!-- Depoimento Sofia -->
+                <div class="bg-[--secondary] p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6">
+                    <img src="https://i.imgur.com/AlYk87K.png" alt="Foto de Sofia" class="w-24 h-24 rounded-full object-cover flex-shrink-0">
+                    <div class="text-center sm:text-left">
+                        <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                        <p class="text-lg italic my-2">"Aquelas placas amarelas no dente da minha cachorra começaram a diminuir... Tô vendo o resultado a olho nu."</p>
+                        <p class="font-bold text-center sm:text-right">- Sofia R., Recife/PE</p>
+                    </div>
+                </div>
+                <!-- Depoimento Helena -->
+                <div class="bg-[--secondary] p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6">
+                    <img src="https://i.imgur.com/fNuzHRe.png" alt="Foto de Helena" class="w-24 h-24 rounded-full object-cover flex-shrink-0">
+                    <div class="text-center sm:text-left">
+                        <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                        <p class="text-lg italic my-2">"Levei na consulta e a própria veterinária perguntou o que eu estava fazendo, disse que a melhora era 'impressionante'."</p>
+                        <p class="font-bold text-center sm:text-right">- Helena B., Brasília/DF</p>
+                    </div>
+                </div>
+                <!-- Depoimento Teresa -->
+                <div class="bg-[--secondary] p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6">
+                    <img src="https://i.imgur.com/tK3H9Md.png" alt="Foto de Teresa" class="w-24 h-24 rounded-full object-cover flex-shrink-0">
+                    <div class="text-center sm:text-left">
+                        <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                        <p class="text-lg italic my-2">"Meu cão já tem 12 anos e eu tinha muito medo da anestesia. O Dentaw foi a solução segura que eu precisava."</p>
+                        <p class="font-bold text-center sm:text-right">- Teresa C., Niterói/RJ</p>
+                    </div>
+                </div>
+                <!-- Depoimento Bruno -->
+                <div class="bg-[--secondary] p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6">
+                    <img src="https://i.imgur.com/zTqkl2n.png" alt="Foto de Bruno" class="w-24 h-24 rounded-full object-cover flex-shrink-0">
+                    <div class="text-center sm:text-left">
+                        <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                        <p class="text-lg italic my-2">"O veterinário orçou a limpeza em R$1.900. Um único pote de Dentaw resolveu 80% do problema. A economia é absurda."</p>
+                        <p class="font-bold text-center sm:text-right">- Bruno G., Goiânia/GO</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Seção de Oferta -->
+        <section id="oferta" class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Escolha o melhor tratamento para seu pet</h2>
+            <div class="space-y-8">
+                
+                <!-- Mais Vendido - 3 Unidades -->
+                <div class="border-2 p-4 rounded-lg text-center best-seller-card relative">
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white font-bold px-4 py-1 rounded-full text-sm">🔥 KIT MAIS VENDIDO</span>
+                    <div class="p-4">
+                        <img src="https://i.imgur.com/PZ5GcyX.png" alt="Kit com 3 potes de Dentaw" class="w-full max-w-sm mx-auto my-4">
+                        <ul class="text-left space-y-2 my-4 text-lg">
+                            <li><span class="text-green-500 font-bold">✅</span> Cada Unidade por R$89</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Rende 90 doses</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Frete para todo Brasil</li>
+                            <li><span class="text-green-500 font-bold">✅</span> 60 dias de garantia para testar</li>
+                        </ul>
+                        <p class="text-3xl font-bold mt-4" style="color: var(--primary);">12x de R$ 28,52</p>
+                        <p class="text-md">ou R$ 267 à vista</p>
+                        <a href="https://seguro.animaw.com.br/b/CASSFQVHPRWC" target="_blank" class="btn block w-full py-4 text-xl font-bold mt-4">COMPRAR AGORA</a>
+                    </div>
+                </div>
+
+                <!-- 6 Unidades -->
+                <div class="border-2 p-4 rounded-lg text-center bg-[--secondary] relative">
+                     <div class="p-4">
+                        <h4 class="text-2xl font-bold mt-2">Compre 5, leve 6</h4>
+                        <img src="https://i.imgur.com/ei7CzOM.png" alt="Kit com 6 potes de Dentaw" class="w-full max-w-sm mx-auto my-4">
+                        <ul class="text-left space-y-2 my-4 text-lg">
+                            <li><span class="text-green-500 font-bold">✅</span> Ganhe 1 pacote GRÁTIS</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Cada Unidade por R$64</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Frete Grátis para todo Brasil</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Rende 180 doses</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Menos de 2 reais por dose</li>
+                            <li><span class="text-green-500 font-bold">✅</span> 60 dias de garantia para testar</li>
+                        </ul>
+                        <p class="text-4xl font-bold mt-4" style="color: var(--primary);">12x de R$ 38,58</p>
+                        <p class="text-lg">ou R$ 384 à vista</p>
+                        <a href="https://seguro.animaw.com.br/b/IY1V2LDGQ884" target="_blank" class="btn block w-full py-4 text-xl font-bold mt-4">COMPRAR AGORA</a>
+                    </div>
+                </div>
+
+                <!-- 1 Unidade -->
+                <div class="border-2 p-4 rounded-lg text-center bg-[--secondary]">
+                     <div class="p-4">
+                        <img src="https://i.imgur.com/emTxp0X.png" alt="Kit com 1 pote de Dentaw" class="w-full max-w-xs mx-auto my-4">
+                        <ul class="text-left space-y-2 my-4 text-lg">
+                            <li><span class="text-green-500 font-bold">✅</span> Uma unidade por R$129</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Rende 30 doses</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Frete para todo Brasil</li>
+                            <li><span class="text-green-500 font-bold">✅</span> 30 dias de garantia para testar</li>
+                        </ul>
+                        <p class="text-3xl font-bold mt-4" style="color: var(--primary);">12x de R$ 14,27</p>
+                        <p class="text-md">ou R$ 129 à vista</p>
+                        <a href="https://seguro.animaw.com.br/b/1AMFFMSTC50K" target="_blank" class="btn block w-full py-3 text-lg font-bold mt-4">COMPRAR AGORA</a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-red-600 font-bold text-xl mt-8 animate-pulse">⚠️ <strong>Estoque limitado:</strong> Restam 47 unidades</p>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Garantia -->
+        <section class="mb-12 section-fade-in text-center bg-[--secondary] p-8 rounded-lg">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Nossa Garantia Dupla de 60 Dias</h2>
+            <p class="text-lg mb-6">Nós confiamos tanto na eficácia do Dentaw que assumimos todo o risco por você. Use o Dentaw por 60 dias completos. Se você não ficar absolutamente chocada com a melhora no hálito, na aparência do tártaro e na saúde da gengiva do seu cão, basta nos enviar um e-mail. Nós devolveremos 100% do valor que você pagou. Sem perguntas, sem burocracia e sem ressentimentos. Ou você vê os resultados que prometemos, ou o tratamento sai de graça. O risco é todo nosso.</p>
+            <a href="#oferta" class="btn block w-full max-w-md mx-auto py-4 text-xl font-bold text-center">TESTE O DENTAW SEM RISCOS</a>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- FAQ Section -->
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Ainda tem alguma dúvida?</h2>
+            <div class="space-y-6 text-lg">
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: O que é o Dentaw?</p>
+                    <p class="mt-2">R: É um suplemento alimentar em pó, 100% natural, focado na saúde bucal de cães. Ele age de dentro para fora para combater a causa raiz do tártaro e do mau hálito, como o "Mofo Bucal", de forma segura e sem a necessidade de escovação.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Como eu dou o Dentaw para o meu pet?</p>
+                    <p class="mt-2">R: É muito simples. Basta usar o dosador que acompanha o pote e polvilhar a medida correta sobre a ração ou alimentação do seu cão, uma vez por dia. Ele não tem cheiro nem sabor, então até os pets mais exigentes aceitam facilmente.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Meu cachorro é chato para comer. Ele vai aceitar o Dentaw?</p>
+                    <p class="mt-2">R: Sim. O Dentaw foi desenvolvido pensando nisso. Ele é um pó ultrafino, sem cheiro e sem sabor, que se mistura completamente à ração (seca ou úmida). A grande maioria dos pets nem percebe que ele está lá.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Quais os principais ingredientes da fórmula?</p>
+                    <p class="mt-2">R: Nosso ingrediente herói é a alga Ascophyllum nodosum, que ativa o efeito "Saliva Sabão" para dissolver o tártaro e proteger os dentes. A fórmula é enriquecida com um complexo de Prebióticos e DHA para fortalecer a imunidade e a saúde geral do seu cão.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: O Dentaw é realmente seguro? Tem alguma contraindicação?</p>
+                    <p class="mt-2">R: Sim, é 100% seguro. Nossa fórmula utiliza ingredientes naturais e é aprovada por veterinários. Ela é especialmente segura para cães idosos ou sensíveis, que representam o maior grupo de risco para a anestesia de uma limpeza de tártaro. Não possui contraindicações conhecidas para o uso contínuo em cães saudáveis.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Em quanto tempo eu começo a ver os resultados?</p>
+                    <p class="mt-2">R: A maioria dos nossos clientes relata uma melhora significativa no mau hálito nas primeiras 2 a 3 semanas. A redução visível do tártaro, que é um processo de amolecimento e desprendimento, geralmente começa a ser notada entre 30 e 60 dias de uso contínuo.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Qual a diferença do Dentaw para os petiscos e enxaguantes bucais?</p>
+                    <p class="mt-2">R: A diferença é total. Petiscos e enxaguantes agem de forma superficial e temporária, muitas vezes apenas mascarando o mau hálito. O Dentaw é a única solução que age de dentro para fora. Ele é absorvido pelo organismo e transforma a saliva em um agente de limpeza, tratando a causa raiz do problema (o "Mofo Bucal"), em vez de apenas o sintoma.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Serve para cães de todas as idades e raças?</p>
+                    <p class="mt-2">R: Sim. O Dentaw é seguro e eficaz para cães de todas as raças e portes, a partir dos 6 meses de idade. Ele é especialmente benéfico para cães adultos e sêniores, que são mais propensos a desenvolver problemas bucais.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Qual o valor do frete e o prazo de entrega?</p>
+                    <p class="mt-2">R: O valor do frete e o prazo de entrega variam de acordo com a sua localidade (CEP). Oferecemos frete grátis para algumas promoções. Você poderá ver o valor exato e o prazo estimado na tela de checkout, antes de finalizar a sua compra.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Por que meu veterinário ainda não me indicou o Dentaw?</p>
+                    <p class="mt-2">R: O Dentaw representa uma nova abordagem no cuidado preventivo, focada em nutrição. Muitos veterinários são treinados com foco em tratamentos (como a cirurgia de tartarectomia) e podem ainda não estar atualizados sobre as últimas inovações em suplementação. Temos uma equipe dedicada a apresentar a nossa fórmula à comunidade veterinária e estamos confiantes de que, em breve, ela será a recomendação número um em todo o Brasil. Leve a nossa embalagem na próxima consulta!</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+        
+        <!-- CTA Final -->
+        <section class="text-center mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Pronto para começar?</h2>
+            <p class="text-lg mb-6">Clique no botão abaixo para escolher o melhor kit para o seu cão e aproveitar nossa oferta especial.</p>
+            <a href="#oferta" class="btn w-full max-w-md mx-auto py-4 text-xl font-bold">ESCOLHER MEU KIT AGORA</a>
+        </section>
+
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="bg-[--foreground] text-[--background] text-opacity-90 py-12 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Coluna 1: Logo e Info -->
+                <div>
+                    <img src="https://i.imgur.com/HBYTTaC.png" alt="Logo Animaw Suplementos" class="w-40 mx-auto md:mx-0 mb-4">
+                    <p class="text-sm">Fiver Comércio LTDA</p>
+                    <p class="text-sm">CNPJ: 43.822.145/0001-80</p>
+                </div>
+                <!-- Coluna 2: Contato -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">CONTATO</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Email: sac@animaw.com.br</li>
+                        <li>WhatsApp: (11) 5116-0529</li>
+                        <li>Atendimento: seg à sex (08:00 às 17:00)</li>
+                        <li>R. Adelaide Daniel de Almeida, 170 - CJ 230 EV 2, Campinas - SP, 13080-661</li>
+                    </ul>
+                </div>
+                <!-- Coluna 3: Links Úteis -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">LINKS ÚTEIS</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://api.whatsapp.com/send/?phone=551151160529&text=Ol%C3%A1%2C+tenho+interesse+em+ser+influencer&type=phone_number&app_absent=0" class="hover:text-[--primary] transition-colors" target="_blank">Seja um Revendedor!</a></li>
+                        <li><a href="https://www.animaw.com.br/privacidade" class="hover:text-[--primary] transition-colors" target="_blank">Políticas de privacidade</a></li>
+                        <li><a href="https://www.animaw.com.br/termos" class="hover:text-[--primary] transition-colors" target="_blank">Termos e condições</a></li>
+                        <li><a href="https://www.animaw.com.br/reembolso" class="hover:text-[--primary] transition-colors" target="_blank">Políticas de Reembolso e Garantia</a></li>
+                        <li><a href="#" class="hover:text-[--primary] transition-colors">Políticas de Frete</a></li>
+                        <li><a href="https://www.animaw.com.br/sobre-nos" class="hover:text-[--primary] transition-colors" target="_blank">Sobre Nós</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-6 text-center text-xs text-white/60">
+                <p class="mb-4">Todos os direitos reservados 2025.</p>
+                <p>As informações presentes neste site não substituem orientações veterinárias e não configuram promessa de cura, tratamento ou diagnóstico de qualquer condição de saúde. Os suplementos da Animaw têm função nutricional complementar e devem ser usados conforme orientação do responsável pelo pet. Resultados podem variar de acordo com cada organismo. Nenhuma informação aqui deve ser interpretada como conselho médico ou garantia de resultado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para animação de fade-in ao rolar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section-fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // A seção aparece quando 10% dela está visível
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
