@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentaw - A Solução Definitiva Contra o Tártaro</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        :root {
+            --background: #FAF8F5;
+            --foreground: #333333;
+            --primary: #2D7A79; /* Muted Teal */
+            --primary-foreground: #FFFFFF;
+            --secondary: #E5E7EB;
+            --border: #E5E7EB;
+            --font-sans: 'Open Sans', sans-serif;
+            --font-headings: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background) !important;
+            color: var(--foreground) !important;
+            font-family: var(--font-sans) !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-headings) !important;
+        }
+        
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .text-primary-foreground { color: var(--primary-foreground); }
+        .border-primary { border-color: var(--primary); }
+        .ring-primary { ring-color: var(--primary); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Floating Badge -->
+        <div class="text-center mb-6">
+            <span class="inline-flex items-center bg-yellow-100 text-yellow-800 text-sm font-medium px-4 py-1 rounded-full">
+                ⭐⭐⭐⭐⭐ 34.892 avaliações reais (nota 4.8)
+            </span>
+        </div>
+
+        <!-- Main Headline -->
+        <header class="text-center space-y-4 mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">"Meu Shih-Tzu de 9 anos tinha tártaro e bafo insuportável.</h1>
+            <h2 class="text-2xl md:text-3xl text-gray-700">Em 28 dias, SEM escovar e SEM anestesia, isso aconteceu:"</h2>
+        </header>
+
+        <!-- Before/After Image -->
+        <div class="relative mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 rounded-lg overflow-hidden border-4 border-white shadow-2xl">
+                <div class="relative">
+                    <img src="https://placehold.co/600x400/d1d5db/333333?text=ANTES" alt="Cão com tártaro" class="w-full h-full object-cover">
+                    <div class="absolute top-2 left-2 bg-black bg-opacity-50 text-white text-xs font-bold uppercase px-2 py-1 rounded">ANTES</div>
+                    <div class="absolute bottom-2 left-2 text-white p-2 bg-black bg-opacity-40 rounded text-sm">Tobby com tártaro amarelo visível, gengiva vermelha</div>
+                </div>
+                <div class="relative">
+                    <img src="https://placehold.co/600x400/a3e635/333333?text=DEPOIS" alt="Cão com dentes limpos" class="w-full h-full object-cover">
+                    <div class="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold uppercase px-2 py-1 rounded">DEPOIS</div>
+                    <div class="absolute bottom-2 left-2 text-white p-2 bg-black bg-opacity-40 rounded text-sm">Tobby sorrindo, dentes brancos, gengiva rosa</div>
+                </div>
+            </div>
+            <p class="text-center mt-2 text-sm text-gray-600">"Lúcia M., São Paulo - 21 dias de uso"</p>
+        </div>
+
+        <!-- Trust Icons -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-12">
+            <div class="flex flex-col items-center space-y-2"><i data-lucide="shield-check" class="w-8 h-8 text-primary"></i><span class="text-sm font-semibold">Sem escovação (zero estresse)</span></div>
+            <div class="flex flex-col items-center space-y-2"><i data-lucide="heart-pulse" class="w-8 h-8 text-primary"></i><span class="text-sm font-semibold">Sem anestesia (zero risco)</span></div>
+            <div class="flex flex-col items-center space-y-2"><i data-lucide="calendar-check" class="w-8 h-8 text-primary"></i><span class="text-sm font-semibold">Sem mudança na rotina</span></div>
+            <div class="flex flex-col items-center space-y-2"><i data-lucide="sparkles" class="w-8 h-8 text-primary"></i><span class="text-sm font-semibold">Resultados a partir do 7º dia*</span></div>
+        </div>
+        
+        <!-- Logos -->
+        <div class="my-12">
+            <p class="text-center text-sm text-gray-500 mb-4 font-semibold">Visto em:</p>
+            <div class="flex justify-around items-center grayscale opacity-70 flex-wrap">
+                <span class="font-bold text-gray-500 text-lg mx-2">G1</span>
+                <span class="font-bold text-gray-500 text-lg mx-2">Petz</span>
+                <span class="font-bold text-gray-500 text-lg mx-2">Petlove</span>
+                <span class="font-bold text-gray-500 text-lg mx-2">DogHero</span>
+                <span class="font-bold text-gray-500 text-lg mx-2">Cães & Cia</span>
+            </div>
+        </div>
+        
+        <!-- Seals -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs font-semibold text-gray-600 my-12">
+            <div class="flex items-center justify-center space-x-2"><span>🏆</span><span>Aprovado MAPA</span></div>
+            <div class="flex items-center justify-center space-x-2"><span>🔬</span><span>Fórmula Patenteada</span></div>
+            <div class="flex items-center justify-center space-x-2"><span>🇧🇷</span><span>Fabricado no Brasil</span></div>
+            <div class="flex items-center justify-center space-x-2"><span>🌿</span><span>100% Natural</span></div>
+        </div>
+
+        <!-- Section: Pain Points -->
+        <section class="bg-white p-6 sm:p-8 rounded-lg shadow-lg my-12">
+            <h2 class="text-2xl font-bold text-center mb-6">Muitos donos confessam sentir isso:</h2>
+            <ul class="space-y-4">
+                <li class="flex items-start"><i data-lucide="check-square" class="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0"></i><span>"Meu cão tem mais de 3 anos e o bafo só piora."</span></li>
+                <li class="flex items-start"><i data-lucide="check-square" class="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0"></i><span>"Tentar escovar os dentes dele é uma guerra diária."</span></li>
+                <li class="flex items-start"><i data-lucide="check-square" class="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0"></i><span>"Sinto culpa ao ver as placas amarelas nos dentes dele."</span></li>
+                <li class="flex items-start"><i data-lucide="check-square" class="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0"></i><span>"Tenho medo da cirurgia de R$1.500+ que o veterinário sugeriu."</span></li>
+                <li class="flex items-start"><i data-lucide="check-square" class="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0"></i><span>"Evito os 'lambeijos' por causa do mau hálito."</span></li>
+            </ul>
+        </section>
+
+        <!-- Section: Problem -->
+        <section class="my-16">
+            <h3 class="text-2xl font-bold mb-4 text-center">O que ninguém te conta: tártaro não é sujeira. É uma infecção viva.</h3>
+            <p class="text-gray-600 mb-8 text-center">Ele evolui em 3 fases rápidas:</p>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="space-y-2"><div class="mx-auto bg-gray-200 w-16 h-16 rounded-full flex items-center justify-center"><h4 class="font-bold text-lg">FASE 1</h4></div><h5 class="font-bold">INVASÃO SILENCIOSA</h5><p class="text-sm">Bactérias criam um biofilme invisível nos dentes.</p></div>
+                <div class="space-y-2"><div class="mx-auto bg-yellow-200 w-16 h-16 rounded-full flex items-center justify-center"><h4 class="font-bold text-lg">FASE 2</h4></div><h5 class="font-bold">FORTALEZA VISÍVEL</h5><p class="text-sm">O biofilme endurece e vira o tártaro amarelo que você vê.</p></div>
+                <div class="space-y-2"><div class="mx-auto bg-red-200 w-16 h-16 rounded-full flex items-center justify-center"><h4 class="font-bold text-lg">FASE 3</h4></div><h5 class="font-bold">ATAQUE INTERNO</h5><p class="text-sm">Toxinas vazam para o sangue e atacam o coração e os rins.</p></div>
+            </div>
+             <div class="mt-10 bg-red-50 border-l-4 border-red-500 text-red-700 p-4 rounded-md" role="alert">
+                <p class="font-bold mb-2">É por isso que as soluções comuns falham:</p>
+                <ul class="list-none space-y-2 text-sm">
+                    <li>❌ <strong>Escovar</strong> só limpa a superfície (42% da placa).</li>
+                    <li>❌ <strong>Petiscos</strong> não quebram o biofilme endurecido.</li>
+                    <li>❌ <strong>Sprays</strong> apenas mascaram o cheiro temporariamente.</li>
+                </ul>
+                <p class="mt-4 font-bold text-green-700">✅ A única solução: mudar a química da saliva por dentro.</p>
+            </div>
+        </section>
+
+        <!-- Section: Solution -->
+        <section class="bg-gray-800 text-white p-8 rounded-lg shadow-lg my-12">
+            <h3 class="text-3xl font-bold text-center mb-4">Dentaw: A Descoberta Norueguesa que Cria a "Saliva-Sabão" Anti-Tártaro</h3>
+            <img src="https://placehold.co/600x300/e2e8f0/333333?text=GIF:+Efeito+Marangoni" alt="Visual do Efeito Marangoni" class="w-full max-w-md mx-auto rounded-lg my-6"/>
+            <p class="text-center text-gray-300 mb-6">A descoberta veio da Noruega: pescadores notaram que seus cães, que comiam uma alga específica, tinham dentes perfeitos — sem nunca escovar.</p>
+            <div class="grid md:grid-cols-2 gap-4 text-center my-8">
+                <div class="bg-gray-700 p-4 rounded">
+                    <h4 class="font-bold mb-2">SALIVA COMUM:</h4><ul class="text-sm space-y-2 text-gray-300"><li>- O tártaro gruda e endurece.</li><li>- As bactérias se multiplicam.</li><li>- O mau hálito piora a cada dia.</li></ul>
+                </div>
+                <div class="bg-primary p-4 rounded">
+                    <h4 class="font-bold mb-2 text-primary-foreground">COM DENTAW (SALIVA-SABÃO):</h4><ul class="text-sm space-y-2 text-primary-foreground"><li>- O tártaro amolece e se solta.</li><li>- As bactérias não conseguem se fixar.</li><li>- O hálito fica neutro. <em class="text-xs">*Primeiros resultados em 7 dias.</em></li></ul>
+                </div>
+            </div>
+            <div class="text-center">
+                <h4 class="text-xl font-bold mt-8 mb-2">O Segredo Por Trás do Efeito:</h4>
+                <p class="text-gray-300 mb-4">Usamos a fonte exclusiva da alga <strong class="text-green-300">Ascophyllum nodosum</strong> e um processo de ativação patenteado, garantindo que ela <strong>aja de dentro para fora</strong>.</p>
+                <img src="https://placehold.co/600x300/4a5568/ffffff?text=GIF:+Tártaro+derretendo" alt="Visual do tártaro derretendo" class="w-full max-w-md mx-auto rounded-lg my-6"/>
+                <h4 class="text-xl font-bold mt-8 mb-2">O Efeito "Saliva-Sabão" em Ação:</h4>
+                <ul class="space-y-2 text-gray-200 list-inside list-none">
+                    <li>✅ <strong>Derrete o tártaro</strong> como detergente em gordura.</li>
+                    <li>✅ <strong>Impede que bactérias grudem</strong>, criando uma superfície lisa.</li>
+                    <li>✅ <strong>Trabalha 24h</strong>, automaticamente — enquanto ele dorme, come ou brinca.</li>
+                </ul>
+                <p class="mt-6 font-bold text-lg bg-yellow-300 text-gray-900 p-3 rounded-md">E a única coisa que você precisa fazer é colocar uma colherzinha na comida dele 1x ao dia.</p>
+            </div>
+        </section>
+        
+        <!-- Section: How to use -->
+        <section class="my-16">
+            <h2 class="text-2xl font-bold text-center mb-8">Mais fácil que dar um petisco:</h2>
+            <div class="flex flex-col md:flex-row justify-around items-center text-center space-y-8 md:space-y-0 md:space-x-4">
+                <div class="flex flex-col items-center"><div class="bg-white shadow-md rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-primary"><i data-lucide="shovel" class="w-12 h-12 text-primary"></i></div><h4 class="text-lg font-bold">① POLVILHE</h4><p class="text-gray-600 text-sm">1 medida rasa na ração<br>(5g = 1 colher de chá)</p></div>
+                <i data-lucide="arrow-right" class="w-12 h-12 text-gray-300 hidden md:block"></i>
+                <div class="flex flex-col items-center"><div class="bg-white shadow-md rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-primary"><i data-lucide="rotate-cw" class="w-12 h-12 text-primary"></i></div><h4 class="text-lg font-bold">② MISTURE</h4><p class="text-gray-600 text-sm">10 segundos mexendo<br>(sem cheiro, sem sabor)</p></div>
+                <i data-lucide="arrow-right" class="w-12 h-12 text-gray-300 hidden md:block"></i>
+                <div class="flex flex-col items-center"><div class="bg-white shadow-md rounded-full w-24 h-24 flex items-center justify-center mb-4 border-2 border-primary"><i data-lucide="bone" class="w-12 h-12 text-primary"></i></div><h4 class="text-lg font-bold">③ PRONTO</h4><p class="text-gray-600 text-sm">Seu cão come normal<br>Saliva Sabão ativada!</p></div>
+            </div>
+            <div class="mt-8 text-center text-sm text-gray-600 space-x-4">
+                <span>⏱️ <strong>Tempo total:</strong> 15 segundos/dia</span>
+                <span>📅 <strong>Resultados visíveis:</strong> a partir do 7º dia</span>
+            </div>
+        </section>
+        
+        <!-- Section: Long Term Benefits -->
+        <section class="bg-white p-8 rounded-lg shadow-lg my-12">
+            <h2 class="text-2xl font-bold text-center mb-8">Por que 89% dos clientes usam Dentaw por 6+ meses:</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="border-t-4 border-primary pt-4"><h3 class="font-bold text-lg">Mês 1: O Alívio Imediato*</h3><p class="text-sm text-gray-600 mt-2">O mau hálito desaparece. Ele come com mais prazer, e você volta a receber "lambeijos" sem virar o rosto.</p></div>
+                <div class="border-t-4 border-primary pt-4"><h3 class="font-bold text-lg">Meses 2-3: A Prova Visível</h3><p class="text-sm text-gray-600 mt-2">O tártaro amolece e começa a se soltar. Você vê os dentes mais brancos e a energia de filhote dele voltando com força total.</p></div>
+                <div class="border-t-4 border-primary pt-4"><h3 class="font-bold text-lg">Meses 4-6: A Reversão Completa</h3><p class="text-sm text-gray-600 mt-2">Os dentes ficam limpos e a gengiva retorna ao rosa saudável. É a tranquilidade de saber que você evitou uma cirurgia cara e arriscada.</p></div>
+            </div>
+            <blockquote class="mt-8 text-center bg-gray-100 p-4 rounded-md border-l-4 border-primary">
+                <p class="text-gray-700 italic">"Um estudo com 1.847 cães confirmou: o pico dos resultados é atingido com o uso contínuo. Por isso, 89% dos nossos clientes escolhem o <strong>Plano Proteção Total de 6 meses</strong> para garantir a saúde do seu pet a longo prazo."</p>
+            </blockquote>
+            <div class="text-center mt-8">
+                <button class="w-full md:w-auto bg-primary hover:opacity-90 text-primary-foreground font-bold py-3 px-10 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105">
+                    COMEÇAR TRANSFORMAÇÃO AGORA
+                </button>
+            </div>
+        </section>
+
+        <!-- Final Icon Bar -->
+        <section class="my-16">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center text-xs font-semibold text-gray-600">
+                <div class="flex items-center justify-center space-x-2"><span>🐕</span><span>TODAS AS RAÇAS</span></div>
+                <div class="flex items-center justify-center space-x-2"><span>🎂</span><span>3 A 15 ANOS</span></div>
+                <div class="flex items-center justify-center space-x-2"><span>🌿</span><span>SEM QUÍMICOS</span></div>
+                <div class="flex items-center justify-center space-x-2"><span>🏥</span><span>SEM ANESTESIA</span></div>
+                <div class="flex items-center justify-center space-x-2"><span>🍖</span><span>SEM SABOR</span></div>
+                <div class="flex items-center justify-center space-x-2 col-span-2 sm:col-span-1 md:col-span-2"><span>⚡</span><span>AÇÃO EM 7 DIAS</span></div>
+                <div class="flex items-center justify-center space-x-2"><span>📦</span><span>ENTREGA DISCRETA</span></div>
+                <div class="flex items-center justify-center space-x-2"><span>🔄</span><span>GARANTIA 60 DIAS</span></div>
+                <div class="flex items-center justify-center space-x-2"><span>🏆</span><span>APROVADO MAPA</span></div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-8">182.437 transformações reais:</h2>
+            <!-- Carousel Placeholder -->
+            <div class="space-y-8">
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <img src="https://placehold.co/400x300/d1d5db/333333?text=ANTES" alt="Antes" class="rounded">
+                        <img src="https://placehold.co/400x300/a3e635/333333?text=DEPOIS" alt="Depois" class="rounded">
+                    </div>
+                    <p class="font-bold text-sm">"Tobby, Shih-Tzu, 9 anos - São Paulo/SP"</p>
+                    <p class="text-xs text-gray-600"><strong>ANTES:</strong> Tártaro grau 3, bafo insuportável</p>
+                    <p class="text-xs text-green-700"><strong>DEPOIS (30 dias):</strong> 80% do tártaro eliminado</p>
+                    <blockquote class="mt-2 text-primary font-semibold italic text-sm">"'Economizei R$1.900 da cirurgia' - Lúcia M."</blockquote>
+                </div>
+                 <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <img src="https://placehold.co/400x300/d1d5db/333333?text=ANTES" alt="Antes" class="rounded">
+                        <img src="https://placehold.co/400x300/a3e635/333333?text=DEPOIS" alt="Depois" class="rounded">
+                    </div>
+                    <p class="font-bold text-sm">"Mel, Yorkshire, 11 anos - Rio/RJ"</p>
+                    <p class="text-xs text-gray-600"><strong>ANTES:</strong> Gengiva sangrando, recusava comida</p>
+                    <p class="text-xs text-green-700"><strong>DEPOIS (21 dias):</strong> Come normal, zero sangramento</p>
+                    <blockquote class="mt-2 text-primary font-semibold italic text-sm">"'Meu medo da anestesia acabou' - Carlos R."</blockquote>
+                </div>
+            </div>
+            
+            <!-- Video Placeholder -->
+            <div class="my-12">
+                <div class="aspect-w-16 aspect-h-9 bg-gray-300 rounded-lg flex items-center justify-center">
+                    <p class="text-gray-500">[VÍDEO: Compilação 60s de donos mostrando resultados]</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="inline-block bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-lg border border-primary transition">
+                    VER MAIS 500 DEPOIMENTOS →
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Sticky CTA -->
+    <div class="sticky bottom-0 w-full bg-white p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] mt-12">
+        <div class="max-w-3xl mx-auto text-center">
+            <button class="w-full bg-primary hover:opacity-90 text-primary-foreground font-bold py-4 px-6 rounded-lg shadow-lg text-xl transition-transform transform hover:scale-105">
+                🛡️ TESTAR POR 60 DIAS COM GARANTIA TOTAL
+            </button>
+            <p class="text-xs text-gray-500 mt-2">Você usa, se não funcionar, devolve sem custos.</p>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
