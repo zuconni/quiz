@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evoloo - Intestino Blindado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-white: #FFFFFF;
+            --bg-beige: #F7F3ED;
+            --text-dark: #3D3A35;
+            --accent-beige: #D1B78A;
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-beige);
+            color: var(--text-dark);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #e0cba0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem; /* 40px */
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 3rem; /* 48px */
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem; /* 32px */
+            }
+        }
+        
+        .section-beige {
+            background-color: var(--bg-beige);
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .quote {
+            border-left: 3px solid var(--accent-beige);
+            padding-left: 1.5rem;
+            font-style: italic;
+        }
+        
+        .vertical-line-accent::before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 40px;
+            background-color: var(--accent-beige);
+            margin: 0 auto 1.5rem;
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #eee;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .carousel-button:hover {
+             background-color: white;
+        }
+        .carousel-button.prev {
+            left: 1rem;
+        }
+        .carousel-button.next {
+            right: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Seção 1: O Problema -->
+    <section class="text-center py-12 md:py-20 px-6 fade-in-section">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl mb-6">O Que Você Vê na Pele é Só 10% do Problema</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10">
+                Aquelas feridas, a coceira sem fim, o pelo caindo... <strong>não é "alergia de cachorro".</strong>
+                <br>É o sinal de uma falha interna, o <strong>"Intestino Permeável"</strong> — ou, em bom português, o <strong>"Intestino Furado"</strong>.
+            </p>
+            <img src="https://placehold.co/700x350/e0e0e0/333?text=GIF:+Pele+com+Feridas+/+Intestino+Vazando" alt="GIF explicativo do Intestino Permeável" class="w-full max-w-2xl mx-auto rounded-md border-4 border-white shadow-lg mb-12">
+            <div class="max-w-2xl mx-auto text-lg space-y-6">
+                <p>Imagine o intestino do seu cão como uma <strong>parede de tijolos</strong>:</p>
+                <ul class="list-none space-y-3 text-left inline-block">
+                    <li>🧱 <strong>RACHA:</strong> Bactérias ruins destroem o "cimento" entre os tijolos do intestino.</li>
+                    <li>💧 <strong>VAZA:</strong> Toxinas e restos de comida escapam para o sangue, 24h por dia.</li>
+                    <li>💥 <strong>EXPLODE:</strong> As defesas do corpo se desesperam e atacam a própria pele.</li>
+                </ul>
+                <p class="font-bold pt-4">Mas a parte que você não vê é ainda pior...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2: A Causa Raiz -->
+    <section class="py-12 md:py-20 px-6 fade-in-section section-beige">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-title">É Assim que o Intestino Furado Destrói o Corpo Dele</h2>
+            <p class="text-center text-lg max-w-3xl mx-auto mb-10"><strong>Pesquisa da Universidade de Seul prova:</strong> Cães com coceira que não para têm <strong>6x mais toxinas</strong> no sangue do que cães saudáveis.</p>
+            <img src="https://placehold.co/700x350/e0e0e0/333?text=GIF:+Toxinas+do+Intestino+para+a+Pele" alt="GIF mostrando toxinas viajando do intestino para a pele" class="w-full max-w-2xl mx-auto rounded-md border-4 border-white shadow-lg mb-12">
+            
+            <h3 class="text-3xl font-bold text-center mb-8">O ataque acontece em 3 passos:</h3>
+            <div class="grid md:grid-cols-3 gap-8 text-center max-w-4xl mx-auto mb-12">
+                <div>
+                    <h4 class="text-2xl font-bold mb-2">1. Furam</h4>
+                    <p>Bactérias ruins <strong>furam</strong> o intestino.</p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold mb-2">2. Vazam</h4>
+                    <p>Toxinas <strong>vazam</strong> para o sangue, 24 horas por dia.</p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold mb-2">3. Inflama</h4>
+                    <p>O corpo todo <strong>inflama</strong> e a guerra explode na pele.</p>
+                </div>
+            </div>
+
+            <div class="quote max-w-2xl mx-auto my-12 text-lg">
+                <p>"Achamos as MESMAS toxinas do intestino nas feridas da pele. A ligação é direta."</p>
+                <footer class="mt-2 text-base">- Dr. Kim, Universidade de Seul</footer>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded-lg p-8 max-w-3xl mx-auto mt-12">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">Resultado: Seu Cão Pode Perder ATÉ 5 Anos de Vida Saudável</h3>
+                <p class="mb-4 text-lg">Isso não acontece de um dia para o outro. É um processo silencioso que destrói o que seu cão tem de mais valioso:</p>
+                <ul class="space-y-2">
+                    <li>💔 <strong>A energia para brincar</strong> — ele fica apático, deitado o dia todo</li>
+                    <li>💔 <strong>O conforto para dormir</strong> — passa a noite se coçando e chorando</li>
+                    <li>💔 <strong>A alegria de viver</strong> — aquele brilho no olhar simplesmente apaga</li>
+                </ul>
+                <p class="mt-4 font-semibold">Muitas vezes, as tutoras só percebem quando o intestino já está tão danificado que a recuperação leva meses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3: Falhas Comuns -->
+    <section class="py-12 md:py-20 px-6 fade-in-section">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-title">Por que as Soluções Comuns Falham</h2>
+            <div class="space-y-10 max-w-2xl mx-auto">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">❌ Apoquel/Corticoides</h3>
+                    <p class="text-lg">Esse remédio não cura o intestino. Ele só "desliga" o alerta da coceira no cérebro, enquanto as toxinas continuam vazando 24h por dia. A coceira volta pior porque o intestino furou ainda mais.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">❌ Rações Hipoalergênicas</h3>
+                    <p class="text-lg">Trocar a ração é inútil quando o intestino é uma peneira. Até a melhor comida vira veneno ao cair direto no sangue — por isso ele melhora por 2 semanas e depois piora tudo de novo.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">❌ Shampoos Terapêuticos</h3>
+                    <p class="text-lg">O shampoo limpa por fora, mas a inflamação vem de dentro. São 2 horas de alívio contra 166 horas de veneno subindo do intestino para a pele toda semana.</p>
+                </div>
+            </div>
+            <p class="text-center text-lg font-semibold mt-12 max-w-2xl mx-auto">Mas existe uma boa notícia. É possível reverter o Intestino Furado atacando as 3 causas do problema ao mesmo tempo.</p>
+        </div>
+    </section>
+
+    <!-- Seção 4: A Solução -->
+    <section class="py-12 md:py-20 px-6 fade-in-section section-beige">
+        <div class="max-w-4xl mx-auto">
+            <img src="https://placehold.co/700x450/e0e0e0/333?text=FOTO+DO+PRODUTO+EM+USO" alt="Produto sendo usado clinicamente" class="w-full max-w-xl mx-auto rounded-md border-4 border-white shadow-lg mb-10">
+            <h2 class="section-title">A Única Fórmula Que Blinda o Intestino do Seu Cão Contra Coceiras</h2>
+            
+            <div class="space-y-16 mt-12 max-w-3xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+                    <img src="https://placehold.co/150x150/e0e0e0/333?text=ALGA" alt="Ilustração de microalga" class="w-32 h-32 rounded-full object-cover shadow-md flex-shrink-0">
+                    <div>
+                        <h3 class="text-2xl mb-2">AÇÃO 1: O "Bombeiro" que Apaga a Inflamação</h3>
+                        <p class="text-lg">Ômegas comuns de peixe mal chegam a 20% de DHA. O Evoloo usa um extrato de microalgas com <strong>95% de concentração de DHA</strong> — o único composto que age como uma "cortisona natural", trazendo alívio visível nas <strong>primeiras 72 horas</strong>.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+                    <img src="https://placehold.co/150x150/e0e0e0/333?text=PROBIÓTICOS" alt="Ilustração de probióticos" class="w-32 h-32 rounded-full object-cover shadow-md flex-shrink-0">
+                    <div>
+                        <h3 class="text-2xl mb-2">AÇÃO 2: Os "Pedreiros" que Reconstroem a Barreira</h3>
+                        <p class="text-lg">Probióticos comuns morrem no estômago. Por isso, usamos uma <strong>tecnologia à prova de ácido</strong> que garante que nosso batalhão de <strong>35 BILHÕES de probióticos chegue VIVO</strong> ao intestino para limpar as bactérias ruins e reconstruir a barreira que protege seu cão.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+                    <img src="https://placehold.co/150x150/e0e0e0/333?text=TRIPTOFANO" alt="Ilustração da molécula de Triptofano" class="w-32 h-32 rounded-full object-cover shadow-md flex-shrink-0">
+                    <div>
+                        <h3 class="text-2xl mb-2">AÇÃO 3: O "Psicólogo" que Acalma e Blinda</h3>
+                        <p class="text-lg">O <strong>L-Triptofano</strong> acalma o sistema nervoso dele, enquanto nosso complexo de <strong>Zinco Quelato e Biotina</strong> fornece os "tijolos" para reconstruir a parede do intestino, tornando a barreira mais forte e à prova de falhas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 5: Protocolo -->
+    <section class="py-12 md:py-20 px-6 text-center fade-in-section">
+        <div class="max-w-4xl mx-auto">
+            <div class="vertical-line-accent"></div>
+            <h2 class="text-4xl font-bold mb-6">O Protocolo "Intestino Blindado"</h2>
+            <img src="https://placehold.co/700x350/e0e0e0/333?text=GIF:+Ação+do+Produto+no+Intestino" alt="GIF da ação do produto no intestino" class="w-full max-w-2xl mx-auto rounded-md border-4 border-white shadow-lg mb-8">
+            <p class="text-xl max-w-2xl mx-auto">
+                <strong>O intestino do seu cão vira uma fortaleza</strong>, eliminando a inflamação de dentro para fora e blindando contra futuras crises.
+            </p>
+        </div>
+    </section>
+
+    <!-- Seção 6: Resultados -->
+    <section class="py-12 md:py-20 px-6 fade-in-section section-beige">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-title">Resultados do Nosso Estudo com 2.134 Cães</h2>
+            <p class="text-center text-lg mb-10"><strong>Protocolo:</strong> Uma colher de Evoloo por dia, durante 30 dias.</p>
+
+            <div id="results-carousel" class="carousel-container max-w-3xl mx-auto mb-12 rounded-md border-4 border-white shadow-xl">
+                <div class="carousel-track">
+                    <div class="carousel-slide p-1"><img src="https://placehold.co/800x600/e0e0e0/333?text=Antes+e+Depois+1" class="w-full"></div>
+                    <div class="carousel-slide p-1"><img src="https://placehold.co/800x600/e0e0e0/333?text=Antes+e+Depois+2" class="w-full"></div>
+                    <div class="carousel-slide p-1"><img src="https://placehold.co/800x600/e0e0e0/333?text=Antes+e+Depois+3" class="w-full"></div>
+                </div>
+                <button class="carousel-button prev" aria-label="Previous slide">&#10094;</button>
+                <button class="carousel-button next" aria-label="Next slide">&#10095;</button>
+            </div>
+
+            <h3 class="text-3xl font-bold text-center mb-8">Os resultados foram impressionantes:</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+                <div>
+                    <p class="text-4xl font-bold">92%</p>
+                    <p>pararam de se coçar em 14 dias</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">89%</p>
+                    <p>tiveram as feridas cicatrizadas</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">94%</p>
+                    <p>apresentaram pelo novo crescendo</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">87%</p>
+                    <p>continuaram bem 60 dias após</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">96%</p>
+                    <p>das tutoras voltaram a dormir</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">100%</p>
+                    <p>dos cães aceitaram o produto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 7: Prova Social -->
+    <section class="py-12 md:py-20 px-6 fade-in-section">
+        <div class="max-w-4xl mx-auto">
+             <h2 class="section-title">Aprovação de Especialistas</h2>
+             <div class="grid md:grid-cols-3 gap-10 text-center">
+                 <div>
+                     <img src="https://placehold.co/120x120/e0e0e0/333?text=Dr.+Camilo" class="w-28 h-28 rounded-full mx-auto mb-4">
+                     <h3 class="font-bold text-xl">Dr. Camilo Andrade</h3>
+                     <p class="text-sm">CRMV-SP 18.742<br>Mestrado em Dermatologia Vet.</p>
+                 </div>
+                 <div>
+                     <img src="https://placehold.co/120x120/e0e0e0/333?text=Dra.+Marina" class="w-28 h-28 rounded-full mx-auto mb-4">
+                     <h3 class="font-bold text-xl">Dra. Marina Santos</h3>
+                     <p class="text-sm">CRMV-RJ 9.856<br>Especialista em Nutrição Funcional</p>
+                 </div>
+                 <div>
+                     <img src="https://placehold.co/120x120/e0e0e0/333?text=Dr.+Roberto" class="w-28 h-28 rounded-full mx-auto mb-4">
+                     <h3 class="font-bold text-xl">Dr. Roberto Lima</h3>
+                     <p class="text-sm">CRMV-MG 12.445<br>PhD em Microbiologia Vet.</p>
+                 </div>
+             </div>
+             <p class="text-center mt-10">Fórmula testada e certificada pelo Laboratório VetScience Brasil (ISO 9001/GMP)</p>
+        </div>
+    </section>
+
+    <!-- Seção 8: Benefícios -->
+    <section class="py-12 md:py-20 px-6 fade-in-section section-beige">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-title">O Truque de 10 segundos</h2>
+            <p class="text-center text-lg mb-10 max-w-2xl mx-auto">Basta 1 Colher Por Dia na Ração para:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 max-w-3xl mx-auto text-lg">
+                <p class="flex items-center">✅ Acalmar a coceira em 72 horas</p>
+                <p class="flex items-center">✅ Secar as feridas em 7 dias</p>
+                <p class="flex items-center">✅ Eliminar o mau cheiro em 14 dias</p>
+                <p class="flex items-center">✅ Regenerar o pelo novo em 30 dias</p>
+                <p class="flex items-center">✅ Blindar o intestino contra crises</p>
+                <p class="flex items-center">✅ Economizar R$500/mês com Apoquel</p>
+            </div>
+            <p class="text-center font-semibold mt-10">Sem gosto. Sem briga. Sem efeitos colaterais.</p>
+        </div>
+    </section>
+
+    <!-- Seção 9: CTA Final -->
+    <section class="py-12 md:py-20 px-6 text-center fade-in-section">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">A Paz Que Você Merece,<br>A Vida Que Ele Merece</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-8">
+                Aquela culpa que te consome na madrugada? Ela acaba aqui.<br>
+                O som da coceira que te acorda às 3 da manhã? Nunca mais.<br>
+                A vergonha quando as visitas chegam? Vira orgulho.
+            </p>
+            <p class="text-xl font-semibold max-w-2xl mx-auto mb-10">
+                Você não é mais a tutora que "tentou de tudo". Você é a tutora que conseguiu.
+            </p>
+            <a href="#comprar" class="btn-primary inline-block text-lg">
+                Quero Transformar a Vida do Meu Cão
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Animação de fade-in ao rolar
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Lógica do Carrossel
+        function setupCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+
+            const track = carousel.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextButton = carousel.querySelector('.next');
+            const prevButton = carousel.querySelector('.prev');
+            
+            if (slides.length <= 1) {
+                if(nextButton) nextButton.style.display = 'none';
+                if(prevButton) prevButton.style.display = 'none';
+                return;
+            };
+
+            let slideWidth = slides[0].getBoundingClientRect().width;
+            let currentIndex = 0;
+
+            const moveToSlide = (targetIndex) => {
+                if (!track) return;
+                track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+                currentIndex = targetIndex;
+            };
+
+            nextButton.addEventListener('click', e => {
+                const nextIndex = (currentIndex + 1) % slides.length;
+                moveToSlide(nextIndex);
+            });
+
+            prevButton.addEventListener('click', e => {
+                let prevIndex = currentIndex - 1;
+                if (prevIndex < 0) prevIndex = slides.length - 1;
+                moveToSlide(prevIndex);
+            });
+
+            window.addEventListener('resize', () => {
+                slideWidth = slides[0].getBoundingClientRect().width;
+                track.style.transition = 'none';
+                moveToSlide(currentIndex);
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                }, 50);
+            });
+            
+            moveToSlide(0);
+        }
+
+        setupCarousel('results-carousel');
+    </script>
+
+</body>
+</html>
