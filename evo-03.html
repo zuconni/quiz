@@ -91,6 +91,27 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Otimizações para Dispositivos Móveis */
+        @media (max-width: 767px) {
+            body {
+                font-size: 18px !important;
+            }
+            main.container {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+            h1 { font-size: 2rem; } /* 32px */
+            h2 { font-size: 1.75rem; } /* 28px */
+            h3 { font-size: 1.125rem; } /* 18px */
+            p { font-size: 1rem; } /* 16px - mantido para legibilidade */
+
+            .dark-section {
+                margin-left: -10px; /* CORREÇÃO: Compensa o padding de 10px do container */
+                margin-right: -10px; /* CORREÇÃO: Compensa o padding de 10px do container */
+                border-radius: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -99,26 +120,35 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-gray-800">PetLabCo.</h1>
-            <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
+            <div id="nav-links" class="hidden md:flex md:items-center space-x-6 text-sm font-medium text-gray-600">
                 <a href="#" class="hover:text-gray-900">Info Produto</a>
                 <a href="#" class="hover:text-gray-900">Avaliado por Vets</a>
                 <a href="#" class="hover:text-gray-900">Avaliações</a>
                 <a href="#" class="hover:text-gray-900">Porquê Subscrever?</a>
             </div>
-            <i data-lucide="menu" class="md:hidden"></i>
+            <button id="menu-button" class="md:hidden">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
         </nav>
+        <!-- Menu Móvel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100">Info Produto</a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100">Avaliado por Vets</a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100">Avaliações</a>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100">Porquê Subscrever?</a>
+        </div>
     </header>
 
     <main class="container mx-auto p-4 md:p-8">
         
         <!-- Visto Em -->
-        <section class="dark-section rounded-lg p-8 my-16 text-center fade-in-up">
+        <section class="dark-section rounded-lg p-8 my-12 md:my-16 text-center fade-in-up">
             <h3 class="text-sm uppercase tracking-widest mb-4">Como visto em conteúdo patrocinado</h3>
             <div class="flex justify-center items-center space-x-8 opacity-70"><span class="font-bold text-2xl">OCBS</span><span class="font-bold text-2xl">abc</span><span class="font-bold text-2xl">NBC</span><span class="font-bold text-2xl">BuzzFeed</span><span class="font-bold text-2xl">Forbes</span></div>
         </section>
 
         <!-- #1 em Vendas -->
-        <section class="dark-section rounded-lg my-16 overflow-hidden fade-in-up">
+        <section class="dark-section rounded-lg my-12 md:my-16 overflow-hidden fade-in-up">
             <div class="p-8 md:p-12 relative">
                 <img src="https://placehold.co/100x100/facc15/333?text=NASC" alt="NASC Quality Seal" class="absolute top-4 right-4 w-20">
                 <div class="flex items-center text-yellow-400 mb-2"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
@@ -134,7 +164,7 @@
         </section>
 
         <!-- Fórmula Avaliada por Veterinário -->
-        <section class="my-16 text-center fade-in-up pb-12">
+        <section class="my-12 md:my-16 text-center fade-in-up pb-12">
             <h2 class="text-3xl font-bold mb-8">Fórmula avaliada por veterinário</h2>
             <div class="relative max-w-md mx-auto bg-white p-4 rounded-2xl shadow-lg">
                 <img src="https://placehold.co/400x400/d1e0e3/333?text=Veterinária" alt="Dr. Roxana Bordbar" class="rounded-xl w-full">
@@ -147,7 +177,7 @@
         </section>
 
         <!-- Ciência de Ponta -->
-        <section class="my-16 pt-16 fade-in-up">
+        <section class="my-12 pt-16 md:my-16 fade-in-up">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h2 class="text-4xl font-bold text-gray-900 mb-4">Ciência de ponta, qualidade inigualável</h2>
@@ -164,7 +194,7 @@
         </section>
 
         <!-- Benefícios para a Saúde Intestinal -->
-        <section class="my-16 fade-in-up">
+        <section class="my-12 md:my-16 fade-in-up">
             <h2 class="text-3xl font-bold text-center mb-12">Leve a saúde e o conforto intestinal do seu cão para <span class="italic">o próximo nível</span></h2>
             <div class="space-y-8 max-w-3xl mx-auto">
                 <div class="flex items-center gap-6 pb-8 border-b"><img src="https://placehold.co/100x100/e2d8c1/8a6d40?text=Cão" alt="Cão feliz" class="rounded-full w-24 h-24 object-cover flex-shrink-0"><div><h3 class="font-bold text-xl mb-1">Saúde Intestinal</h3><p class="text-gray-600">Uma poderosa mistura de probióticos, prebióticos e pós-bióticos ajuda a manter uma flora intestinal equilibrada, apoia a função digestiva e mantém as fezes firmes e saudáveis.</p></div></div>
@@ -176,12 +206,12 @@
         </section>
 
         <!-- O que esperar -->
-        <section class="my-16 text-center fade-in-up">
+        <section class="my-12 md:my-16 text-center fade-in-up">
             <h2 class="text-3xl font-bold">O que esperar</h2>
             <p class="max-w-2xl mx-auto mt-4 text-gray-600">83% dos subscritores do PetLab Co. Probiotic Chews viram resultados positivos em 3 meses de uso diário.³</p>
             <div class="mt-8 bg-gray-100 rounded-lg p-8">
                 <h3 class="text-xl font-bold">Um cachorro mais feliz e saudável - com cada snack macio</h3>
-                <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                     <div class="flex items-center justify-center"><i data-lucide="check-circle" class="w-5 h-5 text-primary mr-2"></i><span>Digestão mais equilibrada</span></div>
                     <div class="flex items-center justify-center"><i data-lucide="check-circle" class="w-5 h-5 text-primary mr-2"></i><span>Fezes mais firmes e saudáveis</span></div>
                     <div class="flex items-center justify-center"><i data-lucide="check-circle" class="w-5 h-5 text-primary mr-2"></i><span>Apoia o pelo, a pele e a saúde imunitária</span></div>
@@ -203,7 +233,7 @@
         </section>
         
         <!-- Porquê subscrever? -->
-        <section class="my-16 fade-in-up">
+        <section class="my-12 md:my-16 fade-in-up">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h2 class="text-4xl font-serif font-bold mb-4">Porquê subscrever?</h2>
@@ -239,7 +269,7 @@
         </section>
 
         <!-- Resultados Reais -->
-        <section class="my-16 py-10 bg-white rounded-lg shadow-md text-center fade-in-up">
+        <section class="my-12 md:my-16 py-10 bg-white rounded-lg shadow-md text-center fade-in-up">
             <p class="text-sm font-semibold"><i data-lucide="video" class="inline-block w-4 h-4 mr-1"></i> Não acredite apenas na nossa palavra</p>
             <h2 class="text-4xl font-serif font-bold my-4">Resultados reais de clientes reais⁴</h2>
             <div class="max-w-2xl mx-auto">
@@ -251,7 +281,7 @@
         </section>
 
         <!-- Secção de FAQ -->
-        <section class="max-w-3xl mx-auto my-16 fade-in-up">
+        <section class="max-w-3xl mx-auto my-12 md:my-16 fade-in-up">
             <h2 class="text-3xl font-serif font-bold text-center mb-8">Perguntas Frequentes</h2>
             <div id="faq-accordion" class="space-y-4">
                 <div class="border-b border-gray-200 pb-4"><button class="w-full flex justify-between items-center text-left font-semibold text-lg focus:outline-none"><span>Durante quanto tempo deve um cão tomar probióticos?</span><i data-lucide="chevron-down" class="transition-transform transform"></i></button><div class="mt-2 text-gray-600 hidden">Para melhores resultados, recomendamos o uso diário a longo prazo. Os probióticos trabalham para manter um equilíbrio saudável no intestino, e a suplementação consistente ajuda a apoiar esse equilíbrio ao longo do tempo.</div></div>
@@ -276,6 +306,13 @@
     <script>
         lucide.createIcons();
         
+        // Menu Móvel
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
         // Acordeão de FAQ
         const accordionItems = document.querySelectorAll('#faq-accordion button');
         accordionItems.forEach(button => {
