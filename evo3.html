@@ -98,8 +98,7 @@
                 font-size: 18px !important;
             }
             main.container {
-                padding-left: 10px !important;
-                padding-right: 10px !important;
+                /* O p-4 (1rem) do Tailwind já fornece a margem lateral */
             }
             h1 { font-size: 2rem; } /* 32px */
             h2 { font-size: 1.75rem; } /* 28px */
@@ -107,8 +106,9 @@
             p { font-size: 1rem; } /* 16px - mantido para legibilidade */
 
             .dark-section {
-                margin-left: -10px; /* CORREÇÃO: Compensa o padding de 10px do container */
-                margin-right: -10px; /* CORREÇÃO: Compensa o padding de 10px do container */
+                /* O container tem p-4 (1rem). Esta margem negativa compensa isso. */
+                margin-left: -1rem; 
+                margin-right: -1rem;
                 border-radius: 0;
             }
         }
@@ -297,7 +297,13 @@
     <footer class="bg-gray-100 text-gray-500 text-xs py-8">
         <div class="container mx-auto px-4">
             <p class="mb-4">A informação contida neste site não se destina a substituir o aconselhamento médico ou veterinário profissional. Se o seu animal de estimação tem, ou suspeita que tenha, qualquer condição médica, é instado a consultar o seu veterinário. Estas declarações não foram avaliadas pela Food and Drug Administration. Este produto não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>
-            <div class="flex flex-wrap justify-center space-x-4 mb-4"><a href="#" class="hover:underline">Sobre</a><a href="#" class="hover:underline">Produtos</a><a href="#" class="hover:underline">Termos de Uso</a><a href="#" class="hover:underline">Declaração de Privacidade</a><a href="#" class="hover:underline">Contacte-nos</a></div>
+            <div class="flex flex-wrap justify-center mb-4">
+                <a href="#" class="hover:underline m-2">Sobre</a>
+                <a href="#" class="hover:underline m-2">Produtos</a>
+                <a href="#" class="hover:underline m-2">Termos de Uso</a>
+                <a href="#" class="hover:underline m-2">Declaração de Privacidade</a>
+                <a href="#" class="hover:underline m-2">Contacte-nos</a>
+            </div>
             <p class="text-center">&copy; 2025 PetLab Co.</p>
         </div>
     </footer>
