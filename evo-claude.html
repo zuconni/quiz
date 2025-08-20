@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>PetLab Co. Probiotic Chew</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,10 +114,10 @@
         
         @media (max-width: 767px) {
             .dark-section {
-                margin-left: -1.25rem;
-                margin-right: -1.25rem;
-                padding-left: 1.25rem;
-                padding-right: 1.25rem;
+                margin-left: -1rem; /* Ajustado com o novo padding */
+                margin-right: -1rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
                 border-radius: 0;
             }
         }
@@ -144,46 +144,46 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding-left: 1.25rem;
-            padding-right: 1.25rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         /* Otimizações para Dispositivos Móveis */
         @media (max-width: 767px) {
             body {
-                font-size: 16px;
+                font-size: 18px; /* Aumentado para melhor legibilidade */
             }
             
             h1 { 
-                font-size: 1.875rem;
+                font-size: 2rem; /* 32px */
                 line-height: 1.2;
             }
             h2 { 
-                font-size: 1.5rem;
+                font-size: 1.75rem; /* 28px */
                 line-height: 1.3;
             }
             h3 { 
-                font-size: 1.125rem;
+                font-size: 1.25rem; /* 20px */
                 line-height: 1.4;
             }
             p { 
-                font-size: 0.9375rem;
+                font-size: 1rem; /* 16px base = 18px real devido ao body */
                 line-height: 1.6;
             }
 
             /* Container mobile com padding adequado */
             .container-custom {
-                padding-left: 1.25rem;
-                padding-right: 1.25rem;
+                padding-left: 1rem; /* Reduzido para compensar fonte maior */
+                padding-right: 1rem;
             }
             
             /* Ajustes específicos para elementos pequenos */
             .text-xs {
-                font-size: 0.75rem;
+                font-size: 0.8rem; /* 14.4px */
             }
             
             .text-sm {
-                font-size: 0.875rem;
+                font-size: 0.9rem; /* 16.2px */
             }
             
             /* Ajuste para ícones e elementos inline */
@@ -209,9 +209,24 @@
                 padding: 1rem;
             }
             
-            /* Ajuste de fonte para listas de logos */
-            .logo-list span {
-                font-size: 1.25rem !important;
+            /* Ajuste para manter proporções com fonte 18px */
+            .mobile-check-list {
+                font-size: 0.95rem; /* ~17px */
+            }
+            
+            @media (max-width: 480px) {
+                /* Ajustes extras para telas muito pequenas */
+                .mobile-check-list {
+                    font-size: 0.9rem; /* ~16px */
+                }
+                
+                h1 { 
+                    font-size: 1.75rem; /* 31.5px */
+                }
+                
+                h2 { 
+                    font-size: 1.5rem; /* 27px */
+                }
             }
         }
 
@@ -401,24 +416,24 @@
         <section class="my-8 md:my-16 text-center fade-in-up">
             <h2 class="text-2xl md:text-3xl font-bold">O que esperar</h2>
             <p class="max-w-2xl mx-auto mt-4 text-gray-600 text-sm md:text-base">83% dos subscritores do PetLab Co. Probiotic Chews viram resultados positivos em 3 meses de uso diário.³</p>
-            <div class="mt-6 md:mt-8 bg-gray-100 rounded-lg p-6 md:p-8 text-left">
-                <h3 class="text-lg md:text-xl font-bold mb-4">Um cachorro mais feliz e saudável - com cada snack macio</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 text-sm md:text-base">
-                    <div class="flex items-start">
-                        <i data-lucide="check-circle" class="w-5 h-5 md:w-6 md:h-6 text-primary mr-2 flex-shrink-0 mt-0.5"></i>
-                        <span>Digestão mais equilibrada</span>
+            <div class="mt-6 md:mt-8 bg-gray-100 rounded-lg p-4 sm:p-6 md:p-8">
+                <h3 class="text-lg md:text-xl font-bold mb-4 text-left">Um cachorro mais feliz e saudável - com cada snack macio</h3>
+                <div class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 text-sm md:text-base mobile-check-list">
+                    <div class="flex items-start text-left">
+                        <i data-lucide="check-circle" class="w-5 h-5 md:w-6 md:h-6 text-primary mr-2.5 flex-shrink-0 mt-0.5"></i>
+                        <span class="leading-relaxed">Digestão mais equilibrada</span>
                     </div>
-                    <div class="flex items-start">
-                        <i data-lucide="check-circle" class="w-5 h-5 md:w-6 md:h-6 text-primary mr-2 flex-shrink-0 mt-0.5"></i>
-                        <span>Fezes mais firmes e saudáveis</span>
+                    <div class="flex items-start text-left">
+                        <i data-lucide="check-circle" class="w-5 h-5 md:w-6 md:h-6 text-primary mr-2.5 flex-shrink-0 mt-0.5"></i>
+                        <span class="leading-relaxed">Fezes mais firmes e saudáveis</span>
                     </div>
-                    <div class="flex items-start">
-                        <i data-lucide="check-circle" class="w-5 h-5 md:w-6 md:h-6 text-primary mr-2 flex-shrink-0 mt-0.5"></i>
-                        <span>Apoia o pelo, a pele e a saúde imunitária</span>
+                    <div class="flex items-start text-left">
+                        <i data-lucide="check-circle" class="w-5 h-5 md:w-6 md:h-6 text-primary mr-2.5 flex-shrink-0 mt-0.5"></i>
+                        <span class="leading-relaxed">Apoia o pelo, a pele e a saúde imunitária</span>
                     </div>
-                    <div class="flex items-start">
-                        <i data-lucide="check-circle" class="w-5 h-5 md:w-6 md:h-6 text-primary mr-2 flex-shrink-0 mt-0.5"></i>
-                        <span>Snack diário saboroso</span>
+                    <div class="flex items-start text-left">
+                        <i data-lucide="check-circle" class="w-5 h-5 md:w-6 md:h-6 text-primary mr-2.5 flex-shrink-0 mt-0.5"></i>
+                        <span class="leading-relaxed">Snack diário saboroso</span>
                     </div>
                 </div>
             </div>
