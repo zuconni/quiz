@@ -137,34 +137,21 @@
 
 <body class="bg-gray-50">
   <!-- Cabeçalho -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <nav class="container mx-auto py-3 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-gray-800">PetLabCo.</h1>
-      <div id="nav-links" class="hidden md:flex md:items-center space-x-6 text-sm font-medium text-gray-600">
-        <a href="#" class="hover:text-gray-900">Info Produto</a>
-        <a href="#" class="hover:text-gray-900">Avaliado por Vets</a>
-        <a href="#" class="hover:text-gray-900">Avaliações</a>
-        <a href="#" class="hover:text-gray-900">Porquê Subscrever?</a>
-      </div>
-      <button id="menu-button" class="md:hidden" aria-label="Abrir menu">
-        <i data-lucide="menu" class="h-6 w-6"></i>
-      </button>
-    </nav>
-    <!-- Menu Móvel -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-      <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100">Info Produto</a>
-      <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100">Avaliado por Vets</a>
-      <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100">Avaliações</a>
-      <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100">Porquê Subscrever?</a>
-    </div>
-  </header>
+  <!-- Header removido intencionalmente para esta variante da página -->
 
   <main class="container mx-auto">
+    <!-- NÍVEL 1 - ESTÁGIO INICIAL -->
+    <div class="mt-3">
+      <div class="bg-green-900 rounded-xl p-4 md:p-5 shadow-sm">
+        <p class="text-center font-serif font-bold text-white text-xl md:text-2xl tracking-wide">NÍVEL 1 - ESTÁGIO INICIAL</p>
+      </div>
+    </div>
+
     <!-- BLOCO CRÍTICO -->
-    <section class="my-12 pt-16 md:my-16 fade-in-up">
+    <section class="my-6 pt-6 md:my-8 fade-in-up">
       <div class="max-w-3xl mx-auto">
         <!-- TÍTULO padronizado com Ciência de Ponta -->
-        <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4 leading-tight">✅ Boa notícia: Você pegou o problema bem no começo!</h2>
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-3 leading-tight">✅ Boa notícia: Você pegou o problema bem no começo!</h2>
         <div class="flex items-center gap-4 mb-6">
           <img src="https://i.imgur.com/C0MKVZh.jpg" alt="Dr. Camilo" class="rounded-full w-24 h-24 md:w-32 md:h-32 object-cover shadow-md" />
           <div>
@@ -497,44 +484,58 @@
       </div>
       <p class="text-center">&copy; 2025 PetLab Co.</p>
     </div>
-  </footer>
+  </footer><script>
+  // Ícones (fail-safe)
+  try { if (window.lucide && typeof lucide.createIcons === 'function') lucide.createIcons(); } catch(e) {}
 
-  <script>
-    lucide.createIcons();
-
-    // Menu Móvel
+  // Menu móvel (só se existir)
+  (function(){
     const menuButton = document.getElementById('menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+  })();
 
-    // Acordeão de FAQ
-    const accordionItems = document.querySelectorAll('#faq-accordion button');
-    accordionItems.forEach((button) => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const icon = button.querySelector('i');
-        const isExpanded = !content.classList.contains('hidden');
+  // Acordeão de FAQ (fail-safe)
+  (function(){
+    try {
+      const accordionItems = document.querySelectorAll('#faq-accordion button');
+      accordionItems.forEach((button) => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const icon = button.querySelector('i');
+          const isExpanded = content && !content.classList.contains('hidden');
 
-        accordionItems.forEach((otherButton) => {
-          otherButton.nextElementSibling.classList.add('hidden');
-          const otherIcon = otherButton.querySelector('i');
-          if (otherIcon) otherIcon.classList.remove('rotate-180');
+          accordionItems.forEach((otherButton) => {
+            if (otherButton.nextElementSibling) otherButton.nextElementSibling.classList.add('hidden');
+            const otherIcon = otherButton.querySelector('i');
+            if (otherIcon) otherIcon.classList.remove('rotate-180');
+          });
+
+          if (!isExpanded && content) {
+            content.classList.remove('hidden');
+            if (icon) icon.classList.add('rotate-180');
+          }
         });
-
-        if (!isExpanded) {
-          content.classList.remove('hidden');
-          if (icon) icon.classList.add('rotate-180');
-        }
       });
-    });
+    } catch(e) {}
+  })();
 
-    // Animações de Scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
-  </script>
+  // Animações de Scroll (com fallback)
+  (function(){
+    const nodes = document.querySelectorAll('.fade-in-up');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      nodes.forEach((el) => observer.observe(el));
+    } else {
+      nodes.forEach((el) => el.classList.add('visible'));
+    }
+  })();
+</script>
 </body>
 </html>
