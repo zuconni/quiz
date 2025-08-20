@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetLab Co. Probiotic Chew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="petlab_theme_1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: var(--font-sans);
+        }
+        .font-serif {
+            font-family: var(--font-serif);
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .selection-card {
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .selection-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        .selection-card.selected {
+            border-color: var(--primary);
+            background-color: #f0fff4; /* Tom de verde claro */
+            box-shadow: var(--shadow-md);
+        }
+        .tag-popular {
+            background-color: var(--accent);
+            color: var(--accent-foreground);
+        }
+        .tag-value {
+            background-color: var(--best-value-background);
+            color: var(--best-value-foreground);
+        }
+        .tag-save {
+            background-color: var(--secondary);
+            color: var(--secondary-foreground);
+        }
+        .dark-section {
+            background-color: var(--dark-section-background);
+            color: var(--dark-section-foreground);
+        }
+        /* Estilos de animação */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Cabeçalho -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">PetLabCo.</h1>
+            <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
+                <a href="#" class="hover:text-gray-900">Info Produto</a>
+                <a href="#" class="hover:text-gray-900">Avaliado por Vets</a>
+                <a href="#" class="hover:text-gray-900">Avaliações</a>
+                <a href="#" class="hover:text-gray-900">Porquê Subscrever?</a>
+            </div>
+            <i data-lucide="menu" class="md:hidden"></i>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <!-- Secção Principal -->
+        <section class="text-center fade-in-up">
+            <div class="bg-blue-50 text-blue-800 font-bold py-2 px-4 rounded-full inline-block text-sm">
+                Poupe Até 40% Todos os Meses em todas as encomendas de subscrição
+            </div>
+            <div class="flex justify-center items-center my-6">
+                <i data-lucide="chevron-left" class="h-8 w-8 text-gray-400"></i>
+                <img src="https://placehold.co/300x300/6e7dAB/FFFFFF?text=Produto" alt="PetLab Co. Probiotic Chew" class="mx-4">
+                <i data-lucide="chevron-right" class="h-8 w-8 text-gray-400"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 max-w-2xl mx-auto">Um snack mastigável revolucionário para apoiar o intestino e a saúde imunitária do seu cão</h2>
+            <div class="flex justify-center items-center space-x-2 mt-4 text-yellow-500">
+                <i data-lucide="star" class="fill-current"></i>
+                <i data-lucide="star" class="fill-current"></i>
+                <i data-lucide="star" class="fill-current"></i>
+                <i data-lucide="star" class="fill-current"></i>
+                <i data-lucide="star-half" class="fill-current"></i>
+                <span class="text-gray-600 font-medium ml-2">11,989 avaliações no Trustpilot</span>
+            </div>
+        </section>
+
+        <!-- Secção de Seleção de Produto -->
+        <section class="bg-white p-6 rounded-lg shadow-lg mt-8 fade-in-up">
+            <div class="text-center mb-4 text-sm font-semibold text-red-500">
+                <i data-lucide="flame" class="inline-block h-4 w-4"></i> 1978+ vendidos nas últimas 24 horas
+            </div>
+
+            <!-- Tamanho do Cão -->
+            <div>
+                <h3 class="font-bold text-lg mb-3">Tamanho do Cão:</h3>
+                <div class="grid grid-cols-3 gap-3 text-center" id="dog-size-selector">
+                    <div class="selection-card p-3 selected">Menos de 11 kg</div>
+                    <div class="selection-card p-3">11 - 34 kg</div>
+                    <div class="selection-card p-3">Mais de 34 kg</div>
+                </div>
+            </div>
+
+            <!-- Quantidade -->
+            <div class="mt-6">
+                <h3 class="font-bold text-lg mb-3">Quantidade:</h3>
+                <div class="space-y-3" id="amount-selector">
+                    <div class="selection-card p-4 flex items-center justify-between selected">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center"><div class="w-3 h-3 bg-primary rounded-full"></div></div>
+                            <div>
+                                <p class="font-bold">1 Pote: 30 Snacks</p>
+                                <p class="text-sm text-gray-500">€1.00 / snack</p>
+                            </div>
+                        </div>
+                        <span class="tag-save text-xs font-bold py-1 px-3 rounded-md">Poupe 20%</span>
+                    </div>
+                    <div class="selection-card p-4 flex items-center justify-between relative">
+                         <div class="tag-popular absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold py-1 px-4 rounded-full">Mais Popular</div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4"></div>
+                            <div>
+                                <p class="font-bold">2 Potes: 60 Snacks</p>
+                                <p class="text-sm text-gray-500">€0.80 / snack</p>
+                            </div>
+                        </div>
+                        <span class="tag-save text-xs font-bold py-1 px-3 rounded-md">Poupe 36%</span>
+                    </div>
+                    <div class="selection-card p-4 flex items-center justify-between relative">
+                        <div class="tag-value absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold py-1 px-4 rounded-full">Melhor Valor</div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4"></div>
+                            <div>
+                                <p class="font-bold">3 Potes: 90 Snacks</p>
+                                <p class="text-sm text-gray-500">€0.75 / snack</p>
+                            </div>
+                        </div>
+                        <span class="tag-save text-xs font-bold py-1 px-3 rounded-md">Poupe 40%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interruptor de Subscrição -->
+            <div class="my-6 p-4 bg-blue-50 rounded-lg flex items-center justify-between">
+                <div>
+                    <p class="font-bold text-blue-800">Poupe mais com uma subscrição</p>
+                    <p class="text-sm text-blue-600">Você está no controlo, <a href="#" class="underline">cancelamento fácil online</a></p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" value="" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                </label>
+            </div>
+
+            <!-- Adicionar Extras -->
+            <div>
+                <h3 class="font-bold text-lg mb-3">Adicionar Extras à Sua Subscrição</h3>
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/60x60/e0e7ff/3730a3?text=Extra" alt="Terapia de Orelhas Limpas" class="rounded-md mr-4">
+                        <div>
+                            <p class="font-bold">Terapia de Orelhas Limpas</p>
+                            <p class="text-sm text-gray-600">O seu cachorro tem orelhas sujas ou com mau cheiro?</p>
+                            <p class="mt-1"><span class="font-bold text-primary">€9.97</span> <span class="line-through text-gray-500 text-sm">€19.94</span></p>
+                        </div>
+                    </div>
+                    <button class="border border-gray-300 rounded-full px-4 py-1.5 font-semibold hover:bg-gray-100 transition">+ Adicionar</button>
+                </div>
+            </div>
+
+            <!-- Adicionar ao Carrinho -->
+            <div class="mt-8">
+                <button class="btn-primary w-full text-lg font-bold py-4 flex items-center justify-center">
+                    <i data-lucide="shopping-cart" class="mr-3"></i>
+                    Adicionar ao Carrinho | €29.95
+                </button>
+            </div>
+        </section>
+
+        <!-- Ícones de Pagamento e Envio -->
+        <section class="text-center mt-6 text-gray-500 text-sm fade-in-up">
+            <div class="flex justify-center items-center space-x-4 mb-2">
+                <img src="https://placehold.co/40x25/ccc/fff?text=VISA" alt="Visa">
+                <img src="https://placehold.co/40x25/ccc/fff?text=GPay" alt="Google Pay">
+                <img src="https://placehold.co/40x25/ccc/fff?text=PayPal" alt="PayPal">
+            </div>
+            <p>Todas as transações seguras e encriptadas</p>
+            <p class="mt-1">Entrega prevista em 3-5 dias úteis</p>
+        </section>
+
+        <!-- Visto Em -->
+        <section class="dark-section rounded-lg p-8 my-10 text-center fade-in-up">
+            <h3 class="text-sm uppercase tracking-widest mb-4">Como visto em conteúdo patrocinado</h3>
+            <div class="flex justify-center items-center space-x-8 opacity-70">
+                <span class="font-bold text-2xl">OCBS</span>
+                <span class="font-bold text-2xl">abc</span>
+                <span class="font-bold text-2xl">NBC</span>
+                <span class="font-bold text-2xl">BuzzFeed</span>
+                <span class="font-bold text-2xl">Forbes</span>
+            </div>
+        </section>
+
+        <!-- NOVA SECÇÃO: #1 em Vendas -->
+        <section class="dark-section rounded-lg my-10 overflow-hidden fade-in-up">
+            <div class="grid md:grid-cols-2 items-center">
+                <div class="p-8 md:p-12 relative">
+                    <img src="https://placehold.co/100x100/facc15/333?text=NASC" alt="NASC Quality Seal" class="absolute top-4 right-4 w-20">
+                    <div class="flex items-center text-yellow-400 mb-2">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="mb-4">Impactámos mais de 4.5 milhões de cães a nível global</p>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8">O snack probiótico #1 em vendas na América para cães²</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold mb-2">Fabricado nos EUA</h4>
+                            <p class="text-sm opacity-80">De ingredientes de qualidade premium de origem doméstica e global</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">Fórmula Clinicamente Estudada</h4>
+                            <p class="text-sm opacity-80">Um ensaio clínico descobriu que os nossos Probiotic Chews melhoram significativamente uma resposta inflamatória equilibrada no intestino</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">Investigação e Desenvolvimento Extensivos</h4>
+                            <p class="text-sm opacity-80">A PetLab Co. trabalhou de perto com especialistas para desenhar uma mistura prebiótica e probiótica para responder aos problemas de saúde intestinal mais prementes que os cães enfrentam hoje</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">Apoio a Alergias Sazonais</h4>
+                            <p class="text-sm opacity-80">Ao promover um microbioma intestinal saudável e a função imunitária, o nosso suplemento pode apoiar a resposta do seu cachorro a alergias sazonais</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-64 md:h-full">
+                    <img src="https://placehold.co/600x800/1e293b/ffffff?text=Pote+do+Produto" alt="Pote de PetLab Co. Probiotic Chew" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- NOVA SECÇÃO: Fórmula Avaliada por Veterinário -->
+        <section class="my-10 py-10 text-center fade-in-up">
+            <h2 class="text-3xl font-bold mb-8">Fórmula avaliada por veterinário</h2>
+            <div class="relative max-w-md mx-auto bg-white p-4 rounded-2xl shadow-lg">
+                <img src="https://placehold.co/400x400/d1e0e3/333?text=Veterinária" alt="Dr. Roxana Bordbar" class="rounded-xl w-full">
+                <div class="bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-md absolute -bottom-10 left-4 right-4 text-center">
+                    <p class="font-semibold">"Uma excelente ferramenta para ajudar a equilibrar o intestino do seu cão para uma digestão e pele saudáveis."</p>
+                    <p class="text-sm mt-2"><strong>Dr. Roxana Bordbar</strong> <i data-lucide="check-circle" class="inline-block w-4 h-4 text-blue-500"></i></p>
+                    <p class="text-xs text-gray-500">US DVM, Consultora Veterinária da PetLab Co.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOVA SECÇÃO: Ciência de Ponta -->
+        <section class="my-10 pt-20 fade-in-up">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Ciência de ponta, qualidade inigualável</h2>
+                    <p class="text-gray-600 mb-6">Mantemo-nos na vanguarda da saúde animal, combinando as mais recentes investigações científicas com conhecimentos de especialistas. Cada fórmula é cuidadosamente elaborada para fornecer ingredientes da mais alta qualidade para o bem-estar ideal do animal de estimação.</p>
+                    <ul class="space-y-5">
+                        <li class="flex items-start pb-5 border-b">
+                            <i data-lucide="check-circle-2" class="text-green-500 h-6 w-6 mr-3 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold">Clinicamente Estudado¹</h4>
+                                <p class="text-gray-600 text-sm">Apoiado por um estudo clínico para demonstrar a eficácia</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start pb-5 border-b">
+                            <i data-lucide="check-circle-2" class="text-green-500 h-6 w-6 mr-3 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold">Avaliado por Veterinários</h4>
+                                <p class="text-gray-600 text-sm">Formulado com nutricionistas e especialistas em saúde</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start pb-5 border-b">
+                            <i data-lucide="check-circle-2" class="text-green-500 h-6 w-6 mr-3 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold">Testado por Terceiros</h4>
+                                <p class="text-gray-600 text-sm">Rigorosamente testado para qualidade e potência</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle-2" class="text-green-500 h-6 w-6 mr-3 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold">Mais de 100.000 Avaliações de Cinco Estrelas Globalmente</h4>
+                                <p class="text-gray-600 text-sm">A PetLab Co. tem a confiança de milhares de donos de animais para resultados reais</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://placehold.co/500x500/f0f0f0/333?text=Mão+segurando+o+snack" alt="Mão segurando um snack para cão" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- NOVA SECÇÃO: Benefícios para a Saúde Intestinal -->
+        <section class="my-10 py-10 fade-in-up">
+            <h2 class="text-3xl font-bold text-center mb-10">Leve a saúde e o conforto intestinal do seu cão para <span class="italic">o próximo nível</span></h2>
+            <div class="space-y-8 max-w-3xl mx-auto">
+                <div class="flex items-center gap-6 pb-8 border-b">
+                    <img src="https://placehold.co/100x100/e2d8c1/8a6d40?text=Cão" alt="Cão feliz" class="rounded-full w-24 h-24 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-bold text-xl mb-1">Saúde Intestinal</h3>
+                        <p class="text-gray-600">Uma poderosa mistura de probióticos, prebióticos e pós-bióticos ajuda a manter uma flora intestinal equilibrada, apoia a função digestiva e mantém as fezes firmes e saudáveis.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 pb-8 border-b">
+                    <img src="https://placehold.co/100x100/d1c7b8/a89078?text=Pata" alt="Pata de cão" class="rounded-full w-24 h-24 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-bold text-xl mb-1">Comichão Intermitente</h3>
+                        <p class="text-gray-600">Apoia os níveis normais de levedura e a saúde da pele, ajudando a reduzir a comichão ocasional, o lamber das patas e o desconforto.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 pb-8 border-b">
+                    <img src="https://placehold.co/100x100/b8c1d1/788a9e?text=Cão" alt="Cão com pelo brilhante" class="rounded-full w-24 h-24 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-bold text-xl mb-1">Conforto da Pele e Pelo</h3>
+                        <p class="text-gray-600">Promove uma barreira cutânea saudável e apoia o pelo por dentro, para que o seu cachorro tenha uma aparência tão boa quanto se sente.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 pb-8 border-b">
+                    <img src="https://placehold.co/100x100/c1d1b8/8a9e78?text=Cão" alt="Cão ao ar livre" class="rounded-full w-24 h-24 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-bold text-xl mb-1">Alergias Sazonais</h3>
+                        <p class="text-gray-600">Um intestino saudável apoia uma resposta imunitária equilibrada, o que pode ajudar com sensibilidades sazonais como abanar a cabeça e mastigar as patas.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <img src="https://placehold.co/100x100/6e7dAB/FFFFFF?text=Pote" alt="Pote do produto" class="rounded-full w-24 h-24 object-cover flex-shrink-0">
+                    <div>
+                        <h3 class="font-bold text-xl mb-1">Sistema Imunitário</h3>
+                        <p class="text-gray-600">80% do sistema imunitário reside no intestino! Os probióticos trabalham para fortalecer as defesas naturais e manter o seu cachorro a sentir-se no seu melhor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- NOVA SECÇÃO: Resultados Reais -->
+        <section class="my-10 py-10 bg-white rounded-lg shadow-md text-center fade-in-up">
+            <p class="text-sm font-semibold"><i data-lucide="video" class="inline-block w-4 h-4 mr-1"></i> Não acredite apenas na nossa palavra</p>
+            <h2 class="text-4xl font-serif font-bold my-4">Resultados reais de clientes reais⁴</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="relative aspect-video bg-gray-200 rounded-lg flex items-center justify-center cursor-pointer group">
+                    <img src="https://placehold.co/1280x720/e2a98f/333?text=Vídeo+Testemunho" class="rounded-lg w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/20 rounded-lg"></div>
+                    <div class="absolute bg-white/30 backdrop-blur-sm p-4 rounded-full group-hover:scale-110 transition-transform">
+                        <i data-lucide="play" class="w-12 h-12 text-white fill-current"></i>
+                    </div>
+                </div>
+                <p class="mt-6 text-lg italic">"Ele está a tomar estes probióticos há 2 meses e vimos mudanças absolutamente dramáticas. Ele parece estar a aproveitar muito mais a vida."</p>
+                <p class="mt-2 font-bold">- Pai do Bane</p>
+                <div class="flex justify-center space-x-2 mt-6">
+                    <button class="w-2.5 h-2.5 bg-gray-800 rounded-full"></button>
+                    <button class="w-2.5 h-2.5 bg-gray-300 rounded-full"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção de FAQ -->
+        <section class="max-w-3xl mx-auto my-10 fade-in-up">
+            <h2 class="text-3xl font-bold text-center mb-8">Perguntas Frequentes</h2>
+            <div id="faq-accordion" class="space-y-4">
+                <!-- Item FAQ 1 -->
+                <div class="border-b border-gray-200 pb-4">
+                    <button class="w-full flex justify-between items-center text-left font-semibold text-lg focus:outline-none">
+                        <span>Durante quanto tempo deve um cão tomar probióticos?</span>
+                        <i data-lucide="plus" class="transition-transform transform"></i>
+                    </button>
+                    <div class="mt-2 text-gray-600 hidden">
+                        Para melhores resultados, recomendamos o uso diário a longo prazo. Os probióticos trabalham para manter um equilíbrio saudável no intestino, e a suplementação consistente ajuda a apoiar esse equilíbrio ao longo do tempo.
+                    </div>
+                </div>
+                <!-- Item FAQ 2 -->
+                <div class="border-b border-gray-200 pb-4">
+                    <button class="w-full flex justify-between items-center text-left font-semibold text-lg focus:outline-none">
+                        <span>A que horas do dia devo dar probióticos ao meu cão?</span>
+                        <i data-lucide="plus" class="transition-transform transform"></i>
+                    </button>
+                    <div class="mt-2 text-gray-600 hidden">
+                        Pode dar os Probiotic Chews a qualquer hora do dia, com ou sem comida. O mais importante é ser consistente e dá-los por volta da mesma hora todos os dias.
+                    </div>
+                </div>
+                 <!-- Item FAQ 3 -->
+                <div class="border-b border-gray-200 pb-4">
+                    <button class="w-full flex justify-between items-center text-left font-semibold text-lg focus:outline-none">
+                        <span>Os Probiotic Chews da PetLab Co. funcionam?</span>
+                        <i data-lucide="plus" class="transition-transform transform"></i>
+                    </button>
+                    <div class="mt-2 text-gray-600 hidden">
+                        Sim! A nossa fórmula é apoiada por um estudo clínico e recebeu mais de 100.000 avaliações de cinco estrelas a nível mundial. 83% dos subscritores viram resultados positivos em 3 meses de uso diário.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Rodapé -->
+    <footer class="bg-gray-100 text-gray-500 text-xs py-8">
+        <div class="container mx-auto px-4">
+            <p class="mb-4">A informação contida neste site não se destina a substituir o aconselhamento médico ou veterinário profissional. Se o seu animal de estimação tem, ou suspeita que tenha, qualquer condição médica, é instado a consultar o seu veterinário. Estas declarações não foram avaliadas pela Food and Drug Administration. Este produto não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>
+            <div class="flex flex-wrap justify-center space-x-4 mb-4">
+                <a href="#" class="hover:underline">Sobre</a>
+                <a href="#" class="hover:underline">Produtos</a>
+                <a href="#" class="hover:underline">Termos de Uso</a>
+                <a href="#" class="hover:underline">Declaração de Privacidade</a>
+                <a href="#" class="hover:underline">Contacte-nos</a>
+            </div>
+            <p class="text-center">&copy; 2025 PetLab Co.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Lógica de seleção simples
+        function setupSelector(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            const items = container.querySelectorAll('.selection-card');
+            
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    items.forEach(i => i.classList.remove('selected'));
+                    item.classList.add('selected');
+
+                    // Para o seletor de quantidade, também lida com a aparência do botão de rádio
+                    if (containerId === 'amount-selector') {
+                        container.querySelectorAll('.w-3.h-3').forEach(dot => dot.remove());
+                        const radioCircle = item.querySelector('.w-6.h-6');
+                        if(radioCircle) {
+                            const dot = document.createElement('div');
+                            dot.className = 'w-3 h-3 bg-primary rounded-full';
+                            radioCircle.appendChild(dot);
+                        }
+                    }
+                });
+            });
+        }
+
+        setupSelector('dog-size-selector');
+        setupSelector('amount-selector');
+        
+        // Acordeão de FAQ
+        const accordionItems = document.querySelectorAll('#faq-accordion button');
+        accordionItems.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-45');
+            });
+        });
+
+        // Animações de Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+    </script>
+</body>
+</html>
