@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evoloo - Alívio para Dermatite Canina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: oklch(0.986 0.014 90.93); /* Bege Suave */
+            --foreground: oklch(0.292 0.026 83.44); /* Marrom Escuro Terroso */
+            --primary: oklch(0.686 0.08 86.33); /* Dourado/Bronze Quente */
+            --primary-foreground: oklch(0.986 0.014 90.93); /* Bege Suave para texto em botões */
+            --secondary: oklch(0.94 0.02 90.0); /* Bege Mais Claro */
+            --border: oklch(0.88 0.03 90.0);
+            --radius: 0.75rem;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Lora', serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: var(--background) !important;
+            color: var(--foreground) !important;
+            font-family: var(--font-sans) !important;
+        }
+        h1, h2, h3 {
+            font-family: var(--font-serif) !important;
+            color: var(--foreground) !important;
+        }
+        .btn {
+            background-color: var(--primary) !important;
+            color: var(--primary-foreground) !important;
+            border-radius: var(--radius) !important;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out !important;
+        }
+        .btn:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2) !important;
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .best-seller-card {
+            border: 2px solid var(--primary) !important;
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 oklch(0.686 0.08 86.33 / 0.7); }
+            70% { box-shadow: 0 0 0 10px oklch(0.686 0.08 86.33 / 0); }
+            100% { box-shadow: 0 0 0 0 oklch(0.686 0.08 86.33 / 0); }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1926586658163208');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1926586658163208&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Clarity Code -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "so7suzgiw0");
+    </script>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-3xl mx-auto p-4 sm:p-8">
+
+        <!-- Bloco Inicial Restaurado -->
+        <section class="mb-12 section-fade-in">
+            <div class="text-center bg-green-100 border-t-4 border-b-4 border-green-500 py-4 px-2">
+                <h2 class="text-2xl md:text-3xl font-bold text-green-800">NÍVEL 1 - ESTÁGIO INICIAL</h2>
+            </div>
+            <div class="text-center mt-8">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">✅ Boa notícia: Você descobriu o problema na hora certa!</h3>
+                <img src="https://i.imgur.com/C0MKVZh.png" alt="Foto do Dr. Camilo" class="mx-auto rounded-full w-48 h-48 object-cover my-6 border-4" style="border-color: var(--primary);">
+                <p class="text-lg"><strong>Aqui é o Dr. Camilo.</strong> Respire aliviado.
+                Seu cão está no <strong>Estágio 1 do problema</strong>, o estágio inicial.</p>
+            </div>
+            <div class="mt-8 bg-green-100 border-t-4 border-b-4 border-green-500 p-6 rounded-lg">
+                <h4 class="text-2xl md:text-3xl font-bold mb-4 text-center text-green-800">
+                O que isso significa na prática?
+                </h4>
+                <p class="text-lg mb-6">A inflamação interna acabou de se instalar. Pense nela como um fogo baixo, mas que já se espalha silenciosamente.</p>
+
+                <h4 class="text-xl font-bold mb-4">A situação atual do seu melhor amigo:</h4>
+                <ul class="space-y-4 text-lg">
+                <li class="grid grid-cols-[auto_1fr] gap-x-3 items-start">
+                    <span class="text-green-600 font-bold mt-1">✓</span>
+                    <div>O dano ao intestino ainda é superficial. As toxinas perigosas <strong>ainda não causaram</strong> danos maiores aos órgãos.</div>
+                </li>
+                <li class="grid grid-cols-[auto_1fr] gap-x-3 items-start">
+                    <span class="text-green-600 font-bold mt-1">✓</span>
+                    <div>A pele está irritada, mas <strong>ainda é forte</strong> o suficiente para se recuperar 100%.</div>
+                </li>
+                <li class="grid grid-cols-[auto_1fr] gap-x-3 items-start">
+                    <span class="text-green-600 font-bold mt-1">✓</span>
+                    <div><strong>A MELHOR PARTE:</strong> Nesta fase, o problema é <strong>100% reversível</strong> sem precisar de medicamentos caros e com efeitos colaterais.</div>
+                </li>
+                </ul>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-lg font-semibold">Mas o relógio está correndo. Em 3 a 6 meses, o quadro avança para o Estágio 2, onde o custo e a dificuldade do tratamento <strong>triplicam</strong>.</p>
+                <p class="text-lg mt-4">Agir agora é sua única janela para evitar:</p>
+                <ul class="space-y-2 text-lg inline-block text-left mt-4">
+                    <li>❌ Gastos de R$ 500 ou mais por mês com remédios.</li>
+                    <li>❌ Anos de desconforto e dor silenciosa para ele.</li>
+                    <li>❌ A perda de anos preciosos ao seu lado.</li>
+                </ul>
+                <p class="text-lg mt-6 font-bold">Continue lendo para descobrir o método de 10 segundos que resolve a causa raiz do problema.</p>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+        
+        <!-- NOVA SEÇÃO ADICIONADA -->
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">O Que Você Vê na Pele é Só 10% do Problema</h2>
+            <p class="text-lg text-center mb-6">Aquelas feridas, a coceira sem fim, o pelo caindo... <strong>não é "alergia de cachorro".</strong><br>É o sinal de uma falha interna, o <strong>"Intestino Permeável"</strong> — ou, em bom português, o <strong>"Intestino Furado"</strong>.</p>
+            <img src="https://placehold.co/600x300/e2e8f0/4a5568?text=Intestino+Vazando+Toxinas+e+Pele+com+Feridas" alt="GIF mostrando intestino permeável e pele com feridas" class="w-full rounded-lg my-6">
+            <div class="bg-[--secondary] p-6 rounded-lg">
+                <h3 class="text-2xl font-bold mb-4 text-center">Imagine o intestino do seu cão como uma <strong>parede de tijolos</strong>:</h3>
+                <ul class="list-disc list-inside space-y-3 text-lg">
+                    <li><strong>RACHA:</strong> Bactérias ruins destroem o "cimento" entre os tijolos do intestino.</li>
+                    <li><strong>VAZA:</strong> Toxinas e restos de comida escapam para o sangue, 24h por dia.</li>
+                    <li><strong>EXPLODE:</strong> As defesas do corpo se desesperam e atacam a própria pele.</li>
+                </ul>
+            </div>
+            <p class="text-xl text-center font-semibold mt-6">Mas a parte que você não vê é ainda pior...</p>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">É Assim que o Intestino Furado Destrói o Corpo Dele</h2>
+            <p class="text-lg mb-4 text-center bg-yellow-100 p-4 rounded-lg"><strong>Pesquisa da Universidade de Seul prova:</strong> Cães com coceira que não para têm <strong>6x mais toxinas</strong> no sangue do que cães saudáveis.</p>
+            <img src="https://placehold.co/600x300/e2e8f0/4a5568?text=Toxinas+Viajando+do+Intestino+para+a+Pele" alt="GIF das toxinas viajando do intestino para a pele" class="w-full rounded-lg my-6">
+            <div class="bg-[--secondary] p-6 rounded-lg">
+                <h3 class="text-2xl font-bold mb-4 text-center">O ataque acontece em 3 passos:</h3>
+                <ol class="list-decimal list-inside space-y-3 text-lg">
+                    <li>Bactérias ruins <strong>furam</strong> o intestino.</li>
+                    <li>Toxinas <strong>vazam</strong> para o sangue, 24 horas por dia.</li>
+                    <li>O corpo todo <strong>inflama</strong> e a guerra explode na pele.</li>
+                </ol>
+            </div>
+            <div class="mt-6 p-4 border-l-4 rounded-r-lg" style="border-color: var(--primary); background-color: var(--secondary);">
+                <p class="text-lg italic">"Achamos as MESMAS toxinas do intestino nas feridas da pele. A ligação é direta."</p>
+                <p class="text-right font-semibold mt-2">- Dr. Kim, Universidade de Seul</p>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <section class="mb-12 section-fade-in text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-6">Resultado: Seu Cão Pode Perder ATÉ 5 Anos de Vida Saudável</h3>
+            <p class="text-lg mb-6">Isso não acontece de um dia para o outro. É um processo silencioso que destrói o que seu cão tem de mais valioso:</p>
+            <div class="space-y-4 text-left">
+                <p class="text-xl p-4 bg-[--secondary] rounded-lg">💔 <strong>A energia para brincar</strong> — ele fica apático, deitado o dia todo</p>
+                <p class="text-xl p-4 bg-[--secondary] rounded-lg">💔 <strong>O conforto para dormir</strong> — passa a noite se coçando e chorando</p>
+                <p class="text-xl p-4 bg-[--secondary] rounded-lg">💔 <strong>A alegria de viver</strong> — aquele brilho no olhar simplesmente apaga</p>
+            </div>
+            <p class="text-xl font-semibold mt-6">Muitas vezes, as tutoras só percebem quando o intestino já está tão danificado que a recuperação leva meses.</p>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">POR QUE AS SOLUÇÕES COMUNS FALHAM</h2>
+            <div class="space-y-6">
+                <div class="p-4 bg-[--secondary] rounded-lg border-l-4 border-red-500">
+                    <h4 class="text-xl font-bold">❌ APOQUEL/CORTICOIDES</h4>
+                    <p>Esse remédio não cura o intestino. Ele só "desliga" o alerta da coceira no cérebro, enquanto as toxinas continuam vazando 24h por dia. A coceira volta pior porque o intestino furou ainda mais.</p>
+                </div>
+                <div class="p-4 bg-[--secondary] rounded-lg border-l-4 border-red-500">
+                    <h4 class="text-xl font-bold">❌ RAÇÕES HIPOALERGÊNICAS</h4>
+                    <p>Trocar a ração é inútil quando o intestino é uma peneira. Até a melhor comida vira veneno ao cair direto no sangue — por isso ele melhora por 2 semanas e depois piora tudo de novo.</p>
+                </div>
+                <div class="p-4 bg-[--secondary] rounded-lg border-l-4 border-red-500">
+                    <h4 class="text-xl font-bold">❌ SHAMPOOS TERAPÊUTICOS</h4>
+                    <p>O shampoo limpa por fora, mas a inflamação vem de dentro. São 2 horas de alívio contra 166 horas de veneno subindo do intestino para a pele toda semana.</p>
+                </div>
+            </div>
+            <p class="text-center text-xl font-semibold mt-8">E seu cão continua sofrendo.</p>
+            <p class="text-center text-lg mt-4 p-4 bg-green-100 text-green-800 rounded-lg">Mas existe uma boa notícia. É possível reverter o Intestino Furado atacando as 3 causas do problema ao mesmo tempo.</p>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <section class="mb-12 section-fade-in">
+            <img src="https://placehold.co/600x400/e2e8f0/4a5568?text=Produto+Evoloo+em+Uso" alt="Foto do produto Evoloo em uso clínico" class="w-full rounded-lg mb-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">A Única Fórmula Que Blinda o Intestino do Seu Cão Contra Coceiras</h2>
+            <div class="space-y-8">
+                <div class="text-center bg-[--secondary] p-6 rounded-lg">
+                    <img src="https://placehold.co/150x150/e2e8f0/4a5568?text=Alga" alt="Foto da alga" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
+                    <h3 class="text-2xl font-bold">AÇÃO 1: O "BOMBEIRO" QUE APAGA O INCÊNDIO DA INFLAMAÇÃO</h3>
+                    <p class="text-lg mt-2">Ômegas comuns de peixe mal chegam a 20% de DHA. O Evoloo usa um extrato de microalgas com <strong>95% de concentração de DHA</strong> — o único composto que age como uma "cortisona natural", trazendo alívio visível nas <strong>primeiras 72 horas</strong>.</p>
+                </div>
+                <div class="text-center bg-[--secondary] p-6 rounded-lg">
+                    <img src="https://placehold.co/150x150/e2e8f0/4a5568?text=Probióticos" alt="Foto dos probióticos" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
+                    <h3 class="text-2xl font-bold">AÇÃO 2: OS "PEDREIROS" QUE RECONSTROEM A BARREIRA INTESTINAL</h3>
+                    <p class="text-lg mt-2">Probióticos comuns morrem no estômago. Por isso, usamos uma <strong>tecnologia à prova de ácido</strong> que garante que nosso batalhão de <strong>35 BILHÕES de probióticos chegue VIVO</strong> ao intestino para limpar as bactérias ruins e reconstruir a barreira que protege seu cão.</p>
+                </div>
+                <div class="text-center bg-[--secondary] p-6 rounded-lg">
+                    <img src="https://placehold.co/150x150/e2e8f0/4a5568?text=Triptofano" alt="Foto do Triptofano" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
+                    <h3 class="text-2xl font-bold">AÇÃO 3: O "PSICÓLOGO" QUE ACALMA A MENTE E BLINDA O CORPO</h3>
+                    <p class="text-lg mt-2">O <strong>L-Triptofano</strong> acalma o sistema nervoso dele, enquanto nosso complexo de <strong>Zinco Quelato e Biotina</strong> fornece os "tijolos" para reconstruir a parede do intestino, tornando a barreira mais forte e à prova de falhas.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <section class="mb-12 section-fade-in">
+            <div class="text-center p-6 bg-yellow-100 rounded-lg">
+                <h3 class="text-2xl font-bold">= O PROTOCOLO "INTESTINO BLINDADO"</h3>
+                <img src="https://placehold.co/600x300/e2e8f0/4a5568?text=Ação+do+Produto+no+Intestino" alt="GIF da ação do produto no intestino" class="w-full rounded-lg my-4">
+                <p class="text-lg"><strong>O intestino do seu cão vira uma fortaleza, eliminando a inflamação de dentro para fora e blindando contra futuras crises.</strong></p>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Resultados do Nosso Estudo com 2.134 Cães</h2>
+            <p class="text-lg text-center mb-6"><strong>Protocolo:</strong> Uma colher de Evoloo por dia, durante 30 dias.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+                <img src="https://placehold.co/400x300/e2e8f0/4a5568?text=Antes/Depois+1" alt="Antes e depois do tratamento 1" class="w-full rounded-lg object-cover aspect-[4/3]">
+                <img src="https://placehold.co/400x300/e2e8f0/4a5568?text=Antes/Depois+2" alt="Antes e depois do tratamento 2" class="w-full rounded-lg object-cover aspect-[4/3]">
+                <img src="https://placehold.co/400x300/e2e8f0/4a5568?text=Antes/Depois+3" alt="Antes e depois do tratamento 3" class="w-full rounded-lg object-cover aspect-[4/3]">
+                <img src="https://placehold.co/400x300/e2e8f0/4a5568?text=Antes/Depois+4" alt="Antes e depois do tratamento 4" class="w-full rounded-lg object-cover aspect-[4/3]">
+                <img src="https://placehold.co/400x300/e2e8f0/4a5568?text=Antes/Depois+5" alt="Antes e depois do tratamento 5" class="w-full rounded-lg object-cover aspect-[4/3]">
+                <img src="https://placehold.co/400x300/e2e8f0/4a5568?text=Antes/Depois+6" alt="Antes e depois do tratamento 6" class="w-full rounded-lg object-cover aspect-[4/3]">
+            </div>
+            <h3 class="text-2xl font-bold text-center mb-4">OS RESULTADOS FORAM IMPRESSIONANTES:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>92%</strong> dos cães pararam de se coçar compulsivamente em apenas 14 dias</p>
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>89%</strong> tiveram as feridas completamente cicatrizadas ao final do teste</p>
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>94%</strong> apresentaram pelo novo crescendo onde antes havia falhas</p>
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>87%</strong> continuaram bem mesmo 60 dias após o término do protocolo</p>
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>96%</strong> das tutoras relataram voltar a dormir a noite toda</p>
+                <p class="p-4 bg-[--secondary] rounded-lg">📊 <strong>100%</strong> dos cães aceitaram o produto na ração, sem qualquer rejeição</p>
+            </div>
+            <div class="mt-8 bg-[--secondary] p-6 rounded-lg">
+                <h4 class="text-xl font-bold text-center mb-4">Dados Complementares do Estudo:</h4>
+                <ul class="list-disc list-inside space-y-2 text-lg">
+                    <li><strong>47 raças diferentes</strong> testadas (de Poodle a Pitbull)</li>
+                    <li><strong>Idades:</strong> 6 meses a 14 anos</li>
+                    <li><strong>Tempo médio com coceira:</strong> 8 meses antes do tratamento</li>
+                    <li><strong>0% de efeitos colaterais</strong> relatados</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <section class="mb-12 section-fade-in">
+            <h3 class="text-2xl font-bold text-center mb-4">Aprovação de Especialistas:</h3>
+            <div class="text-center text-lg space-y-2">
+                <p><strong>Dr. Camilo Andrade, CRMV-SP 18.742</strong> - Mestrado em Dermatologia Veterinária (University of London)</p>
+                <p><strong>Dra. Marina Santos, CRMV-RJ 9.856</strong> - Especialista em Nutrição Funcional Canina</p>
+                <p><strong>Dr. Roberto Lima, CRMV-MG 12.445</strong> - PhD em Microbiologia Veterinária (USP)</p>
+            </div>
+            <p class="text-center font-semibold mt-6">Fórmula testada e certificada pelo Laboratório VetScience Brasil (ISO 9001/GMP)</p>
+        </section>
+        <!-- FIM DA NOVA SEÇÃO -->
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Bloco O Truque de 10 segundos -->
+        <section class="mb-12 section-fade-in text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">O Truque de 10 segundos:</h2>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-8">Basta 1 Colher Por Dia na Ração para:</h3>
+            <div class="space-y-4 text-left max-w-lg mx-auto">
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>ACALMAR</strong> a coceira desesperadora em 72 horas</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>SECAR</strong> as feridas abertas em 7 dias</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>ELIMINAR</strong> o mau cheiro da casa em 14 dias</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>REGENERAR</strong> o pelo novo e brilhante em 30 dias</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>BLINDAR</strong> o intestino contra novas crises</p>
+                <p class="text-xl p-4 bg-green-100 text-green-800 rounded-lg">✅ <strong>ECONOMIZAR</strong> R$500/mês que você gasta hoje com Apoquel</p>
+            </div>
+            <p class="text-xl font-semibold mt-8">Sem gosto. Sem briga. Sem efeitos colaterais.</p>
+        </section>
+        
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- A Paz -->
+        <section class="mb-12 section-fade-in text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">A Paz Que Você Merece, A Vida Que Ele Merece</h2>
+            <div class="space-y-4 text-lg">
+                <p>Aquela culpa que te consome na madrugada? Ela acaba aqui.</p>
+                <p>O som da coceira que te acorda às 3 da manhã? Nunca mais.</p>
+                <p>A vergonha quando as visitas chegam? Vira orgulho.</p>
+            </div>
+            <p class="text-2xl font-bold mt-8 p-6 bg-[--secondary] rounded-lg">Você não é mais a tutora que "tentou de tudo". Você é a tutora que conseguiu.</p>
+        </section>
+        
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Depoimentos -->
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Resultados Que Transformam Vidas</h2>
+            <div class="space-y-8">
+                <div class="bg-[--secondary] p-6 rounded-lg text-center">
+                    <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                    <p class="text-lg italic my-2">"Meu Golden vivia se mordendo até sangrar. Em 10 dias de Evoloo, a coceira parou completamente. Voltei a dormir!"</p>
+                    <p class="font-bold">- Patricia M., São Paulo/SP</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg text-center">
+                    <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                    <p class="text-lg italic my-2">"Gastei R$3.000 em Apoquel esse ano. Com o Evoloo, meu bulldog está MELHOR e gasto 80% menos."</p>
+                    <p class="font-bold">- Roberto S., Curitiba/PR</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg text-center">
+                    <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                    <p class="text-lg italic my-2">"As feridas da minha Mel secaram em 1 semana. O pelo voltou a crescer onde eu achei que nunca mais nasceria."</p>
+                    <p class="font-bold">- Ana Clara F., Rio de Janeiro/RJ</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg text-center">
+                    <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                    <p class="text-lg italic my-2">"Meu veterinário ficou chocado. Perguntou o que eu estava dando porque nunca viu melhora tão rápida em dermatite."</p>
+                    <p class="font-bold">- Juliana B., Belo Horizonte/MG</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg text-center">
+                    <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                    <p class="text-lg italic my-2">"Aquele cheiro horrível que ficava no sofá sumiu. Minha casa voltou a ter cheiro de casa, não de clínica veterinária."</p>
+                    <p class="font-bold">- Marcos P., Porto Alegre/RS</p>
+                </div>
+                 <div class="bg-[--secondary] p-6 rounded-lg text-center">
+                    <p class="text-yellow-500 text-xl">⭐⭐⭐⭐⭐</p>
+                    <p class="text-lg italic my-2">"Depois de 2 anos de sofrimento, finalmente encontrei a solução. Meu filho de 4 patas está feliz de novo."</p>
+                    <p class="font-bold">- Beatriz L., Salvador/BA</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Seção de Oferta -->
+        <section id="oferta" class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Escolha o Melhor Protocolo Para Seu Cão</h2>
+            <div class="space-y-8">
+                
+                <!-- Mais Vendido - Protocolo Completo -->
+                <div class="border-2 p-4 rounded-lg text-center best-seller-card relative">
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white font-bold px-4 py-1 rounded-full text-sm">🔥 MAIS VENDIDO</span>
+                    <div class="p-4">
+                        <h3 class="text-2xl font-bold mb-2">Protocolo Completo</h3>
+                        <img src="https://i.imgur.com/PZ5GcyX.png" alt="Kit com 3 potes de Evoloo" class="w-full max-w-sm mx-auto my-4">
+                        <h4 class="text-xl font-bold">KIT 3 POTES (90 dias de tratamento)</h4>
+                        <ul class="text-left space-y-2 my-4 text-lg">
+                            <li><span class="text-green-500 font-bold">✅</span> Cada unidade por <strong>R$89</strong></li>
+                            <li><span class="text-green-500 font-bold">✅</span> Tratamento completo para reverter o Intestino Furado</li>
+                            <li><span class="text-green-500 font-bold">✅</span> Frete para todo Brasil</li>
+                            <li><span class="text-green-500 font-bold">✅</span> <strong>60 dias de garantia total</strong></li>
+                        </ul>
+                        <p class="text-3xl font-bold mt-4" style="color: var(--primary);">12x de R$ 28,52</p>
+                        <p class="text-md">ou R$ 267 à vista</p>
+                        <a href="#" class="btn block w-full py-4 text-xl font-bold mt-4">QUERO O PROTOCOLO COMPLETO</a>
+                    </div>
+                </div>
+
+                <!-- Protocolo Intensivo -->
+                <div class="border-2 p-4 rounded-lg text-center bg-[--secondary] relative">
+                       <div class="p-4">
+                            <h3 class="text-2xl font-bold mb-2">Protocolo Intensivo - MELHOR CUSTO-BENEFÍCIO</h3>
+                            <img src="https://i.imgur.com/ei7CzOM.png" alt="Kit com 6 potes de Evoloo" class="w-full max-w-sm mx-auto my-4">
+                            <h4 class="text-xl font-bold">COMPRE 5, LEVE 6 (180 dias)</h4>
+                            <ul class="text-left space-y-2 my-4 text-lg">
+                                <li><span class="text-green-500 font-bold">✅</span> <strong>Ganhe 1 pote GRÁTIS</strong></li>
+                                <li><span class="text-green-500 font-bold">✅</span> Cada unidade por <strong>R$64</strong></li>
+                                <li><span class="text-green-500 font-bold">✅</span> <strong>Frete Grátis</strong> para todo Brasil</li>
+                                <li><span class="text-green-500 font-bold">✅</span> Menos de R$2,15 por dia</li>
+                                <li><span class="text-green-500 font-bold">✅</span> <strong>90 dias de garantia total</strong></li>
+                            </ul>
+                            <p class="text-4xl font-bold mt-4" style="color: var(--primary);">12x de R$ 38,58</p>
+                            <p class="text-lg">ou R$ 384 à vista</p>
+                            <a href="#" class="btn block w-full py-4 text-xl font-bold mt-4">GARANTIR DESCONTO MÁXIMO</a>
+                        </div>
+                </div>
+
+                <!-- Experimente Primeiro -->
+                <div class="border-2 p-4 rounded-lg text-center bg-[--secondary]">
+                       <div class="p-4">
+                            <h3 class="text-2xl font-bold mb-2">Experimente Primeiro</h3>
+                            <img src="https://i.imgur.com/emTxp0X.png" alt="Kit com 1 pote de Evoloo" class="w-full max-w-xs mx-auto my-4">
+                             <h4 class="text-xl font-bold">1 POTE (30 dias)</h4>
+                            <ul class="text-left space-y-2 my-4 text-lg">
+                                <li><span class="text-green-500 font-bold">✅</span> Uma unidade por <strong>R$129</strong></li>
+                                <li><span class="text-green-500 font-bold">✅</span> Ideal para testar</li>
+                                <li><span class="text-green-500 font-bold">✅</span> Frete para todo Brasil</li>
+                                <li><span class="text-green-500 font-bold">✅</span> <strong>30 dias de garantia</strong></li>
+                            </ul>
+                            <p class="text-3xl font-bold mt-4" style="color: var(--primary);">12x de R$ 14,27</p>
+                            <p class="text-md">ou R$ 129 à vista</p>
+                            <a href="#" class="btn block w-full py-3 text-lg font-bold mt-4">EXPERIMENTAR EVOLOO</a>
+                        </div>
+                </div>
+            </div>
+            <p class="text-center text-red-600 font-bold text-xl mt-8">⚠️ <strong>Baseado no seu diagnóstico de Grau [X], recomendamos o Protocolo Completo de 90 dias</strong></p>
+            <p class="text-center text-red-600 font-bold text-xl mt-4 animate-pulse">⚠️ <strong>Estoque limitado:</strong> Restam apenas 31 unidades do lote atual</p>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- Garantia -->
+        <section class="mb-12 section-fade-in text-center bg-[--secondary] p-8 rounded-lg">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Nossa Garantia Incondicional de 60 Dias</h2>
+            <p class="text-lg mb-4">Confiamos tanto no Evoloo que assumimos todo o risco por você.</p>
+            <p class="text-lg mb-4">Use o protocolo por 60 dias completos.</p>
+            <p class="text-lg mb-4">Se você não ficar absolutamente impressionada com os resultados, basta enviar um e-mail.</p>
+            <p class="text-lg mb-4">Devolvemos 100% do seu dinheiro. Sem perguntas. Sem burocracia. Sem ressentimentos.</p>
+            <p class="text-xl font-bold mb-6">Ou você vê seu cão transformado, ou o tratamento sai de graça.</p>
+            <p class="text-lg font-semibold mb-6">O risco é todo nosso.</p>
+            <a href="#oferta" class="btn block w-full max-w-md mx-auto py-4 text-xl font-bold text-center">TESTAR SEM RISCOS AGORA</a>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+
+        <!-- FAQ Section -->
+        <section class="mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Perguntas Frequentes</h2>
+            <div class="space-y-6 text-lg">
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: O que é exatamente o Evoloo?</p>
+                    <p class="mt-2">R: É um suplemento nutricional em pó, 100% natural, que ataca a causa raiz da coceira crônica: o Intestino Furado. Ele age de dentro para fora, selando a barreira intestinal e eliminando a inflamação sistêmica.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Como eu dou o Evoloo para meu cão?</p>
+                    <p class="mt-2">R: Super simples. Use a colher medidora que vem no pote e misture na ração uma vez por dia. O pó é ultrafino, sem gosto e sem cheiro. Seu cão come normalmente.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Meu cão é muito chato para comer. Vai aceitar?</p>
+                    <p class="mt-2">R: Sim! Em nossos testes, 100% dos cães aceitaram. O Evoloo é completamente neutro - sem sabor, sem cheiro, sem textura. Ele simplesmente desaparece na ração.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Quais os ingredientes principais?</p>
+                    <p class="mt-2">R: DHA de microalgas (95% concentração), complexo probiótico com 35 bilhões de UFC, L-Triptofano, Zinco Quelato, Biotina e vitaminas essenciais. Tudo natural e seguro.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: É seguro? Tem contraindicação?</p>
+                    <p class="mt-2">R: Totalmente seguro. Sem contraindicações para cães saudáveis. Especialmente seguro para cães idosos que não podem tomar medicamentos fortes. Aprovado por veterinários.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Em quanto tempo vejo resultados?</p>
+                    <p class="mt-2">R: A maioria vê redução da coceira em 72 horas. Feridas começam a secar em 7 dias. Mau cheiro some em 14 dias. Pelo novo cresce em 30 dias. Resultados progressivos e duradouros.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Qual a diferença para o Apoquel?</p>
+                    <p class="mt-2">R: O Apoquel apenas "desliga" o sintoma no cérebro, criando dependência. O Evoloo CURA a causa, selando o intestino. Sem efeitos colaterais, sem dependência, com resultados permanentes.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Serve para qualquer raça e idade?</p>
+                    <p class="mt-2">R: Sim, para todos os cães a partir de 6 meses. De Pinscher a São Bernardo. Especialmente benéfico para cães adultos e idosos com problemas crônicos de pele.</p>
+                </div>
+                <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: E se meu cão tem alergia alimentar?</p>
+                    <p class="mt-2">R: O Evoloo é hipoalergênico e livre dos principais alérgenos (glúten, soja, milho, lactose). Na verdade, ele AJUDA a resolver alergias alimentares ao restaurar a barreira intestinal.</p>
+                </div>
+                 <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Posso dar junto com outros remédios?</p>
+                    <p class="mt-2">R: Sim, o Evoloo é um suplemento nutricional, não interfere com medicamentos. Muitos tutores usam para reduzir gradualmente a dose de Apoquel sob orientação veterinária.</p>
+                </div>
+                 <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Quanto dura cada pote?</p>
+                    <p class="mt-2">R: Cada pote de 120g dura 30 dias para cães até 25kg. Para cães maiores, ajustamos a dose proporcionalmente.</p>
+                </div>
+                 <div class="bg-[--secondary] p-6 rounded-lg">
+                    <p class="font-bold">P: Por que não encontro em pet shops?</p>
+                    <p class="mt-2">R: O Evoloo é vendido exclusivamente online para garantir produto fresco, preço justo sem intermediários e suporte direto. Em breve, após conclusão dos testes, estará em clínicas veterinárias selecionadas.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t-2" style="border-color: var(--border);">
+        
+        <!-- CTA Final -->
+        <section class="text-center mb-12 section-fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Sua Decisão Hoje Define o Futuro Dele</h2>
+            <p class="text-lg mb-6">Você tem duas escolhas:</p>
+            <p class="text-lg mb-6"><strong>Continuar</strong> no ciclo de remédios caros, consultas frustrantes e noites sem dormir...</p>
+            <p class="text-lg mb-6"><strong>Ou testar</strong> o único protocolo que ataca a causa real e transforma a vida do seu cão em 30 dias.</p>
+            <p class="text-lg mb-6">Com nossa garantia de 60 dias, você não tem nada a perder.</p>
+            <p class="text-xl font-semibold mb-8">Exceto a oportunidade de finalmente ver seu melhor amigo livre do sofrimento.</p>
+            <a href="#oferta" class="btn w-full max-w-md mx-auto py-4 text-xl font-bold">ESCOLHER MEU KIT AGORA</a>
+        </section>
+
+        <!-- Aviso Final -->
+        <section class="text-center mb-12 section-fade-in p-6 bg-red-100 text-red-800 rounded-lg">
+             <p class="font-bold">⚠️ AVISO IMPORTANTE: Com base no seu Diagnóstico de Grau [X], cada dia sem tratamento permite que mais toxinas vazem para o sangue do seu cão. Quanto mais tempo o intestino fica comprometido, mais difícil a recuperação.</p>
+        </section>
+
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="bg-[--foreground] text-[--background] text-opacity-90 py-12 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Coluna 1: Logo e Info -->
+                <div>
+                    <img src="https://i.imgur.com/HBYTTaC.png" alt="Logo Animaw Suplementos" class="w-40 mx-auto md:mx-0 mb-4">
+                    <p class="text-sm">Fiver Comércio LTDA</p>
+                    <p class="text-sm">CNPJ: 43.822.145/0001-80</p>
+                </div>
+                <!-- Coluna 2: Contato -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">CONTATO</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Email: sac@animaw.com.br</li>
+                        <li>WhatsApp: (11) 5116-0529</li>
+                        <li>Atendimento: seg à sex (08:00 às 17:00)</li>
+                        <li>R. Adelaide Daniel de Almeida, 170 - CJ 230 EV 2, Campinas - SP, 13080-661</li>
+                    </ul>
+                </div>
+                <!-- Coluna 3: Links Úteis -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">LINKS ÚTEIS</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://api.whatsapp.com/send/?phone=551151160529&text=Ol%C3%A1%2C+tenho+interesse+em+ser+influencer&type=phone_number&app_absent=0" class="hover:text-[--primary] transition-colors" target="_blank">Seja um Revendedor!</a></li>
+                        <li><a href="https://www.animaw.com.br/privacidade" class="hover:text-[--primary] transition-colors" target="_blank">Políticas de privacidade</a></li>
+                        <li><a href="https://www.animaw.com.br/termos" class="hover:text-[--primary] transition-colors" target="_blank">Termos e condições</a></li>
+                        <li><a href="https://www.animaw.com.br/reembolso" class="hover:text-[--primary] transition-colors" target="_blank">Políticas de Reembolso e Garantia</a></li>
+                        <li><a href="#" class="hover:text-[--primary] transition-colors">Políticas de Frete</a></li>
+                        <li><a href="https://www.animaw.com.br/sobre-nos" class="hover:text-[--primary] transition-colors" target="_blank">Sobre Nós</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-8 pt-6 text-center text-xs text-white/60">
+                <p class="mb-4">Todos os direitos reservados 2025.</p>
+                <p>As informações presentes neste site não substituem orientações veterinárias e não configuram promessa de cura, tratamento ou diagnóstico de qualquer condição de saúde. Os suplementos da Animaw têm função nutricional complementar e devem ser usados conforme orientação do responsável pelo pet. Resultados podem variar de acordo com cada organismo. Nenhuma informação aqui deve ser interpretada como conselho médico ou garantia de resultado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para animação de fade-in ao rolar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section-fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // A seção aparece quando 10% dela está visível
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
