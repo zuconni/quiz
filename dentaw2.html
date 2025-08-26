@@ -1,317 +1,836 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dentaw - Protocolo Anti-Mofo Bucal</title>
-
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Flowbite for Accordion -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                                         colors: {
+                         dentawPrimary: '#fd7543',
+                         dentawSecondary: '#8bcbc6',
+                         dentawDark: '#022044',
+                     }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Theme: Dentaw Clean & Natural */
-        :root {
-          --background: oklch(0.99 0.005 100); /* Branco quase puro */
-          --foreground: oklch(0.25 0.02 100); /* Cinza escuro para texto */
-          --card: oklch(1 0 0); /* Branco puro para cards */
-          --primary: oklch(0.6 0.15 150); /* Verde natural e saudável */
-          --primary-foreground: oklch(0.98 0.01 150); /* Texto claro sobre verde */
-          --secondary: oklch(0.95 0.05 150); /* Verde mais claro para fundos */
-          --accent: oklch(0.75 0.18 25); /* Laranja/coral suave para CTAs */
-          --accent-foreground: oklch(1 0 0); /* Texto branco no laranja */
-          --border: oklch(0.9 0.02 100); /* Cinza claro para bordas */
-          --ring: oklch(0.7 0.18 25); /* Anel laranja para foco */
-
-          --radius: 0.5rem;
-          --shadow-sm: 0 1px 2px 0 oklch(0.1 0.02 100 / 0.05);
-          --shadow-md: 0 4px 6px -1px oklch(0.1 0.02 100 / 0.1), 0 2px 4px -2px oklch(0.1 0.02 100 / 0.1);
-          --shadow-lg: 0 10px 15px -3px oklch(0.1 0.02 100 / 0.1), 0 4px 6px -4px oklch(0.1 0.02 100 / 0.1);
-        }
-
-        /* Applying theme */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
         body {
-            font-family: 'Inter', sans-serif !important;
-            background-color: var(--background) !important;
-            color: var(--foreground) !important;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif !important;
+        
+                 .hero-bg {
+             background-color: #f5f5f5;
+         }
+        
+                 .section-bg {
+             background-color: #ffffff;
+         }
+        
+                 .dentaw-btn {
+             transition: all 0.3s ease;
+             box-shadow: 0 4px 6px rgba(104, 193, 150, 0.3);
+         }
+         
+         .dentaw-btn:hover {
+             transform: translateY(-2px);
+             box-shadow: 0 6px 12px rgba(104, 193, 150, 0.4);
+         }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
         }
-        .bg-primary { background-color: var(--primary); }
-        .text-primary { color: var(--primary); }
-        .text-primary-foreground { color: var(--primary-foreground); }
-        .bg-secondary { background-color: var(--secondary); }
-        .bg-accent { background-color: var(--accent); }
-        .text-accent { color: var(--accent); }
-        .text-accent-foreground { color: var(--accent-foreground); }
-        .border-custom { border-color: var(--border); }
-        .border-accent { border-color: var(--accent); }
-        .ring-accent { --tw-ring-color: var(--ring); }
-
-        .btn-accent {
-            background-color: var(--accent);
-            color: var(--accent-foreground);
-            font-weight: 700;
-            border-radius: var(--radius);
-            transition: all 0.2s ease-in-out;
-            box-shadow: var(--shadow-md);
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
         }
-        .btn-accent:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
         }
-
-        /* Animation for revealing sections on scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+        
+        .animate-pulse-slow {
+            animation: pulse 3s infinite;
         }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <!-- Header Fixo -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="sticky-header bg-white shadow-md">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <img src="https://placehold.co/120x40/000000/FFFFFF?text=Dentaw" alt="Logo Dentaw" class="h-8 md:h-10"/>
-            <a href="#offers" class="btn-accent px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-full">COMPRAR</a>
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-dentawPrimary rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    DW
+                </div>
+                <span class="ml-2 font-semibold text-dentawPrimary">Dentaw</span>
+            </div>
+            <a href="#comprar" class="bg-dentawPrimary text-white px-4 py-2 rounded-full font-medium dentaw-btn">
+                COMPRAR
+            </a>
         </div>
     </header>
 
-    <main>
-        <!-- Seção Hero -->
-        <section class="pt-28 pb-16 md:pt-36 md:pb-24 text-center bg-secondary">
-            <div class="container mx-auto px-4">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">O único protocolo que dissolve mofo bucal</h1>
-                <p class="max-w-2xl mx-auto text-base md:text-lg mb-8 text-gray-600">
-                    Parece só sujeirinha nos dentes. Mas aquela placa verde, bafinho azedo e a gengiva sensível indicam mofo bucal. Com uma colher diária, você protege seu cão naturalmente.
-                </p>
-                <a href="#offers" class="btn-accent px-8 py-4 text-lg rounded-full shadow-lg">QUERO ELIMINAR O MOFO</a>
+    <!-- Hero Section -->
+    <section class="hero-bg py-12 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="flex flex-col md:flex-row items-center justify-center mb-8">
+                <div class="md:w-1/2 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
+                    <img src="https://framerusercontent.com/images/J6926qjHLbOn4OydSy4zHPLupqw.png?width=1536&height=883" 
+                         alt="Protocolo Dentaw - Anti-Mofo Bucal" 
+                         class="w-full max-w-md h-auto rounded-xl shadow-lg">
+                </div>
+                <div class="md:w-1/2 order-2 md:order-1">
+                    <h1 class="text-3xl md:text-4xl font-bold text-dentawDark mb-4">
+                        Parece só sujeirinha nos dentes.
+                    </h1>
+                    <p class="text-gray-600 mb-6">
+                        Mas aquela placa verde, bafinho azedo e a gengiva sensível indicam mofo bucal.
+                    </p>
+                    <p class="text-gray-800 font-medium">
+                        Com uma colher diária, você protege seu cão naturalmente.
+                    </p>
+                </div>
             </div>
-        </section>
-
-        <!-- Seção de Revelação -->
-        <section class="py-16 md:py-24">
-            <div class="container mx-auto px-4 text-center reveal">
-                <img src="https://placehold.co/120x40/000000/FFFFFF?text=Dentaw" alt="Logo Dentaw" class="mx-auto h-10 mb-2"/>
-                <div class="flex items-center justify-center space-x-1 text-yellow-400 mb-4">
-                    <i data-lucide="star" class="w-6 h-6 fill-current"></i><i data-lucide="star" class="w-6 h-6 fill-current"></i><i data-lucide="star" class="w-6 h-6 fill-current"></i><i data-lucide="star" class="w-6 h-6 fill-current"></i><i data-lucide="star" class="w-6 h-6 fill-current"></i>
-                </div>
-                <p class="mb-8 font-semibold text-gray-600">Nota 4.9/5 (+34.197 avaliações verificadas)</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-8">
-                    <img src="https://placehold.co/600x400/FFF0F0/FF6347?text=ANTES" alt="Dentes de cão antes do tratamento" class="rounded-lg shadow-lg">
-                    <img src="https://placehold.co/600x400/F0FFF0/3CB371?text=DEPOIS" alt="Dentes de cão depois do tratamento" class="rounded-lg shadow-lg">
-                </div>
-                <p class="text-xl font-bold bg-primary text-primary-foreground py-3 px-4 rounded-lg max-w-md mx-auto mb-12 shadow-md">"Primeira mudança visível em 2-3 semanas"</p>
-
-                <div class="max-w-3xl mx-auto text-left grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
-                    <div class="flex items-start space-x-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1 flex-shrink-0"></i><span><strong>Amolece as placas</strong> que estão grudadas nos dentes</span></div>
-                    <div class="flex items-start space-x-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1 flex-shrink-0"></i><span><strong>Melhora o hálito</strong> tratando a causa, não mascarando</span></div>
-                    <div class="flex items-start space-x-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1 flex-shrink-0"></i><span><strong>Deixa a gengiva mais rosada</strong> e menos sensível</span></div>
-                    <div class="flex items-start space-x-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1 flex-shrink-0"></i><span><strong>Ajuda a prevenir</strong> que novas placas se formem</span></div>
-                    <div class="flex items-start space-x-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1 flex-shrink-0"></i><span><strong>Fortalece a saúde bucal</strong> com nutrientes específicos</span></div>
-                    <div class="flex items-start space-x-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1 flex-shrink-0"></i><span><strong>Cuidado contínuo</strong> - age 24h mesmo entre as refeições</span></div>
-                </div>
-                <a href="#offers" class="btn-accent px-8 py-4 text-lg mt-12 inline-block rounded-full">QUERO CONHECER O PROTOCOLO</a>
+            
+            <div class="text-center">
+                <a href="#comprar" class="inline-block bg-[#68c196] text-white text-lg font-semibold py-4 px-8 rounded-full dentaw-btn animate-pulse-slow">
+                    QUERO ELIMINAR O MOFO
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Seção Educativa -->
-        <section class="py-16 md:py-24 bg-secondary">
-            <div class="container mx-auto px-4 reveal">
-                <div class="flex flex-col md:flex-row items-center gap-12 mb-16">
-                    <div class="md:w-1/2"><img src="https://placehold.co/800x600/c2b280/FFFFFF?text=Cão+com+a+boca+aberta" alt="Cão com a boca aberta mostrando os dentes" class="rounded-lg shadow-xl"></div>
-                    <div class="md:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Para todos os cães com aquela placa verde-amarelada nos dentes</h2>
-                        <p class="mb-4 font-semibold text-gray-700">Estes sinais indicam mofo bucal:</p>
-                        <ul class="space-y-2">
-                            <li class="flex items-start"><i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600 mr-2 mt-1 flex-shrink-0"></i>Placa amarela ou esverdeada</li>
-                            <li class="flex items-start"><i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600 mr-2 mt-1 flex-shrink-0"></i>Cheiro azedo e forte na boca</li>
-                            <li class="flex items-start"><i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600 mr-2 mt-1 flex-shrink-0"></i>Gengiva vermelha e sensível</li>
-                            <li class="flex items-start"><i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600 mr-2 mt-1 flex-shrink-0"></i>Dificuldade para mastigar</li>
-                        </ul>
+    <!-- Before/After Section -->
+    <section class="py-16 px-4 section-bg">
+        <div class="container mx-auto max-w-4xl">
+            <div class="flex items-center justify-center mb-6">
+                <div class="w-10 h-10 bg-dentawPrimary rounded-full flex items-center justify-center text-white font-bold mr-2">
+                    DW
+                </div>
+                <div class="flex items-center">
+                    <div class="flex text-yellow-400 mr-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-gray-700 font-medium">Nota 4.9/5 (+34.197 avaliações verificadas)</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white p-4 rounded-xl shadow-md">
+                    <div class="h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                        <div class="text-center">
+                            <i class="fas fa-image text-4xl mb-2"></i>
+                            <p>Antes - Dentes com placa</p>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-600">Antes do Protocolo Dentaw</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md">
+                    <div class="h-48 bg-dentawSecondary rounded-lg mb-4 flex items-center justify-center text-dentawPrimary">
+                        <div class="text-center">
+                            <i class="fas fa-teeth text-4xl mb-2"></i>
+                            <p>Depois - Dentes limpos</p>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-600">Após o Protocolo Dentaw</p>
+                </div>
+            </div>
+            
+            <p class="text-center text-xl font-semibold text-dentawDark mb-8">
+                "Primeira mudança visível em 2-3 semanas"
+            </p>
+            
+            <h2 class="text-2xl font-bold text-center mb-6">O que o protocolo Dentaw faz:</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                <div class="flex items-start">
+                    <div class="w-6 h-6 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-3 mt-1 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <p class="text-gray-700"><span class="font-semibold">Amolece as placas</span> que estão grudadas nos dentes</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-6 h-6 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-3 mt-1 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <p class="text-gray-700"><span class="font-semibold">Melhora o hálito</span> tratando a causa, não mascarando</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-6 h-6 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-3 mt-1 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <p class="text-gray-700"><span class="font-semibold">Deixa a gengiva mais rosada</span> e menos sensível</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-6 h-6 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-3 mt-1 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <p class="text-gray-700"><span class="font-semibold">Ajuda a prevenir</span> que novas placas se formem</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-6 h-6 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-3 mt-1 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <p class="text-gray-700"><span class="font-semibold">Fortalece a saúde bucal</span> com nutrientes específicos</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="w-6 h-6 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-3 mt-1 flex-shrink-0">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <p class="text-gray-700"><span class="font-semibold">Cuidado contínuo</span> - age 24h mesmo entre as refeições</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#comprar" class="inline-block bg-dentawPrimary text-white text-lg font-semibold py-3 px-6 rounded-full dentaw-btn">
+                    QUERO CONHECER O PROTOCOLO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Section -->
+    <section class="py-16 px-4 bg-[#f5f5f5]">
+        <div class="container mx-auto max-w-4xl">
+            <div class="flex flex-col md:flex-row items-center mb-12">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <div class="h-64 bg-dentawSecondary rounded-xl flex items-center justify-center">
+                        <i class="fas fa-dog text-6xl text-dentawPrimary"></i>
                     </div>
                 </div>
-                <div class="text-center max-w-4xl mx-auto">
-                    <h3 class="text-3xl md:text-4xl font-extrabold mb-8">O que veterinários não te contam: <br class="hidden md:block">aquela placa não é sujeira. <span class="text-primary">É mofo vivo.</span></h3>
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-custom">
-                         <img src="https://placehold.co/400x400/778899/FFFFFF?text=Dra.+Patricia" alt="Dra. Patricia Mendes" class="w-24 h-24 rounded-full object-cover flex-shrink-0">
-                        <blockquote class="text-left">
-                            <p class="text-lg italic text-gray-700">"Durante 20 anos tratei isso como tártaro. Até entender que é um biofilme vivo - basicamente mofo bucal. O Dentaw é o único protocolo que vi dissolver esse mofo de dentro para fora, transformando a própria saliva do cão em solução anti-mofo. É bioquímica pura."</p>
-                            <cite class="mt-4 block font-semibold not-italic">— Dra. Patricia Mendes, CRMV-SP 12.847</cite>
-                        </blockquote>
+                <div class="md:w-1/2 md:pl-8">
+                    <h2 class="text-2xl font-bold mb-4">Para todos os cães que têm aquela placa verde-amarelada nos dentes</h2>
+                    <h3 class="text-xl font-semibold mb-4 text-dentawDark">Estes sinais indicam mofo bucal:</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-dentawPrimary rounded-full mr-2"></div>
+                            <p class="text-gray-700">Placa amarela ou esverdeada nos dentes</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-dentawPrimary rounded-full mr-2"></div>
+                            <p class="text-gray-700">Cheiro azedo e forte na boca</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-dentawPrimary rounded-full mr-2"></div>
+                            <p class="text-gray-700">Camada pegajosa que não sai</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-dentawPrimary rounded-full mr-2"></div>
+                            <p class="text-gray-700">Gengiva vermelha ao redor</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-dentawPrimary rounded-full mr-2"></div>
+                            <p class="text-gray-700">Mancha escura perto da gengiva</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-dentawPrimary rounded-full mr-2"></div>
+                            <p class="text-gray-700">Dificuldade para mastigar</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-dentawPrimary rounded-full mr-2"></div>
+                            <p class="text-gray-700">Saliva espessa</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-dentawPrimary rounded-full mr-2"></div>
+                            <p class="text-gray-700">Recusa petiscos duros</p>
+                        </div>
                     </div>
-                     <a href="#offers" class="btn-accent px-8 py-4 text-lg mt-12 inline-block rounded-full">QUERO O PROTOCOLO ANTI-MOFO</a>
                 </div>
             </div>
-        </section>
-        
-        <!-- Seção de Ofertas -->
-        <section id="offers" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 text-center reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Quanto custa continuar com mofo na boca do seu cão?</h2>
-                <p class="max-w-2xl mx-auto text-lg mb-12 text-gray-600">Cada dia que passa, o mofo cria raízes mais profundas.</p>
+            
+            <h2 class="text-2xl font-bold text-center mb-6">O que veterinários não te contam: aquela placa não é sujeira. É mofo vivo.</h2>
+            
+            <div class="flex flex-col md:flex-row items-center bg-dentawSecondary p-6 rounded-xl mb-10">
+                <div class="md:w-1/4 mb-4 md:mb-0 flex justify-center">
+                    <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-user-md text-4xl text-dentawPrimary"></i>
+                    </div>
+                </div>
+                <div class="md:w-3/4 md:pl-6">
+                    <p class="italic text-gray-700 mb-4">
+                        "Durante 20 anos tratei isso como tártaro. Até entender que é um biofilme vivo - basicamente mofo bucal. O Dentaw é o único protocolo que vi dissolver esse mofo de dentro para fora, transformando a própria saliva do cão em solução anti-mofo. É bioquímica pura."
+                    </p>
+                    <p class="font-semibold">— Dra. Patricia Mendes, CRMV-SP 12.847</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#comprar" class="inline-block bg-dentawPrimary text-white text-lg font-semibold py-3 px-6 rounded-full dentaw-btn">
+                    QUERO O PROTOCOLO ANTI-MOFO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-16 px-4 section-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-2xl font-bold text-center mb-10">Em menos de 2 anos, já eliminamos o mofo bucal de mais de 34 mil cães</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-4 rounded-xl shadow-md">
+                    <div class="h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-gray-500"></i>
+                    </div>
+                    <p class="text-center text-sm text-gray-600">Thor - Antes e depois do protocolo</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md">
+                    <div class="h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-gray-500"></i>
+                    </div>
+                    <p class="text-center text-sm text-gray-600">Luna - Antes e depois do protocolo</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md">
+                    <div class="h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-gray-500"></i>
+                    </div>
+                    <p class="text-center text-sm text-gray-600">Rex - Antes e depois do protocolo</p>
+                </div>
+            </div>
+            
+            <div class="bg-dentawDark rounded-xl p-6 text-white text-center">
+                <div class="h-48 bg-dentawPrimary rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-play-circle text-5xl"></i>
+                </div>
+                <p class="font-semibold">Vídeo: Mofo se descascando dos dentes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 px-4 bg-white" id="comprar">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-3xl font-bold text-center mb-12">Como o Dentaw Dissolve o Mofo</h1>
+            
+            <p class="text-lg text-center text-gray-700 mb-12">
+                <span class="font-semibold">Nossa fórmula com Alga Marinha não limpa por cima como outros produtos. Ela transforma a bioquímica da saliva, criando um ambiente onde o mofo não consegue sobreviver.</span>
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-dentawSecondary p-6 rounded-xl">
+                    <div class="text-4xl text-dentawPrimary mb-4">🧪</div>
+                    <h3 class="text-xl font-bold mb-3">Primeiro, Ele Descola</h3>
+                    <p class="font-semibold text-dentawDark mb-2">Alga Ascophyllum nodosum</p>
+                    <p class="text-gray-700">É absorvida e secretada pela saliva, quebrando as ligações químicas que grudam o mofo nos dentes. O mofo perde aderência.</p>
+                </div>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start max-w-6xl mx-auto">
-                    <!-- Oferta 1 -->
-                    <div class="border-2 border-custom rounded-xl p-6 transform hover:scale-105 transition-transform duration-300 h-full flex flex-col bg-white">
-                         <img src="https://placehold.co/300x300/FFFFFF/000000?text=1+Pote" alt="1 pote de Dentaw" class="mx-auto mb-4 rounded-lg">
-                         <h3 class="text-2xl font-bold mb-2">Protocolo Inicial - 1 Mês</h3>
-                         <ul class="text-left space-y-2 mb-6 text-gray-600">
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Para conhecer o protocolo</li>
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Rende 30 dias</li>
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Já mostra resultados visíveis</li>
-                         </ul>
-                         <div class="mt-auto pt-6">
-                            <p class="text-lg">12x <span class="text-3xl font-bold text-accent">R$ 9,70</span></p>
-                            <p class="mb-6 text-gray-500">ou R$ 97 à vista</p>
-                            <a href="#" class="w-full inline-block bg-gray-200 text-gray-800 font-bold py-3 rounded-full hover:bg-gray-300 transition-colors">EXPERIMENTAR PROTOCOLO</a>
+                <div class="bg-dentawSecondary p-6 rounded-xl">
+                    <div class="text-4xl text-dentawPrimary mb-4">💧</div>
+                    <h3 class="text-xl font-bold mb-3">Segundo, Ele Dissolve</h3>
+                    <p class="font-semibold text-dentawDark mb-2">Hexametafosfato de Sódio</p>
+                    <p class="text-gray-700">Impede que minerais se unam ao mofo, fazendo ele amolecer e se desprender naturalmente durante a mastigação.</p>
+                </div>
+                
+                <div class="bg-dentawSecondary p-6 rounded-xl">
+                    <div class="text-4xl text-dentawPrimary mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold mb-3">Terceiro, Ele Protege</h3>
+                    <p class="font-semibold text-dentawDark mb-2">Prebióticos FOS e GOS</p>
+                    <p class="text-gray-700">Criam uma flora protetora que compete com o mofo, impedindo novo crescimento. É proteção 24 horas.</p>
+                </div>
+                
+                <div class="bg-dentawSecondary p-6 rounded-xl">
+                    <div class="text-4xl text-dentawPrimary mb-4">❤️</div>
+                    <h3 class="text-xl font-bold mb-3">Extra: Acalma e Cura</h3>
+                    <p class="font-semibold text-dentawDark mb-2">DHA + Zinco Quelato</p>
+                    <p class="text-gray-700">Enquanto o mofo sai, esses nutrientes acalmam a inflamação e ajudam a gengiva a se regenerar.</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#ofertas" class="inline-block bg-dentawPrimary text-white text-lg font-semibold py-3 px-6 rounded-full dentaw-btn">
+                    COMEÇAR PROTOCOLO AGORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="py-16 px-4 section-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-3xl font-bold text-center mb-12">Como Aplicar o Protocolo?</h1>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center mb-10">
+                <div class="md:w-1/3 mb-6 md:mb-0">
+                    <div class="h-48 bg-white rounded-xl shadow-md flex flex-col items-center justify-center p-4">
+                        <div class="text-4xl text-dentawPrimary mb-4">
+                            <i class="fas fa-utensil-spoon"></i>
                         </div>
+                        <p class="text-center font-semibold">1. Uma colher de Dentaw de acordo com o peso do seu cão</p>
                     </div>
-                    <!-- Oferta 2 (Mais Popular) -->
-                    <div class="border-4 border-accent rounded-xl p-6 relative shadow-2xl transform scale-105 h-full flex flex-col bg-white">
-                        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-sm font-bold px-4 py-1 rounded-full">⭐ MAIS ESCOLHIDO</span>
-                         <img src="https://placehold.co/300x300/FFFFFF/000000?text=3+Potes" alt="3 potes de Dentaw" class="mx-auto mb-4 rounded-lg">
-                         <h3 class="text-2xl font-bold mb-2">Protocolo Completo - 3 Meses</h3>
-                         <ul class="text-left space-y-2 mb-6 text-gray-600">
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Compre 2, Leve 3 potes</li>
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Protocolo de 90 dias</li>
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Tempo ideal para dissolver todo mofo</li>
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Frete grátis para todo Brasil</li>
-                         </ul>
-                         <div class="mt-auto pt-6">
-                            <p class="text-lg">12x <span class="text-3xl font-bold text-accent">R$ 14,73</span></p>
-                            <p class="mb-6 text-gray-500">ou R$ 147 à vista</p>
-                            <a href="#" class="w-full inline-block btn-accent py-4 text-lg rounded-full">INICIAR PROTOCOLO COMPLETO</a>
-                         </div>
-                    </div>
-                    <!-- Oferta 3 -->
-                     <div class="border-2 border-custom rounded-xl p-6 transform hover:scale-105 transition-transform duration-300 h-full flex flex-col relative bg-white">
-                        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-sm font-bold px-4 py-1 rounded-full">🎁 MELHOR ECONOMIA</span>
-                         <img src="https://placehold.co/300x300/FFFFFF/000000?text=6+Potes" alt="6 potes de Dentaw" class="mx-auto mb-4 rounded-lg">
-                         <h3 class="text-2xl font-bold mb-2">Proteção Semestral - 6 Meses</h3>
-                         <ul class="text-left space-y-2 mb-6 text-gray-600">
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Compre 3, Leve 6 potes</li>
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Protocolo de 180 dias</li>
-                            <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Elimina e previne por 6 meses</li>
-                             <li class="flex items-center"><i class="w-4 h-4 mr-2 text-primary" data-lucide="check"></i>Frete grátis para todo Brasil</li>
-                         </ul>
-                         <div class="mt-auto pt-6">
-                            <p class="text-lg">12x <span class="text-3xl font-bold text-accent">R$ 24,70</span></p>
-                            <p class="mb-6 text-gray-500">ou R$ 247 à vista</p>
-                            <a href="#" class="w-full inline-block bg-gray-200 text-gray-800 font-bold py-3 rounded-full hover:bg-gray-300 transition-colors">GARANTIR PROTEÇÃO COMPLETA</a>
+                </div>
+                
+                <div class="md:w-1/3 mb-6 md:mb-0 md:mx-4">
+                    <div class="h-48 bg-white rounded-xl shadow-md flex flex-col items-center justify-center p-4">
+                        <div class="text-4xl text-dentawPrimary mb-4">
+                            <i class="fas fa-blender"></i>
                         </div>
+                        <p class="text-center font-semibold">2. Misture na ração ou alimentação natural do seu cão</p>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/3">
+                    <div class="h-48 bg-white rounded-xl shadow-md flex flex-col items-center justify-center p-4">
+                        <div class="text-4xl text-dentawPrimary mb-4">
+                            <i class="fas fa-bowl-food"></i>
+                        </div>
+                        <p class="text-center font-semibold">3. Dê apenas uma vez ao dia e o protocolo age por 24 horas</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Seção de Garantia -->
-        <section class="py-16 md:py-24 bg-secondary">
-            <div class="container mx-auto px-4 reveal">
-                 <div class="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
-                    <div class="md:w-1/3"><img src="https://placehold.co/600x600/ffd700/FFFFFF?text=Cão+Feliz" alt="Cão sorrindo com dentes limpos" class="rounded-lg shadow-xl"></div>
-                    <div class="md:w-2/3 text-center md:text-left">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Garantia Anti-Mofo de 30 Dias</h2>
-                        <p class="text-xl mb-6 text-gray-700">Se o mofo do seu cão não começar a se descolar... <strong class="text-primary">Devolvemos 100% do seu dinheiro.</strong></p>
-                        <p class="mb-8 text-gray-600">Você vai ver o mofo amolecendo, se soltando em placas, o cheiro diminuindo. Se isso não acontecer em 30 dias — devolvemos cada centavo. Sem perguntas. Sem burocracia. Porque o protocolo funciona.</p>
-                        <a href="#offers" class="btn-accent px-8 py-4 text-lg rounded-full">COMEÇAR SEM RISCO</a>
+    <!-- Ingredients Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-3xl font-bold text-center mb-8">Ingredientes do Protocolo Anti-Mofo</h1>
+            
+            <p class="text-center text-gray-600 mb-12">
+                <span class="font-semibold">Produto isento de registro no Ministério da Agricultura conforme IN 42 de 16/12/2010.</span>
+            </p>
+            
+            <h2 class="text-xl font-bold text-center mb-6">PRINCIPAIS COMPONENTES</h2>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden mb-12">
+                    <thead class="bg-dentawPrimary text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Ingrediente</th>
+                            <th class="py-3 px-4 text-left">Ação Anti-Mofo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-semibold">Alga Ascophyllum nodosum</td>
+                            <td class="py-3 px-4">Descola o mofo existente</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-semibold">Hexametafosfato de Sódio</td>
+                            <td class="py-3 px-4">Dissolve a matriz do mofo</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-semibold">Zinco Aminoácido Quelato</td>
+                            <td class="py-3 px-4">Cicatriza áreas afetadas</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-semibold">DHA (Ômega-3 Marinho)</td>
+                            <td class="py-3 px-4">Reduz inflamação causada pelo mofo</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-semibold">Prebióticos FOS/GOS</td>
+                            <td class="py-3 px-4">Cria barreira contra novo mofo</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-semibold">Extrato de Alecrim</td>
+                            <td class="py-3 px-4">Antioxidante protetor</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold">Levedura Inativada</td>
+                            <td class="py-3 px-4">Fortalece imunidade local</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="py-16 px-4 section-bg" id="ofertas">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-3xl font-bold text-center mb-6">Quanto custa continuar com mofo na boca do seu cão?</h1>
+            
+            <p class="text-xl text-center text-dentawDark font-semibold mb-12">
+                Cada dia que passa, o mofo cria raízes mais profundas
+            </p>
+            
+            <!-- Most Popular Option -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border-2 border-dentawPrimary transform hover:scale-105 transition-transform duration-300">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="bg-yellow-400 text-white py-1 px-3 rounded-full text-sm font-semibold">⭐ MAIS ESCOLHIDO</span>
+                </div>
+                
+                <h2 class="text-2xl font-bold mb-4">Kit Protocolo Completo - 3 Meses</h2>
+                
+                <div class="h-40 bg-dentawSecondary rounded-lg mb-4 flex items-center justify-center">
+                    <div class="flex">
+                        <div class="w-16 h-20 bg-dentawPrimary rounded mx-1"></div>
+                        <div class="w-16 h-20 bg-dentawPrimary rounded mx-1"></div>
+                        <div class="w-16 h-20 bg-dentawPrimary rounded mx-1"></div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-         <!-- Seção de FAQ -->
-        <section class="py-16 md:py-24">
-            <div class="container mx-auto px-4 max-w-3xl reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Dúvidas Sobre o Mofo Bucal</h2>
-                <div id="accordion-collapse" data-accordion="collapse">
-                    <h3 id="accordion-collapse-heading-1">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-600 border border-b-0 border-custom rounded-t-xl focus:ring-4 focus:ring-gray-200 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                        <span>O que é esse mofo bucal?</span>
-                        <i data-lucide="chevron-down" class="w-6 h-6 shrink-0 transition-transform"></i>
-                        </button>
-                    </h3>
-                    <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-                        <div class="p-5 border border-b-0 border-custom bg-white"><p class="mb-2 text-gray-500">O mofo bucal, tecnicamente conhecido como biofilme bacteriano ou tártaro em estágio avançado, é uma camada viva de bactérias e fungos que se fixa nos dentes do cão, endurecendo com o tempo e causando mau hálito e inflamação.</p></div>
-                    </div>
-                     <h3 id="accordion-collapse-heading-2">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-600 border border-custom focus:ring-4 focus:ring-gray-200 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-                        <span>Em quanto tempo o mofo começa a sair?</span>
-                        <i data-lucide="chevron-down" class="w-6 h-6 shrink-0 transition-transform"></i>
-                        </button>
-                    </h3>
-                    <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
-                        <div class="p-5 border border-t-0 border-custom bg-white"><p class="mb-2 text-gray-500">A maioria dos tutores relata as primeiras mudanças visíveis, como amolecimento das placas e melhora no hálito, dentro de 2 a 3 semanas de uso diário. Resultados completos podem levar até 90 dias, dependendo do grau de acúmulo.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Rodapé -->
-    <footer class="bg-gray-800 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-             <img src="https://placehold.co/150x50/FFFFFF/000000?text=Dentaw" alt="Logo Dentaw Suplementos" class="mx-auto h-12 mb-8"/>
-             <div class="max-w-md mx-auto bg-white text-gray-800 p-4 rounded-lg shadow-lg">
-                <p class="font-bold text-lg">Como identificar MOFO BUCAL no seu cão</p>
-                <ul class="text-left mt-2 text-sm space-y-1 text-gray-600">
-                    <li>- Placa verde-amarelada</li>
-                    <li>- Textura pegajosa</li>
-                    <li>- Cheiro azedo forte</li>
-                    <li>- Cresce próximo à gengiva</li>
+                
+                <ul class="mb-6">
+                    <li class="flex items-center mb-2">
+                        <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>Compre 2, Leve 3 potes</span>
+                    </li>
+                    <li class="flex items-center mb-2">
+                        <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>Protocolo de 90 dias</span>
+                    </li>
+                    <li class="flex items-center mb-2">
+                        <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>Tempo ideal para dissolver todo mofo</span>
+                    </li>
+                    <li class="flex items-center mb-2">
+                        <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>Frete grátis para todo Brasil</span>
+                    </li>
+                    <li class="flex items-center">
+                        <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                            <i class="fas fa-check text-xs"></i>
+                        </div>
+                        <span>Garantia de 30 dias</span>
+                    </li>
                 </ul>
-                <p class="mt-4 font-bold text-lg text-primary">@dentawsuplementos</p>
-             </div>
+                
+                <div class="text-center mb-4">
+                    <p class="text-2xl font-bold">12x R$ 14,73</p>
+                    <p class="text-gray-600">ou R$ 147 à vista</p>
+                </div>
+                
+                <a href="#" class="block bg-dentawPrimary text-white text-center font-semibold py-3 rounded-full dentaw-btn">
+                    INICIAR PROTOCOLO COMPLETO
+                </a>
+            </div>
+            
+            <!-- Two other options side by side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <!-- Option 1 -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h2 class="text-xl font-bold mb-4">Protocolo Inicial - 1 Mês</h2>
+                    
+                    <div class="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                        <div class="w-16 h-20 bg-dentawPrimary rounded"></div>
+                    </div>
+                    
+                    <ul class="mb-6">
+                        <li class="flex items-center mb-2">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Para conhecer o protocolo</span>
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Rende 30 dias</span>
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Já mostra resultados visíveis</span>
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Frete para todo Brasil</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Garantia de 30 dias</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="text-center mb-4">
+                        <p class="text-xl font-bold">12x R$ 9,70</p>
+                        <p class="text-gray-600">ou R$ 97 à vista</p>
+                    </div>
+                    
+                    <a href="#" class="block bg-dentawPrimary text-white text-center font-semibold py-3 rounded-full dentaw-btn">
+                        EXPERIMENTAR PROTOCOLO
+                    </a>
+                </div>
+                
+                <!-- Option 2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-2 border-yellow-400">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-yellow-400 text-white py-1 px-3 rounded-full text-sm font-semibold">🎁 MELHOR ECONOMIA</span>
+                    </div>
+                    
+                    <h2 class="text-xl font-bold mb-4">Kit Proteção Semestral - 6 Meses</h2>
+                    
+                    <div class="h-40 bg-dentawSecondary rounded-lg mb-4 flex items-center justify-center">
+                        <div class="flex">
+                            <div class="w-12 h-16 bg-dentawPrimary rounded mx-1"></div>
+                            <div class="w-12 h-16 bg-dentawPrimary rounded mx-1"></div>
+                            <div class="w-12 h-16 bg-dentawPrimary rounded mx-1"></div>
+                            <div class="w-12 h-16 bg-dentawPrimary rounded mx-1"></div>
+                            <div class="w-12 h-16 bg-dentawPrimary rounded mx-1"></div>
+                            <div class="w-12 h-16 bg-dentawPrimary rounded mx-1"></div>
+                        </div>
+                    </div>
+                    
+                    <ul class="mb-6">
+                        <li class="flex items-center mb-2">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Compre 3, Leve 6 potes</span>
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Protocolo de 180 dias</span>
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Elimina e previne por 6 meses</span>
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Frete grátis para todo Brasil</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 bg-dentawPrimary rounded-full flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span>Garantia de 60 dias</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="text-center mb-4">
+                        <p class="text-xl font-bold">12x R$ 24,70</p>
+                        <p class="text-gray-600">ou R$ 247 à vista</p>
+                    </div>
+                    
+                    <a href="#" class="block bg-dentawPrimary text-white text-center font-semibold py-3 rounded-full dentaw-btn">
+                        GARANTIR PROTEÇÃO COMPLETA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center">
+                    <div class="w-48 h-48 bg-dentawSecondary rounded-full flex items-center justify-center">
+                        <i class="fas fa-teeth text-6xl text-dentawPrimary"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-8">
+                    <h1 class="text-3xl font-bold mb-6">Garantia Anti-Mofo de 30 Dias</h1>
+                    
+                    <p class="text-lg text-gray-700 mb-4">
+                        <span class="font-semibold">Se o mofo do seu cão não começar a se descolar...</span>
+                    </p>
+                    
+                    <p class="text-xl font-bold text-dentawPrimary mb-6">Devolvemos 100% do seu dinheiro.</p>
+                    
+                    <p class="text-gray-700 mb-6">
+                        Você vai ver o mofo amolecendo, se soltando em placas, o cheiro diminuindo. Se isso não acontecer em 30 dias — devolvemos cada centavo.
+                    </p>
+                    
+                    <p class="font-semibold">
+                        Sem perguntas. Sem burocracia. Porque o protocolo funciona.
+                    </p>
+                    
+                    <div class="mt-8">
+                        <a href="#ofertas" class="inline-block bg-dentawPrimary text-white text-lg font-semibold py-3 px-6 rounded-full dentaw-btn">
+                            COMEÇAR SEM RISCO
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-4 section-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-3xl font-bold text-center mb-12">Dúvidas Sobre o Mofo Bucal</h1>
+            
+            <div class="space-y-4 mb-12">
+                <div class="faq-item bg-white rounded-xl p-4 shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this.parentNode)">
+                        <h3 class="font-semibold">O que é esse mofo bucal?</h3>
+                        <span class="faq-toggle text-dentawPrimary text-xl">+</span>
+                    </div>
+                    <div class="faq-answer mt-2">
+                        <p class="text-gray-700">O mofo bucal é um biofilme vivo que se forma nos dentes dos cães, composto por bactérias, fungos e outros microorganismos. Diferente do tártaro comum, ele tem uma textura pegajosa e esverdeada que gruda firmemente nos dentes.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-xl p-4 shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this.parentNode)">
+                        <h3 class="font-semibold">Como o Dentaw dissolve o mofo?</h3>
+                        <span class="faq-toggle text-dentawPrimary text-xl">+</span>
+                    </div>
+                    <div class="faq-answer mt-2">
+                        <p class="text-gray-700">O Dentaw age transformando a bioquímica da saliva do seu cão, criando um ambiente onde o mofo não consegue sobreviver. Nossos ingredientes ativos quebram as ligações químicas que grudam o mofo nos dentes, fazendo com que ele se solte naturalmente.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-xl p-4 shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this.parentNode)">
+                        <h3 class="font-semibold">Qual a diferença para outros produtos?</h3>
+                        <span class="faq-toggle text-dentawPrimary text-xl">+</span>
+                    </div>
+                    <div class="faq-answer mt-2">
+                        <p class="text-gray-700">Diferente de produtos que apenas mascaram o problema ou tentam remover mecanicamente, o Dentaw trata a causa raiz, transformando a saliva do seu cão em uma solução anti-mofo que age 24 horas por dia, impedindo que o mofo se forme novamente.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-xl p-4 shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this.parentNode)">
+                        <h3 class="font-semibold">Em quanto tempo o mofo começa a sair?</h3>
+                        <span class="faq-toggle text-dentawPrimary text-xl">+</span>
+                    </div>
+                    <div class="faq-answer mt-2">
+                        <p class="text-gray-700">A maioria dos tutores observa a primeira mudança visível em 2-3 semanas. O processo completo de dissolução do mofo pode levar de 1 a 3 meses, dependendo da gravidade do caso.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-xl p-4 shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFaq(this.parentNode)">
+                        <h3 class="font-semibold">O mofo pode voltar depois?</h3>
+                        <span class="faq-toggle text-dentawPrimary text-xl">+</span>
+                    </div>
+                    <div class="faq-answer mt-2">
+                        <p class="text-gray-700">Com o uso contínuo do Dentaw, o mofo não volta, pois o protocolo cria um ambiente hostil ao mofo na boca do seu cão. Para prevenção, recomendamos o uso contínuo conforme a dosagem preventiva indicada.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="inline-block bg-dentawPrimary text-white font-semibold py-3 px-6 rounded-full dentaw-btn">
+                    VER TODAS AS RESPOSTAS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-dentawDark text-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-dentawPrimary font-bold text-xl">
+                        DW
+                    </div>
+                    <span class="ml-2 font-semibold">Dentaw Suplementos</span>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <h2 class="text-xl font-bold mb-6 text-center">Como identificar MOFO BUCAL no seu cão</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fas fa-tooth"></i></div>
+                    <p class="text-sm">Placa verde-amarelada</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fas fa-hand-point-up"></i></div>
+                    <p class="text-sm">Textura pegajosa</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fas fa-wind"></i></div>
+                    <p class="text-sm">Cheiro azedo forte</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fas fa-teeth-open"></i></div>
+                    <p class="text-sm">Cresce próximo à gengiva</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fas fa-stain"></i></div>
+                    <p class="text-sm">Mancha os dentes</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fas fa-plus-circle"></i></div>
+                    <p class="text-sm">Deixa gengiva vermelha</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fas fa-cloud"></i></div>
+                    <p class="text-sm">Causa mau hálito</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 rounded-lg text-center">
+                    <div class="text-2xl mb-2"><i class="fas fa-hand-holding"></i></div>
+                    <p class="text-sm">Gruda como limo</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="font-semibold mb-2">@dentawsuplementos</p>
+                <p class="text-sm opacity-80">© 2023 Dentaw Suplementos. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script>
-        // Ativação dos ícones Lucide
-        lucide.createIcons();
-
-        // Lógica do cabeçalho fixo
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+        
+        // Sticky header behavior
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.sticky-header');
             if (window.scrollY > 50) {
-                header.classList.add('bg-white', 'shadow-md');
+                header.classList.add('shadow-lg');
             } else {
-                header.classList.remove('bg-white', 'shadow-md');
+                header.classList.remove('shadow-lg');
             }
-        });
-
-        // Lógica para revelar seções ao rolar
-        const revealElements = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Para a animação não repetir
-                }
-            });
-        }, { threshold: 0.1 });
-
-        revealElements.forEach(elem => {
-            observer.observe(elem);
         });
     </script>
 </body>
